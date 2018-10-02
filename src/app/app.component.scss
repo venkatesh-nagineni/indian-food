@@ -1,7 +1,7 @@
 header {
   position: relative;
   background-color: black;
-  height: 68vh;
+  height: 66vh;
   min-height: 25rem;
   width: 100%;
   overflow: hidden;
@@ -212,23 +212,15 @@ header .overlay {
     background-color: #3A4144;
   }
 
-  .footer2 .footer-bottom {
-    background-color: #222728;
-    padding: 15px 0;
-    color: #DDD;
-    font-size: 13px;
-  }
-
-
-
-  @media (max-width: 550px) {
-    .footer2 .footer-bottom .pull-left,
-  .footer2 .footer-bottom .pull-right {
-    float: none !important;
-    width: 100%;
-    padding: 10px;
+  .footer-bottom {
+    padding: 5px 0 5px;
+    background: #1e1e1e;
+}
+.copyright-text p {
+    color: #ccc;
+    margin-top: 5px;
+    margin-bottom: 0;
     text-align: center;
-  }
-  }
+}
 
 }
