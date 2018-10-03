@@ -12,7 +12,11 @@
         <button mat-button style="color:white"> HOME </button>
       </li>
       <li>
-        <button mat-button style="color:white"> RESTRAUNT MENUKARTE </button>
+        <button mat-button style="color:white" [matMenuTriggerFor]="menu"> RESTRAUNT MENUKARTE
+          <i class="material-icons" style="color:white;font-size:30px;padding-bottom:5px;">
+            arrow_drop_down
+          </i>
+        </button>
       </li>
       <li>
         <button mat-button style="color:white"> ONLINE BESTELLEN </button>
@@ -26,6 +30,15 @@
     </ul>
   </nav>
 </div>
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item>Chicken</button>
+  <button mat-menu-item>Mutton</button>
+  <button mat-menu-item>Biryani</button>
+  <button mat-menu-item>Samosa</button>
+  <button mat-menu-item>Paanipoori</button>
+  <button mat-menu-item>Drinks</button>
+</mat-menu>
 
 <header>
   <div class="overlay"></div>

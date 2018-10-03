@@ -6,6 +6,7 @@ import {ContactComponent} from './contact/contact.component';
 import { MatFormFieldModule, MatInputModule, MatIconModule, MatDialogModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
 
   ],
   entryComponents: [ContactComponent],

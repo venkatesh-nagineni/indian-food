@@ -243,6 +243,12 @@ header .overlay {
     button:focus {
       outline: none;
   }
+
+  mat-menu {
+    button {
+      outline: none;
+    }
+  }
   button {
     letter-spacing: 1px;
     font-size: 15px;
