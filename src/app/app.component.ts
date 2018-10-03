@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
-
+import {AdminloginComponent} from './adminlogin/adminlogin.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +9,8 @@ import {ContactComponent} from './contact/contact.component';
 })
 export class AppComponent implements OnInit {
 
-  isVisible: boolean;
+  isContactVisible: boolean;
+  isLoginVisible: boolean;
 
   constructor(private dialog: MatDialog) {
 
@@ -25,10 +26,19 @@ export class AppComponent implements OnInit {
   }
 
   openModal() {
-    this.isVisible = true;
+    this.isContactVisible = true;
     const dialogRef = this.dialog.open(ContactComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
-      this.isVisible = false;
+      this.isContactVisible = false;
+      console.log('cancelled');
+    });
+  }
+
+  openLogin() {
+    this.isLoginVisible = true;
+    const dialogRef = this.dialog.open(AdminloginComponent, {hasBackdrop: false});
+    dialogRef.afterClosed().subscribe(result => {
+      this.isLoginVisible = false;
       console.log('cancelled');
     });
   }

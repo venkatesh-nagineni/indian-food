@@ -7,11 +7,13 @@ import { MatFormFieldModule, MatInputModule, MatIconModule, MatDialogModule } fr
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {AdminloginComponent} from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent
+    ContactComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +25,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatDialogModule,
     MatMenuModule
-
   ],
-  entryComponents: [ContactComponent],
+  entryComponents: [ContactComponent, AdminloginComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

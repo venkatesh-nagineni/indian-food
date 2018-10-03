@@ -1,0 +1,23 @@
+<div class="adminlogin">
+  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)" class="animated infinite pulse slow">Admin Login</h3>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-icon matSuffix>email</mat-icon>
+    <input type="email" matInput placeholder="Email">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="password" matInput placeholder="Password">
+    <mat-icon matSuffix>visibility_off</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="onNoClick()">
+    <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Cancel</span>
+  </button>
+
+  <button mat-raised-button color="primary" style="float: right">
+    <span style="font-size:17px;letter-spacing: 1px">Login</span>
+    <mat-icon matSuffix style="margin-left:15px;">arrow_forward_ios</mat-icon>
+  </button>
+</form>
+</div>

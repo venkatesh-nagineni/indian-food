@@ -291,12 +291,12 @@ header .overlay {
   .active {
     display: block;
     padding-top: 60px;
-    @media screen and (min-width: 968px) {
+    @media screen and (min-width: 1121px) {
       padding-top: 0px;
     }
   }
 
-  @media screen and (min-width: 968px) {
+  @media screen and (min-width: 1136px) {
     .navbar {
       display: flex;
       justify-content: space-between;

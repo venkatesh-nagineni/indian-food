@@ -25,7 +25,10 @@
         <button mat-button style="color:white"> ABOUT US </button>
       </li>
       <li>
-        <button mat-button style="color:white" (click)="openModal()" [disabled]="isVisible"> KONTACT </button>
+        <button mat-button style="color:white" (click)="openModal()" [disabled]="isContactVisible || isLoginVisible"> KONTACT </button>
+      </li>
+      <li>
+        <button mat-button style="color:white" (click)="openLogin()" [disabled]="isLoginVisible || isContactVisible"> ADMIN LOGIN </button>
       </li>
     </ul>
   </nav>
