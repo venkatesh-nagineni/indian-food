@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(ContactComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
       this.isContactVisible = false;
-      console.log('cancelled');
     });
   }
 
@@ -39,7 +38,6 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminloginComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
-      console.log('cancelled');
     });
   }
 
