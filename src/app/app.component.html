@@ -1,27 +1,30 @@
 <div id="headnavbar">
-<nav class="navbar">
-  <span class="navbar-toggle" id="js-navbar-toggle">
-    <i class="material-icons"> menu </i>
-  </span>
-  <a href="#" class="logo">Indian foodie</a>
-  <ul class="main-nav" id="js-menu">
+  <nav class="navbar">
+    <span class="navbar-toggle" id="js-navbar-toggle">
+      <i class="material-icons"> menu </i>
+    </span>
+    <a href="#" class="logo" style="font-family:cursive">
+      <i class="material-icons" style="color:orange">restaurant_menu</i>
+      Indian foodie
+    </a>
+    <ul class="main-nav" id="js-menu">
       <li>
-          <a href="#" class="nav-links">HOME</a>
+        <button mat-button style="color:white"> HOME </button>
       </li>
       <li>
-          <a href="#" class="nav-links">RESTAURANT MENUKARTE</a>
+        <button mat-button style="color:white"> RESTRAUNT MENUKARTE </button>
       </li>
       <li>
-          <a href="#" class="nav-links">ONLINE BESTELLEN</a>
+        <button mat-button style="color:white"> ONLINE BESTELLEN </button>
       </li>
       <li>
-          <a href="#" class="nav-links">ABOUT US</a>
+        <button mat-button style="color:white"> ABOUT US </button>
       </li>
       <li>
-          <a href="#" class="nav-links">KONTACT</a>
+        <button mat-button style="color:white" (click)="openModal()" [disabled]="isVisible"> KONTACT </button>
       </li>
-  </ul>
-</nav>
+    </ul>
+  </nav>
 </div>
 
 <header>
@@ -32,7 +35,7 @@
   <div class="container h-100">
     <div class="d-flex text-center h-100">
       <div class="my-auto w-100 text-white">
-        <h1 class="display-3">Namasthe</h1>
+        <h1 class="display-3" style="font-family:cursive">Namasthe</h1>
         <h2>MITTAGSMENÜ alle gerichte (Abholung nur 5,90 / Lieferung nur 6,50)</h2>
       </div>
     </div>
@@ -140,15 +143,15 @@
 
     <!--/.footer-bottom-->
     <div class="footer-bottom">
-        <div class="container">
-                  <div class="row">
-                    <div class="col-sm-6 ">
-                      <div class="copyright-text">
-                        <p>CopyRight © 2018 indian foodie All Rights Reserved</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 ">
+            <div class="copyright-text">
+              <p>CopyRight © 2018 indian foodie All Rights Reserved</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
   </footer>
 </div>

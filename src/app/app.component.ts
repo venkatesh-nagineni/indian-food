@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-
+import { MatDialog } from '@angular/material';
+import {ContactComponent} from './contact/contact.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private domSanitizer: DomSanitizer) {
+  isVisible: boolean;
+
+  constructor(private dialog: MatDialog) {
 
   }
 
@@ -20,6 +22,15 @@ export class AppComponent implements OnInit {
       mainNav.classList.toggle('active');
     });
 
+  }
+
+  openModal() {
+    this.isVisible = true;
+    const dialogRef = this.dialog.open(ContactComponent, {hasBackdrop: false});
+    dialogRef.afterClosed().subscribe(result => {
+      this.isVisible = false;
+      console.log('cancelled');
+    });
   }
 
 }

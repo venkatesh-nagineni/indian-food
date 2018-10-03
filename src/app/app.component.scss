@@ -239,6 +239,17 @@ header .overlay {
     padding-top: 10px;
   }
 
+  .main-nav {
+    button:focus {
+      outline: none;
+  }
+  button {
+    letter-spacing: 1px;
+    font-size: 15px;
+    padding-top: 4px;
+  }
+  }
+
   .nav-links,
   .logo {
     text-decoration: none;
