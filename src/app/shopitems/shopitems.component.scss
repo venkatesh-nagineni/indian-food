@@ -1,0 +1,36 @@
+.card-img-top {
+  height: 15rem;
+  object-fit: cover;
+}
+
+.todaySection {
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+}
+.fixed-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+mat-toolbar {
+  background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%);
+  span {
+    color: white;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+.example-fill-remaining-space {
+   flex: 1 1 auto;
+}
+
+

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit, HostListener } from '@angu
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
 import {AdminloginComponent} from './adminlogin/adminlogin.component';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +14,7 @@ export class AppComponent implements OnInit {
   isContactVisible: boolean;
   isLoginVisible: boolean;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private router: Router) {
 
   }
 
@@ -39,6 +41,14 @@ export class AppComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
     });
+  }
+
+  navigation(page) {
+    if (page === 'home') {
+      this.router.navigate(['home']);
+    } else if (page === 'online') {
+      this.router.navigate(['online-bestellen']);
+    }
   }
 
 }

@@ -8,12 +8,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {AdminloginComponent} from './adminlogin/adminlogin.component';
+import { ShopitemsComponent } from './shopitems/shopitems.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
+import {routingModule} from './routing.module';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    ShopitemsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +29,12 @@ import {AdminloginComponent} from './adminlogin/adminlogin.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatToolbarModule,
+    MatBadgeModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    routingModule
   ],
   entryComponents: [ContactComponent, AdminloginComponent],
   providers: [],

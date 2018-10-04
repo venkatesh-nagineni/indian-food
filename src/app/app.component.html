@@ -3,13 +3,13 @@
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="material-icons"> menu </i>
     </span>
-    <a href="#" class="logo" style="font-family:cursive">
+    <a routerLink="/home" class="logo" style="font-family:cursive">
       <i class="material-icons" style="color:orange">restaurant_menu</i>
       Indian foodie
     </a>
     <ul class="main-nav" id="js-menu">
       <li>
-        <button mat-button style="color:white"> HOME </button>
+        <button mat-button style="color:white" (click)="navigation('home')"> HOME </button>
       </li>
       <li>
         <button mat-button style="color:white" [matMenuTriggerFor]="menu"> RESTRAUNT MENUKARTE
@@ -19,7 +19,7 @@
         </button>
       </li>
       <li>
-        <button mat-button style="color:white"> ONLINE BESTELLEN </button>
+        <button mat-button style="color:white" (click)="navigation('online')"> ONLINE BESTELLEN </button>
       </li>
       <li>
         <button mat-button style="color:white"> ABOUT US </button>
@@ -44,63 +44,22 @@
 </mat-menu>
 
 <header>
-  <div class="overlay"></div>
-  <video autoplay muted loop onloadedmetadata="this.muted = true">
-    <source src="../assets/video/background_video.mp4" type="video/mp4" />
-  </video>
-  <div class="container h-100">
-    <div class="d-flex text-center h-100">
-      <div class="my-auto w-100 text-white">
-        <h1 class="display-3" style="font-family:cursive">Namasthe</h1>
-        <h2>MITTAGSMENÜ alle gerichte (Abholung nur 5,90 / Lieferung nur 6,50)</h2>
+    <div class="overlay"></div>
+    <video autoplay muted loop onloadedmetadata="this.muted = true">
+      <source src="../assets/video/background_video.mp4" type="video/mp4" />
+    </video>
+    <div class="container h-100">
+      <div class="d-flex text-center h-100">
+        <div class="my-auto w-100 text-white">
+          <h1 class="display-3" style="font-family:cursive">Namasthe</h1>
+          <h2>MITTAGSMENÜ alle gerichte (Abholung nur 5,90 / Lieferung nur 6,50)</h2>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<div class="todaySection animated zoomIn">
-  <h3 class="mt-2 pb-2 mb-4 font-italic border-bottom">
-    Today specials
-  </h3>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card">
-        <img class="card-img-top" src="../assets/images/chicken.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Chicken Tikka </h5>
-          <p class="card-text">mariniertes im Tandoor gegrilltes</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img class="card-img-top" src="../assets/images/samosa.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3"> Samosa</h5>
-          <p class="card-text">Vegetarische Kartoffeltaschen</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card bg-light">
-        <img class="card-img-top" src="../assets/images/salat.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Gemischter Salat</h5>
-          <p class="card-text">Salat der Saison</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card bg-light">
-        <img class="card-img-top" src="../assets/images/paanipoori.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Paanipoori</h5>
-          <p class="card-text">Paani poori der Saison</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+<router-outlet></router-outlet>
 
 <div class="footersection">
   <footer class="footer2">
