@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import {InfoTextComponent} from '../info-text/info-text.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-shopitems',
@@ -7,19 +9,7 @@ import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 })
 export class ShopitemsComponent implements OnInit {
 
-  /* @HostListener('window:scroll', ['$event'])
-  hello() {
-    this.navbar = document.getElementById('navbar');
-   const number = window.scrollY;
-   console.log(number);
-    if (number >= 1011) {
-      this.navbar.classList.add('sticky');
-    } else {
-      this.navbar.classList.remove('sticky');
-    }
-  } */
-
-  constructor() {
+  constructor(private dialog: MatDialog) {
 
   }
 
@@ -27,6 +17,12 @@ export class ShopitemsComponent implements OnInit {
 
   }
 
+  openInfoText() {
+    const dialogRef = this.dialog.open(InfoTextComponent, {hasBackdrop: false});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('cancelled');
+    });
+  }
 
 
 }

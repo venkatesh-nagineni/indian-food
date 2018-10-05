@@ -13,6 +13,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {routingModule} from './routing.module';
 import {HomeComponent} from './home/home.component';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { InfoTextComponent } from './info-text/info-text.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {HomeComponent} from './home/home.component';
     ContactComponent,
     AdminloginComponent,
     ShopitemsComponent,
-    HomeComponent
+    HomeComponent,
+    InfoTextComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +37,10 @@ import {HomeComponent} from './home/home.component';
     MatFormFieldModule,
     MatDialogModule,
     MatMenuModule,
-    routingModule
+    routingModule,
+    NgxGalleryModule,
   ],
-  entryComponents: [ContactComponent, AdminloginComponent],
+  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
