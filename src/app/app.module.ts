@@ -11,6 +11,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { InfoTextComponent } from './info-text/info-text.component';
 import { AppMaterialModule } from './material.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminloginComponent,
     ShopitemsComponent,
     HomeComponent,
-    InfoTextComponent
+    InfoTextComponent,
+    CheckoutAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     routingModule,
     NgxGalleryModule,
     AppMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
     ModalModule.forRoot()
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent],

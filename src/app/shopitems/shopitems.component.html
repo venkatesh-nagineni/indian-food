@@ -7,6 +7,13 @@
   </span>
 </mat-toolbar>
 
+
+<ng-template #confirmselection>
+  <div class="modal-body gray modal-lg">
+      <app-checkout-address></app-checkout-address>
+  </div>
+</ng-template>
+
 <div class="todaySection animated zoomIn" *ngFor="let shoppinglist of shoppingListItems">
   <h4 class="mt-2 pb-2 mb-4 font-italic border-bottom">
     {{shoppinglist.dishType}}
@@ -72,7 +79,7 @@
                 <button mat-raised-button color="warn" (click)="modalRef.hide()" style="float: left">
                     <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Cancel</span>
                   </button>
-                <button mat-raised-button color="primary" style="float: right">
+                <button mat-raised-button color="primary" style="float: right" (click)="confirmSelection(confirmselection)">
                     <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span> <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
                   </button>
             </p>

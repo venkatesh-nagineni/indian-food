@@ -22,9 +22,15 @@ export class ShopitemsComponent implements OnInit {
   totoalCheckoutAmount = 0;
   emptycartMessage: boolean;
   modalRef: BsModalRef;
+  selectionModalRef: BsModalRef;
 
   config = {
     ignoreBackdropClick: true,
+    class: 'modal-lg'
+  };
+
+  selectionConfig = {
+    ignoreBackdropClick: false,
     class: 'modal-lg'
   };
 
@@ -106,6 +112,11 @@ export class ShopitemsComponent implements OnInit {
       this.totalAmount = 0;
       this.itemAmount = [];
     }
+  }
+
+  confirmSelection(template: TemplateRef<any>) {
+    this.selectionModalRef = this.modalService.show(template, this.selectionConfig);
+    this.modalRef.hide();
   }
 
 }
