@@ -44,6 +44,7 @@ export class ShopitemsComponent implements OnInit {
   }
 
   addToCart(item) {
+    console.log(item);
     this.itemAmount.push(item.itemPrice);
     this.numberOfItems += 1;
     this.totalAmount = this.itemAmount.reduce((a, b) => {
@@ -93,6 +94,11 @@ export class ShopitemsComponent implements OnInit {
     this.viewCheckoutList.splice(actionIndex, 1);
     this.totalAmount -= activeItem.amount;
     this.numberOfItems -= activeItem.times;
+    if (this.numberOfItems === 0) {
+      this.checkOutList = [];
+      this.totalAmount = 0;
+      this.itemAmount = [];
+    }
   }
 
 
