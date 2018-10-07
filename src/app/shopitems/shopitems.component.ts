@@ -28,9 +28,7 @@ export class ShopitemsComponent implements OnInit {
     class: 'modal-lg'
   };
 
-/*   Object.assign({}, { class: 'gray modal-lg' })
-
- */  constructor(private dialog: MatDialog, private modalService: BsModalService) {
+  constructor(private dialog: MatDialog, private modalService: BsModalService) {
 
   }
 
@@ -51,24 +49,17 @@ export class ShopitemsComponent implements OnInit {
     this.totalAmount = this.itemAmount.reduce((a, b) => {
       return a + b;
     });
-
     const itemToTheCart = { itemNo: item.itemNo, itemName: item.itemName, itemPrice: item.itemPrice };
     this.checkOutList.push(itemToTheCart);
-  }
 
-  checkOutCart(template: TemplateRef<any>) {
     this.viewCheckoutList = this.checkOutList.reduce((a, b) => {
       const i = a.findIndex(x => x.itemName === b.itemName);
       return i === -1 ? a.push({ itemName: b.itemName, times: 1, amount: b.itemPrice, singleItemPrice: b.itemPrice }) : (a[i].amount += b.itemPrice, a[i].times++ , a[i].singleItemPrice = b.itemPrice), a;
     }, []);
+  }
 
+  checkOutCart(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
-
-    /* if (this.numberOfItems > 0) {
-      this.emptycartMessage = false;
-    } else {
-      this.emptycartMessage = true;
-    } */
   }
 
   addItems(actionIndex) {
@@ -94,20 +85,26 @@ export class ShopitemsComponent implements OnInit {
       });
     }
 
-   /*  if (this.numberOfItems === 0) {
-      this.emptycartMessage = true;
-    } */
+    if (activeItem.times === 0) {
+      this.viewCheckoutList.splice(actionIndex, 1);
+    }
+
+    if (this.numberOfItems === 0) {
+      this.checkOutList = [];
+      this.totalAmount = 0;
+      this.itemAmount = [];
+    }
   }
 
   deleteItems(actionIndex, activeItem) {
     this.viewCheckoutList.splice(actionIndex, 1);
     this.totalAmount -= activeItem.amount;
     this.numberOfItems -= activeItem.times;
+    console.log(this.viewCheckoutList);
     if (this.numberOfItems === 0) {
       this.checkOutList = [];
       this.totalAmount = 0;
       this.itemAmount = [];
-      // this.emptycartMessage = true;
     }
   }
 
