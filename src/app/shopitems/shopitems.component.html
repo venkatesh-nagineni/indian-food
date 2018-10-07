@@ -1,6 +1,6 @@
 
 <mat-toolbar class="fixed-header">
-  <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+  <span (click)="checkOutCart(template)" class="example-fill-remaining-space" style="cursor: pointer; text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{totalAmount}} €</span>
   <span (click)="checkOutCart(template)" style="cursor:pointer">
     <mat-icon matBadge="{{numberOfItems}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
@@ -36,6 +36,7 @@
 
 <ng-template #template>
     <div class="modal-body gray modal-lg">
+      <div>
         <table id="cart" class="table table-hover table-condensed">
             <thead>
               <tr>
@@ -75,6 +76,14 @@
                     <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span> <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
                   </button>
             </p>
+          </div>
+
+        <!--   <div *ngIf="emptycartMessage">
+              Dein Warenkorb ist derzeit leer. Du kannst Produkte hinzufügen, indem Du Produkte in der Menükarte anklickst. <br><br>
+              <button mat-raised-button color="warn" (click)="modalRef.hide()">
+                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
+                </button>
+          </div> -->
 
     </div>
   </ng-template>

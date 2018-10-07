@@ -20,6 +20,7 @@ export class ShopitemsComponent implements OnInit {
   checkOutList = [];
   viewCheckoutList = [];
   totoalCheckoutAmount = 0;
+  emptycartMessage: boolean;
   modalRef: BsModalRef;
 
   config = {
@@ -61,9 +62,13 @@ export class ShopitemsComponent implements OnInit {
       return i === -1 ? a.push({ itemName: b.itemName, times: 1, amount: b.itemPrice, singleItemPrice: b.itemPrice }) : (a[i].amount += b.itemPrice, a[i].times++ , a[i].singleItemPrice = b.itemPrice), a;
     }, []);
 
-    console.log(this.viewCheckoutList);
-
     this.modalRef = this.modalService.show(template, this.config);
+
+    /* if (this.numberOfItems > 0) {
+      this.emptycartMessage = false;
+    } else {
+      this.emptycartMessage = true;
+    } */
   }
 
   addItems(actionIndex) {
@@ -88,6 +93,10 @@ export class ShopitemsComponent implements OnInit {
           }
       });
     }
+
+   /*  if (this.numberOfItems === 0) {
+      this.emptycartMessage = true;
+    } */
   }
 
   deleteItems(actionIndex, activeItem) {
@@ -98,39 +107,8 @@ export class ShopitemsComponent implements OnInit {
       this.checkOutList = [];
       this.totalAmount = 0;
       this.itemAmount = [];
+      // this.emptycartMessage = true;
     }
   }
 
-
-
-  /* addOrRemoveItems(action, actionIndex, activeItem) {
-    if (action === 'add') {
-      this.viewCheckoutList.forEach((item, index) => {
-        if (actionIndex === index) {
-          this.viewCheckoutList[actionIndex].times = this.viewCheckoutList[actionIndex].times + 1;
-          this.viewCheckoutList[actionIndex].amount += this.viewCheckoutList[actionIndex].singleItemPrice;
-          this.totalAmount += this.viewCheckoutList[actionIndex].singleItemPrice;
-          this.numberOfItems += 1;
-        }
-      });
-    } else if (action === 'subtract') {
-      this.viewCheckoutList.forEach((item, index) => {
-        if (actionIndex === index) {
-          if (this.viewCheckoutList[actionIndex].times !== 0) {
-            this.viewCheckoutList[actionIndex].times = this.viewCheckoutList[actionIndex].times - 1;
-            this.viewCheckoutList[actionIndex].amount -= this.viewCheckoutList[actionIndex].singleItemPrice;
-            this.totalAmount -= this.viewCheckoutList[actionIndex].singleItemPrice;
-            this.numberOfItems -= 1;
-          }
-          if (this.viewCheckoutList[actionIndex].times === 0) {
-            this.viewCheckoutList.splice(actionIndex, 1);
-          }
-        }
-      });
-    } else if (action === 'delete') {
-      this.viewCheckoutList.splice(actionIndex, 1);
-      this.totalAmount -= activeItem.amount;
-      this.numberOfItems -= activeItem.times;
-    }
-  } */
 }
