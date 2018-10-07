@@ -2,18 +2,11 @@
   <button mat-icon-button color="primary" style="float: right;border:none" (click)="cancelDialog()">
     <mat-icon>cancel</mat-icon>
   </button>
-</h1>
+</h1><br>
 <div mat-dialog-content>
-  Wahl aus: mit Brot, mit Pasta, mit Reis oder ohne Beilage. <br><br>
-  <ul>
+  <ul *ngFor="let text of data">
     <li>
-      Enthält Milch/-Erzeugnisse (laktosehaltig)
-    </li>
-    <li>
-      Enthält Milch/-Erzeugnisse (laktosehaltig)
-    </li>
-    <li>
-      Enthält Milch/-Erzeugnisse (laktosehaltig)
+      {{text.ingredients}}
     </li>
   </ul>
 </div>

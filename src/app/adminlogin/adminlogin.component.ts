@@ -14,7 +14,7 @@ export class AdminloginComponent implements OnInit {
 
   }
 
-  onNoClick(): void {
+  onNoClick() {
     this.dialogRef.close();
   }
 

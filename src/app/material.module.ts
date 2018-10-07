@@ -7,6 +7,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
+
 @NgModule({
   imports: [
     MatSelectModule,
@@ -19,6 +21,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatDialogModule,
     MatMenuModule,
     MatChipsModule,
+    MatCardModule
   ],
   exports: [
     MatSelectModule,
@@ -31,6 +34,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatDialogModule,
     MatMenuModule,
     MatChipsModule,
+    MatCardModule
   ]
 })
 export class AppMaterialModule { }

@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  onNoClick(): void {
+  onNoClick() {
     this.dialogRef.close();
   }
 

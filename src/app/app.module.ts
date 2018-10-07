@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { InfoTextComponent } from './info-text/info-text.component';
 import { AppMaterialModule } from './material.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AppMaterialModule } from './material.module';
     BrowserAnimationsModule,
     routingModule,
     NgxGalleryModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ModalModule.forRoot()
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent],
   providers: [],
