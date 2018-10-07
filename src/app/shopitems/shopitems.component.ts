@@ -119,4 +119,5 @@ export class ShopitemsComponent implements OnInit {
     this.modalRef.hide();
   }
 
+
 }

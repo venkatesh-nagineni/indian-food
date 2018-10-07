@@ -29,7 +29,11 @@
           KONTACT </button>
       </li>
       <li>
-        <button mat-button style="color:white" (click)="openLogin()" [disabled]="isLoginVisible || isContactVisible">
+          <button mat-button style="color:white" (click)="openUserLogin()">
+            LOGIN </button>
+        </li>
+      <li>
+        <button mat-button style="color:white" (click)="openAdminLogin()" [disabled]="isLoginVisible || isContactVisible">
           ADMIN LOGIN </button>
       </li>
     </ul>

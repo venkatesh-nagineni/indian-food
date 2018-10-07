@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class CheckoutAddressComponent implements OnInit {
 
+  isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 

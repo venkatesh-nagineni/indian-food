@@ -14,6 +14,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CheckoutAddressComponent } from './checkout-address/checkout-address.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     ShopitemsComponent,
     HomeComponent,
     InfoTextComponent,
-    CheckoutAddressComponent
+    CheckoutAddressComponent,
+    UserloginComponent,
+    RegisterComponent,
+    ForgotpwdComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     ModalModule.forRoot()
   ],
-  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent],
+  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, HostListener, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
 import {AdminloginComponent} from './adminlogin/adminlogin.component';
 import {Router} from '@angular/router';
+import {RegisterComponent} from './register/register.component';
+import {UserloginComponent} from './userlogin/userlogin.component';
 
 @Component({
   selector: 'app-root',
@@ -35,9 +37,16 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openLogin() {
+  openAdminLogin() {
     this.isLoginVisible = true;
     const dialogRef = this.dialog.open(AdminloginComponent, {hasBackdrop: false});
+    dialogRef.afterClosed().subscribe(result => {
+      this.isLoginVisible = false;
+    });
+  }
+
+  openUserLogin() {
+    const dialogRef = this.dialog.open(UserloginComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
     });
