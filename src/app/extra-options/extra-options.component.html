@@ -1,0 +1,30 @@
+<div class="extraoptions">
+    <h1 mat-dialog-title>Extra Options
+        <button mat-icon-button color="primary" style="float: right;border:none" (click)="cancelDialog()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </h1>
+  <div class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="{{data.itemExtraOptionsizes.itemPlaceholderName}}" [(ngModel)]="selectedPizzaSize">
+        <mat-option *ngFor="let sizes of data.itemExtraOptionsizes.sizes" [value]="sizes">
+          {{sizes}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="{{data.itemExtraOptionPrice.itemPlaceholderName}}" [(ngModel)]="selectedExtraPrice">
+        <mat-option *ngFor="let extraprice of data.itemExtraOptionPrice.prices" [value]="extraprice">
+          {{extraprice}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<mat-icon class="iconremove" (click)="subtractItems(i, item)" style="margin-top:5px">remove</mat-icon>&nbsp;&nbsp;
+<mat-icon class="iconadd" (click)="addItems(i)" style="margin-top:5px">add</mat-icon>
+<button mat-raised-button color="primary" class="loginbutton">
+  <span style="font-size:17px;letter-spacing: 1px">7.55 €</span>
+  <mat-icon matSuffix>add</mat-icon>
+</button>

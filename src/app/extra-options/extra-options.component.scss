@@ -1,0 +1,33 @@
+.extraoptions {
+  .example-form {
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+}
+
+  .loginbutton{
+    float: right;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+.iconremove:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(42, 22, 116, 0.822);
+  transition: 0.5s;
+  border-radius:50%;
+}
+
+.iconadd:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(42, 22, 116, 0.822);
+  transition: 0.5s;
+  border-radius:50%;
+}

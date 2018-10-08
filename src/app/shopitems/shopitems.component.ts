@@ -5,6 +5,8 @@ import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {ExtraOptionsComponent} from '../extra-options/extra-options.component';
+import {SharedService} from '../shared.service';
 
 @Component({
   selector: 'app-shopitems',
@@ -23,6 +25,8 @@ export class ShopitemsComponent implements OnInit {
   emptycartMessage: boolean;
   modalRef: BsModalRef;
   selectionModalRef: BsModalRef;
+  selectedValue: any;
+  disableaddtocartButton = false;
 
   config = {
     ignoreBackdropClick: true,
@@ -34,7 +38,7 @@ export class ShopitemsComponent implements OnInit {
     class: 'modal-lg'
   };
 
-  constructor(private dialog: MatDialog, private modalService: BsModalService) {
+  constructor(private dialog: MatDialog, private modalService: BsModalService, private sharedService: SharedService) {
 
   }
 
@@ -49,7 +53,6 @@ export class ShopitemsComponent implements OnInit {
   }
 
   addToCart(item) {
-    console.log(item);
     this.itemAmount.push(item.itemPrice);
     this.numberOfItems += 1;
     this.totalAmount = this.itemAmount.reduce((a, b) => {
@@ -62,6 +65,16 @@ export class ShopitemsComponent implements OnInit {
       const i = a.findIndex(x => x.itemName === b.itemName);
       return i === -1 ? a.push({ itemName: b.itemName, times: 1, amount: b.itemPrice, singleItemPrice: b.itemPrice }) : (a[i].amount += b.itemPrice, a[i].times++ , a[i].singleItemPrice = b.itemPrice), a;
     }, []);
+
+    this.disableaddtocartButton = true;
+    const dialogRef = this.dialog.open(ExtraOptionsComponent, { hasBackdrop: false, data: item});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.disableaddtocartButton = false;
+      this.sharedService.toggledisableService(false);
+    });
+
+    this.sharedService.toggledisableService(true);
   }
 
   checkOutCart(template: TemplateRef<any>) {

@@ -1,14 +1,14 @@
-
-<mat-toolbar class="fixed-header">
-  <span (click)="checkOutCart(template)" class="example-fill-remaining-space" style="cursor: pointer; text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+<!-- header to show cart icon and anount to be selected itmes -->
+ <mat-toolbar class="fixed-header">
+  <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{totalAmount}} €</span>
-  <span (click)="checkOutCart(template)" style="cursor:pointer">
+  <span (click)="checkOutCart(template)" style="cursor:pointer" [class.disabled]="disableaddtocartButton">
     <mat-icon matBadge="{{numberOfItems}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
 </mat-toolbar>
 
-
-<ng-template #confirmselection>
+<!-- showing listed items with price -->
+ <ng-template #confirmselection>
   <div class="modal-body gray modal-lg">
       <app-checkout-address></app-checkout-address>
   </div>
@@ -21,7 +21,7 @@
   <div class="row">
     <div class="col-md-3" *ngFor="let items of shoppinglist.dishItems">
       <div class="card">
-        <button mat-raised-button color="primary" style="position:absolute;top:0;" (click)="addToCart(items)">
+        <button mat-raised-button color="primary" style="position:absolute;top:0;" (click)="addToCart(items)" [disabled]="disableaddtocartButton">
           <mat-icon matSuffix>shopping_cart</mat-icon> <span style="font-size:17px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">to
             cart</span>
         </button>
@@ -38,9 +38,10 @@
       </div>
     </div>
   </div>
+
 </div>
 
-
+<!-- checkout list itema when user click on tocart button -->
 <ng-template #template>
     <div class="modal-body gray modal-lg">
       <div>
@@ -84,13 +85,5 @@
                   </button>
             </p>
           </div>
-
-        <!--   <div *ngIf="emptycartMessage">
-              Dein Warenkorb ist derzeit leer. Du kannst Produkte hinzufügen, indem Du Produkte in der Menükarte anklickst. <br><br>
-              <button mat-raised-button color="warn" (click)="modalRef.hide()">
-                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
-                </button>
-          </div> -->
-
     </div>
   </ng-template>

@@ -29,7 +29,16 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
+
       },
 
       {
@@ -48,7 +57,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -67,7 +84,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -86,7 +111,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       }
     ]
   },
@@ -110,7 +143,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -129,7 +170,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -148,7 +197,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -167,7 +224,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
     ]
   },
@@ -191,7 +256,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -210,7 +283,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -229,7 +310,15 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       },
 
       {
@@ -248,13 +337,20 @@ export const shoppingList = [
           {
             ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
           }
-        ]
+        ],
+        itemExtraOptionsizes: {
+          itemPlaceholderName: 'Pizza Name',
+          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+        },
+        itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+        }
       }
     ]
   }
 
 ];
-
 
 /* export class Product {
   id: number;

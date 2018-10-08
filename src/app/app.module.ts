@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { ExtraOptionsComponent } from './extra-options/extra-options.component';
+import {SharedService} from './shared.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
     CheckoutAddressComponent,
     UserloginComponent,
     RegisterComponent,
-    ForgotpwdComponent
+    ForgotpwdComponent,
+    ExtraOptionsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +44,8 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
     FormsModule,
     ModalModule.forRoot()
   ],
-  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent],
-  providers: [],
+  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

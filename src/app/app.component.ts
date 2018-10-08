@@ -5,6 +5,7 @@ import {AdminloginComponent} from './adminlogin/adminlogin.component';
 import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
+import {SharedService} from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,16 @@ export class AppComponent implements OnInit {
 
   isContactVisible: boolean;
   isLoginVisible: boolean;
+  disableMenu: boolean;
 
-  constructor(private dialog: MatDialog, private router: Router) {
-
+  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
+    this.sharedService.disableService.subscribe(value => {
+      if (value === true) {
+        this.disableMenu = true;
+      } else {
+        this.disableMenu = false;
+      }
+    });
   }
 
   ngOnInit() {

@@ -3,37 +3,37 @@
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="material-icons"> menu </i>
     </span>
-    <a routerLink="/home" class="logo" style="font-family:cursive">
+    <a routerLink="/home" class="logo" style="font-family:cursive" [class.disabledpointer]="disableMenu">
       <i class="material-icons" style="color:orange">restaurant_menu</i>
       Pizzeria express rodgau
     </a>
     <ul class="main-nav" id="js-menu">
       <li>
-        <button mat-button style="color:white" (click)="navigation('home')"> HOME </button>
+        <button mat-button style="color:white" (click)="navigation('home')" [disabled]="disableMenu"> HOME </button>
       </li>
       <li>
-        <button mat-button style="color:white" [matMenuTriggerFor]="menu"> RESTRAUNT MENUKARTE
+        <button mat-button style="color:white" [matMenuTriggerFor]="menu" [disabled]="disableMenu"> RESTRAUNT MENUKARTE
           <i class="material-icons" style="color:white;font-size:30px;padding-bottom:5px;">
             arrow_drop_down
           </i>
         </button>
       </li>
       <li>
-        <button mat-button style="color:white" (click)="navigation('online')"> ONLINE BESTELLEN </button>
+        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disableMenu"> ONLINE BESTELLEN </button>
       </li>
       <li>
-        <button mat-button style="color:white"> ABOUT US </button>
+        <button mat-button style="color:white" [disabled]="disableMenu"> ABOUT US </button>
       </li>
       <li>
-        <button mat-button style="color:white" (click)="openModal()" [disabled]="isContactVisible || isLoginVisible">
+        <button mat-button style="color:white" (click)="openModal()" [disabled]="isContactVisible || isLoginVisible || disableMenu">
           KONTACT </button>
       </li>
       <li>
-          <button mat-button style="color:white" (click)="openUserLogin()">
+          <button mat-button style="color:white" (click)="openUserLogin()" [disabled]="disableMenu">
             LOGIN </button>
         </li>
       <li>
-        <button mat-button style="color:white" (click)="openAdminLogin()" [disabled]="isLoginVisible || isContactVisible">
+        <button mat-button style="color:white" (click)="openAdminLogin()" [disabled]="isLoginVisible || isContactVisible || disableMenu">
           ADMIN LOGIN </button>
       </li>
     </ul>
