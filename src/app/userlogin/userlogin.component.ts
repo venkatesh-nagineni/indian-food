@@ -10,6 +10,9 @@ import {ForgotpwdComponent} from '../forgotpwd/forgotpwd.component';
 })
 export class UserloginComponent implements OnInit {
 
+  username: string;
+  password: string;
+
   constructor(private dialog: MatDialog, public dialogRef: MatDialogRef<UserloginComponent>) { }
 
   ngOnInit() {
