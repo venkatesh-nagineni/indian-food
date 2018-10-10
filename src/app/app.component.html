@@ -4,7 +4,7 @@
       <i class="material-icons"> menu </i>
     </span>
     <div style="text-align:center">
-      <a routerLink="/home" class="logo" style="font-family:cursive" [class.disabledpointer]="disableMenu">
+      <a (click)="home()" class="logo" style="font-family:cursive;cursor: pointer;" [class.disabledpointer]="disableMenu">
         <i class="material-icons" style="color:orange">restaurant_menu</i>
         Pizzeria express rodgau
       </a>
@@ -37,9 +37,15 @@
   </div>
 </header>
 
-<app-home></app-home>
+<div *ngIf="homeSection">
+    <app-home></app-home>
+</div>
 
-<div #onlinebestellen>
+<div *ngIf="adminSection">
+    <app-admininterface></app-admininterface>
+</div>
+
+<div #onlinebestellen *ngIf="onlineSection">
     <app-menucard></app-menucard>
 </div>
 

@@ -21,6 +21,7 @@ import { ExtraOptionsComponent } from './extra-options/extra-options.component';
 import {SharedService} from './shared.service';
 import { MenucardComponent } from './menucard/menucard.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { AdmininterfaceComponent } from './admininterface/admininterface.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     RegisterComponent,
     ForgotpwdComponent,
     ExtraOptionsComponent,
-    MenucardComponent
+    MenucardComponent,
+    AdmininterfaceComponent
   ],
   imports: [
     BrowserModule,

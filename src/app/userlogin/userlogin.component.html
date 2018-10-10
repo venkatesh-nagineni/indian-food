@@ -1,5 +1,5 @@
 <div class="userlogin">
-  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)"> <span>User Login</span>
+  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Login</span>
     <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
       <mat-icon>cancel</mat-icon>
     </button>
@@ -7,11 +7,11 @@
   <div class="example-form">
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>email</mat-icon>
-      <input type="email" matInput placeholder="Email">
+      <input type="email" matInput placeholder="Email or username" [(ngModel)]="username">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password">
+      <input type="password" matInput placeholder="Password" [(ngModel)]="password">
       <mat-icon matSuffix>visibility_off</mat-icon>
     </mat-form-field>
 
@@ -19,7 +19,7 @@
       <span style="font-size:14px;letter-spacing: 1px">Forgot your password?</span>
     </button> -->
 
-    <button mat-raised-button color="primary" class="loginbutton">
+    <button mat-raised-button color="primary" class="loginbutton" (click)="login(username, password)">
       <span style="font-size:17px;letter-spacing: 1px;">Login</span>
       <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>

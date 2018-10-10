@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren} from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import {FormBuilder, FormGroup} from '@angular/forms';
@@ -14,6 +14,7 @@ export class MenucardComponent implements OnInit {
   shoppingListItems: ShopListTypes[] = shoppingList;
   collapse: boolean;
   listindex: any;
+  @ViewChildren('linkRef') linkRefs;
 
   constructor(fb: FormBuilder) {
 
@@ -22,12 +23,18 @@ export class MenucardComponent implements OnInit {
   ngOnInit() {
   }
 
-  expandItem(index) {
-    this.listindex = index;
+  expandItem(index, itemNo) {
+    this.listindex = itemNo;
   }
 
   closeExpand(i) {
     this.listindex = -1;
+  }
+
+  scrollToSection(scrollSection) {
+    const el = document.getElementById(scrollSection);
+    el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.scrollBy(0, -80);
   }
 
 }

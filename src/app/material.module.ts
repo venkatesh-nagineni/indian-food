@@ -12,6 +12,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   imports: [
@@ -29,7 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatStepperModule,
     MatSidenavModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ],
   exports: [
     MatSelectModule,
@@ -46,7 +49,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatStepperModule,
     MatSidenavModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ]
 })
 export class AppMaterialModule { }

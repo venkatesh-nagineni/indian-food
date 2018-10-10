@@ -8,6 +8,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class AdminloginComponent implements OnInit {
 
+  username: any;
+  password: any;
+
   constructor(public dialogRef: MatDialogRef<AdminloginComponent>) { }
 
   ngOnInit() {
@@ -16,6 +19,10 @@ export class AdminloginComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  login(username, password) {
+    console.log(username, password);
   }
 
 }

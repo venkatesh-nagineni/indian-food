@@ -31,4 +31,16 @@ export class UserloginComponent implements OnInit {
     });
   }
 
+  login(username, password) {
+    console.log(username, password);
+    let valid = false;
+    if (username === 'admin' && password === 'admin') {
+      valid = true;
+    }
+
+    if (valid === true) {
+      this.dialogRef.close({valid});
+    }
+  }
+
 }

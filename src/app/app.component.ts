@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
   isLoginVisible: boolean;
   disableMenu: boolean;
   @ViewChild('onlinebestellen') onlinebestellen: ElementRef;
+  homeSection = true;
+  onlineSection = true;
+  adminSection = false;
 
   constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
     this.sharedService.disableService.subscribe(value => {
@@ -58,13 +61,24 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(UserloginComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
+      if (result.valid === true) {
+        this.adminSection = true;
+        this.homeSection = false;
+        this.onlineSection = false;
+      }
     });
   }
 
   navigation(page) {
     if (page === 'online') {
-        this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'instant', block: 'start' });
+        this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
+  }
+
+  home() {
+    this.adminSection = false;
+    this.homeSection = true;
+    this.onlineSection = true;
   }
 
 }
