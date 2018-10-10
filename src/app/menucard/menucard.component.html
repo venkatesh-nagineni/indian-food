@@ -1,0 +1,81 @@
+<div class="container" style="margin-top:20px">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group" *ngFor="let shoppinglist of shoppingListItems">
+        <a href="#" class="list-group-item list-group-item-action ">{{shoppinglist.dishType}}</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems;let j = index;">
+          <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
+            <li (click)="collapse = !collapse" (click)="expandItem(i)">
+              <img alt="Pizza image" src="{{items.imgSrc}}" />
+              <div class="info">
+                <h2 class="title">{{items.itemName}}
+                  <span class="badge badge-info badge-pill" style="float:right;margin-top: 7px;margin-right: 7px">
+                    {{items.itemPrice}} €</span>
+                </h2>
+                <p class="desc">{{items.itemShortDescription}}</p>
+                <p class="desc">{{items.chooseExtraInfo}}</p>
+              </div>
+              <div class="social">
+                <ul>
+                  <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                  <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                  <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                </ul>
+              </div>
+            </li>
+
+            <div id="detail-1" *ngIf="listindex == i" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
+              <div>
+                <div>
+                  <div class="form-group">
+                      <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
+                      <mat-icon style="float: right;border:none;cursor: pointer" (click)="closeExpand(i)" color="primary">cancel</mat-icon>
+                    <select class="form-control" id="sel1">
+                      <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.value" >{{sizes.value}}</option>
+                    </select>
+                    <label for="sel1" style="margin-top:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label>
+                    <select class="form-control" id="sel1">
+                        <option *ngFor="let extraprice of items.itemExtraOptionPrice.prices" [value]="extraprice.value" >{{extraprice.value}}</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+	<div class="panel panel-default">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1" (click)="collapse = !collapse">
+                    <div class="col-xs-10">
+                        Item 1
+                    </div>
+                    <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+                </div>
+                <div id="detail-1" *ngIf="collapse">
+                    <hr>
+                    <div class="container">
+                        <div class="fluid-row">
+                            <div class="col-xs-1">
+                                Detail:
+                            </div>
+                            <div class="col-xs-5">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+	</div>
+</div> -->

@@ -3,51 +3,25 @@
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="material-icons"> menu </i>
     </span>
-    <a routerLink="/home" class="logo" style="font-family:cursive" [class.disabledpointer]="disableMenu">
-      <i class="material-icons" style="color:orange">restaurant_menu</i>
-      Pizzeria express rodgau
-    </a>
+    <div style="text-align:center">
+      <a routerLink="/home" class="logo" style="font-family:cursive" [class.disabledpointer]="disableMenu">
+        <i class="material-icons" style="color:orange">restaurant_menu</i>
+        Pizzeria express rodgau
+      </a>
+    </div>
     <ul class="main-nav" id="js-menu">
       <li>
-        <button mat-button style="color:white" (click)="navigation('home')" [disabled]="disableMenu"> HOME </button>
+        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disableMenu"> ONLINE
+          BESTELLEN </button>
       </li>
       <li>
-        <button mat-button style="color:white" [matMenuTriggerFor]="menu" [disabled]="disableMenu"> RESTRAUNT MENUKARTE
-          <i class="material-icons" style="color:white;font-size:30px;padding-bottom:5px;">
-            arrow_drop_down
-          </i>
+        <button mat-icon-button (click)="openUserLogin()">
+          <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
         </button>
-      </li>
-      <li>
-        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disableMenu"> ONLINE BESTELLEN </button>
-      </li>
-      <li>
-        <button mat-button style="color:white" [disabled]="disableMenu"> ABOUT US </button>
-      </li>
-      <li>
-        <button mat-button style="color:white" (click)="openModal()" [disabled]="isContactVisible || isLoginVisible || disableMenu">
-          KONTACT </button>
-      </li>
-      <li>
-          <button mat-button style="color:white" (click)="openUserLogin()" [disabled]="disableMenu">
-            LOGIN </button>
-        </li>
-      <li>
-        <button mat-button style="color:white" (click)="openAdminLogin()" [disabled]="isLoginVisible || isContactVisible || disableMenu">
-          ADMIN LOGIN </button>
       </li>
     </ul>
   </nav>
 </div>
-
-<mat-menu #menu="matMenu" xPosition="before">
-  <button mat-menu-item>Chicken</button>
-  <button mat-menu-item>Mutton</button>
-  <button mat-menu-item>Biryani</button>
-  <button mat-menu-item>Samosa</button>
-  <button mat-menu-item>Paanipoori</button>
-  <button mat-menu-item>Drinks</button>
-</mat-menu>
 
 <header>
   <div class="overlay"></div>
@@ -63,7 +37,19 @@
   </div>
 </header>
 
-<router-outlet></router-outlet>
+<app-home></app-home>
+
+<!-- header to show cart icon and anount to be selected itmes -->
+<mat-toolbar class="fixed-header">
+    <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+      0 €</span>
+    <span (click)="checkOutCart(template)" style="cursor:pointer" [class.disabled]="disableaddtocartButton">
+      <mat-icon matBadge="0" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
+    </span>
+  </mat-toolbar>
+
+<app-menucard></app-menucard>
+
 
 <div class="footersection">
   <footer class="footer2">

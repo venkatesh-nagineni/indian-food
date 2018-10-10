@@ -21,7 +21,7 @@
   <div class="row">
     <div class="col-md-3" *ngFor="let items of shoppinglist.dishItems">
       <div class="card">
-        <button mat-raised-button color="primary" style="position:absolute;top:0;" (click)="addToCart(items)" [disabled]="disableaddtocartButton">
+        <button mat-raised-button color="primary" style="position:absolute;top:0;" (click)="toCart(items)" [disabled]="disableaddtocartButton">
           <mat-icon matSuffix>shopping_cart</mat-icon> <span style="font-size:17px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">to
             cart</span>
         </button>

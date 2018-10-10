@@ -9,6 +9,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCardModule} from '@angular/material/card';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -23,7 +26,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatMenuModule,
     MatChipsModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCheckboxModule
   ],
   exports: [
     MatSelectModule,
@@ -37,7 +43,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatMenuModule,
     MatChipsModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCheckboxModule
   ]
 })
 export class AppMaterialModule { }

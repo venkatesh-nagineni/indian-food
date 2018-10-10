@@ -6,25 +6,28 @@
       </h1>
   <div class="example-form">
     <mat-form-field class="example-full-width">
-      <mat-select placeholder="{{data.itemExtraOptionsizes.itemPlaceholderName}}" [(ngModel)]="selectedPizzaSize">
-        <mat-option *ngFor="let sizes of data.itemExtraOptionsizes.sizes" [value]="sizes">
-          {{sizes}}
+      <mat-select placeholder="{{data.itemExtraOptionsizes.itemPlaceholderName}}" [(ngModel)]="selectedPizzaSize" (ngModelChange)="conformAmount()">
+        <mat-option value="firstoption">Select Pizza Size</mat-option>
+        <mat-option *ngFor="let sizes of data.itemExtraOptionsizes.sizes" [value]="sizes.value">
+          {{sizes.value}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <mat-select placeholder="{{data.itemExtraOptionPrice.itemPlaceholderName}}" [(ngModel)]="selectedExtraPrice">
-        <mat-option *ngFor="let extraprice of data.itemExtraOptionPrice.prices" [value]="extraprice">
-          {{extraprice}}
+      <mat-select placeholder="{{data.itemExtraOptionPrice.itemPlaceholderName}}" [(ngModel)]="selectedExtraPrice" (ngModelChange)="conformAmount()">
+          <mat-option value="secondoption"> Choose Extra</mat-option>
+        <mat-option *ngFor="let extraprice of data.itemExtraOptionPrice.prices" [value]="extraprice.value">
+          {{extraprice.value}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
 </div>
 
-<mat-icon class="iconremove" style="margin-top:5px">remove</mat-icon>&nbsp;&nbsp;
-<mat-icon class="iconadd" style="margin-top:5px">add</mat-icon>
-<button mat-raised-button color="primary" class="loginbutton">
-  <span style="font-size:17px;letter-spacing: 1px">7.55 €</span>
+<mat-icon class="iconremove" style="margin-top:5px" (click)="subtract()">remove</mat-icon>&nbsp;&nbsp;
+<input [placeholder]="quantity" disabled width="15">&nbsp;&nbsp;
+<mat-icon class="iconadd" style="margin-top:5px" (click)="add()">add</mat-icon>
+<button mat-raised-button color="primary" class="loginbutton" (click)="CheckoutItem()">
+  <span style="font-size:17px;letter-spacing: 1px">{{TotalAmount}} €</span>
   <mat-icon matSuffix>add</mat-icon>
 </button>

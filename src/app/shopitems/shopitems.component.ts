@@ -27,6 +27,7 @@ export class ShopitemsComponent implements OnInit {
   selectionModalRef: BsModalRef;
   selectedValue: any;
   disableaddtocartButton = false;
+  eachItemAmount: any;
 
   config = {
     ignoreBackdropClick: true,
@@ -52,8 +53,11 @@ export class ShopitemsComponent implements OnInit {
     });
   }
 
-  addToCart(item) {
-    this.itemAmount.push(item.itemPrice);
+  addToCart(item, extraAmount) {
+    this.eachItemAmount = extraAmount;
+
+    console.log(this.eachItemAmount);
+    /* this.itemAmount.push(item.itemPrice);
     this.numberOfItems += 1;
     this.totalAmount = this.itemAmount.reduce((a, b) => {
       return a + b;
@@ -64,14 +68,21 @@ export class ShopitemsComponent implements OnInit {
     this.viewCheckoutList = this.checkOutList.reduce((a, b) => {
       const i = a.findIndex(x => x.itemName === b.itemName);
       return i === -1 ? a.push({ itemName: b.itemName, times: 1, amount: b.itemPrice, singleItemPrice: b.itemPrice }) : (a[i].amount += b.itemPrice, a[i].times++ , a[i].singleItemPrice = b.itemPrice), a;
-    }, []);
+    }, []); */
+  }
 
+  toCart(item) {
     this.disableaddtocartButton = true;
-    const dialogRef = this.dialog.open(ExtraOptionsComponent, { hasBackdrop: false, data: item});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      this.disableaddtocartButton = false;
-      this.sharedService.toggledisableService(false);
+    const dialogRef = this.dialog.open(ExtraOptionsComponent, { hasBackdrop: false, data: item });
+    dialogRef.afterClosed().subscribe(extraAmount => {
+      if (extraAmount) {
+        console.log(extraAmount);
+        this.disableaddtocartButton = false;
+        this.sharedService.toggledisableService(false);
+        this.addToCart(item, extraAmount);
+      } else {
+        this.disableaddtocartButton = false;
+      }
     });
 
     this.sharedService.toggledisableService(true);

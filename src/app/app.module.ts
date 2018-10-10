@@ -19,6 +19,8 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { ExtraOptionsComponent } from './extra-options/extra-options.component';
 import {SharedService} from './shared.service';
+import { MenucardComponent } from './menucard/menucard.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {SharedService} from './shared.service';
     UserloginComponent,
     RegisterComponent,
     ForgotpwdComponent,
-    ExtraOptionsComponent
+    ExtraOptionsComponent,
+    MenucardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import {SharedService} from './shared.service';
     AppMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
   providers: [SharedService],

@@ -15,10 +15,11 @@ export const shoppingList = [
     dishItems: [
       {
         itemNo: 1,
-        itemName: 'Chicken Tikka',
+        itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/chicken.jpg',
+        imgSrc: '../assets/images/pizza1.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -32,21 +33,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
-        }
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
 
+            ]
+        }
       },
 
       {
         itemNo: 2,
-        itemName: 'Samosa',
+        itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
-        imgSrc: '../assets/images/samosa.jpg',
+        imgSrc: '../assets/images/pizza2.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -60,20 +72,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 3,
-        itemName: 'Salat',
+        itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
-        imgSrc: '../assets/images/salat.jpg',
+        imgSrc: '../assets/images/pizza3.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -87,20 +111,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 4,
-        itemName: 'Paanipoori',
+        itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
-        imgSrc: '../assets/images/paanipoori.jpg',
+        imgSrc: '../assets/images/pizza4.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -114,11 +150,22 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       }
     ]
@@ -129,10 +176,11 @@ export const shoppingList = [
     dishItems: [
       {
         itemNo: 5,
-        itemName: 'Chicken Tikka',
+        itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/chicken.jpg',
+        imgSrc: '../assets/images/pizza1.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -146,20 +194,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 6,
-        itemName: 'Samosa',
+        itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/samosa.jpg',
+        itemPrice: 6.5,
+        imgSrc: '../assets/images/pizza2.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -173,20 +233,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 7,
-        itemName: 'Salat',
+        itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/salat.jpg',
+        itemPrice: 8.5,
+        imgSrc: '../assets/images/pizza3.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -200,20 +272,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 8,
-        itemName: 'Paanipoori',
+        itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/paanipoori.jpg',
+        itemPrice: 9.5,
+        imgSrc: '../assets/images/pizza4.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -227,13 +311,24 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
-      },
+      }
     ]
   },
 
@@ -242,10 +337,11 @@ export const shoppingList = [
     dishItems: [
       {
         itemNo: 9,
-        itemName: 'Chicken Tikka',
+        itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/chicken.jpg',
+        imgSrc: '../assets/images/pizza1.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -259,20 +355,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 10,
-        itemName: 'Samosa',
+        itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/samosa.jpg',
+        itemPrice: 6.5,
+        imgSrc: '../assets/images/pizza2.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -286,20 +394,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 11,
-        itemName: 'Salat',
+        itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/salat.jpg',
+        itemPrice: 8.5,
+        imgSrc: '../assets/images/pizza3.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -313,20 +433,32 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       },
 
       {
         itemNo: 12,
-        itemName: 'Paanipoori',
+        itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
-        itemPrice: 7.5,
-        imgSrc: '../assets/images/paanipoori.jpg',
+        itemPrice: 9.5,
+        imgSrc: '../assets/images/pizza4.png',
+        chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
             ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
@@ -340,11 +472,22 @@ export const shoppingList = [
         ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
-          sizes: ['Ø 26cm: 5,00 €', 'Ø 30cm: 6,00 €', 'Ø 36cm: 8,50 €', '34x46cm: 12,50 €']
+          sizes: [
+            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {value: '34x46cm: 12,50 €', amount: 12.50},
+          ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
-            prices: ['ohne weitere zutat', 'mit Brocolli (0,80 €)', 'mit Annanas (0,80 €)', 'mit Basillikum (0,80 €)', 'mit Currysause (0,80 €)']
+            prices: [
+              {value: 'ohne weitere zutat', amount: 0},
+              {value: 'mit Annanas (0,80 €)', amount: 0.80},
+              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
+              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+
+            ]
         }
       }
     ]

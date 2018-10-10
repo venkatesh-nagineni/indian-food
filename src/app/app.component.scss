@@ -235,13 +235,13 @@
 
   .active {
     display: block;
-    padding-top: 60px;
-    @media screen and (min-width: 1121px) {
+    padding-top: 50px;
+    @media screen and (min-width: 728px) {
       padding-top: 0px;
     }
   }
 
-  @media screen and (min-width: 1345px) {
+  @media screen and (min-width: 728px) {
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -286,7 +286,7 @@
 header {
   position: relative;
   background-color: black;
-  height: 60vh;
+  height: 45vh;
   min-height: 25rem;
   width: 100%;
   overflow: hidden;
@@ -325,4 +325,23 @@ header .overlay {
 
 .disabledpointer {
   pointer-events: none;
+}
+
+
+mat-toolbar {
+  background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%);
+  span {
+    color: white;
+  }
+}
+
+.fixed-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
 }
