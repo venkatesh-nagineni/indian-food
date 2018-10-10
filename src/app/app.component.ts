@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, HostListener, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
 import {AdminloginComponent} from './adminlogin/adminlogin.component';
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   isContactVisible: boolean;
   isLoginVisible: boolean;
   disableMenu: boolean;
+  @ViewChild('onlinebestellen') onlinebestellen: ElementRef;
 
   constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
     this.sharedService.disableService.subscribe(value => {
@@ -61,10 +62,8 @@ export class AppComponent implements OnInit {
   }
 
   navigation(page) {
-    if (page === 'home') {
-      this.router.navigate(['home']);
-    } else if (page === 'online') {
-      this.router.navigate(['online-bestellen']);
+    if (page === 'online') {
+        this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'instant', block: 'start' });
     }
   }
 

@@ -1,7 +1,4 @@
 
-    .container-fluid {
-      background: #f9f5f1;
-    }
     .event-list {
 		list-style: none;
 		font-family: 'Lato', sans-serif;
@@ -197,6 +194,24 @@
 		}
   }
 
+  img {
+    background-color: rgb(245, 245, 245);
+  }
 
+  mat-toolbar {
+    background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%);
+    span {
+      color: white;
+    }
+  }
 
+  .fixed-header {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
+  .example-fill-remaining-space {
+    flex: 1 1 auto;
+  }

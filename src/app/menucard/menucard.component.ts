@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import {FormBuilder, FormGroup} from '@angular/forms';
