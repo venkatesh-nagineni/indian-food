@@ -496,7 +496,7 @@ export const shoppingList = [
     dishType: 'Pizza Die Besteller',
     dishItems: [
       {
-        itemNo: 10,
+        itemNo: 13,
         itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
@@ -535,7 +535,7 @@ export const shoppingList = [
       },
 
       {
-        itemNo: 11,
+        itemNo: 14,
         itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
@@ -574,7 +574,7 @@ export const shoppingList = [
       },
 
       {
-        itemNo: 12,
+        itemNo: 15,
         itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
@@ -613,7 +613,7 @@ export const shoppingList = [
       },
 
       {
-        itemNo: 13,
+        itemNo: 16,
         itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,

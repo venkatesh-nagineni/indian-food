@@ -11,7 +11,8 @@
   <div class="row">
     <div class="col-md-3">
       <div class="list-group" *ngFor="let shoppinglist of shoppingListItems">
-        <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;" (click)="scrollToSection(shoppinglist.dishType)">{{shoppinglist.dishType}}</a>
+        <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;"
+          (click)="scrollToSection(shoppinglist.dishType)">{{shoppinglist.dishType}}</a>
       </div>
     </div>
     <div class="col-md-9">
@@ -21,8 +22,7 @@
             {{shoppinglist.dishType}}
           </h4>
           <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
-            <li (click)="collapse = !collapse" (click)="expandItem(i, items.itemNo)">
-              <img alt="Pizza image" src="{{items.imgSrc}}" />
+            <li (click)="collapse = !collapse" (click)="expandItem(items, items.itemNo)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">
                 <h2 class="title">{{items.itemName}}
                   <span class="badge badge-info badge-pill" style="float:right;margin-top: 7px;margin-right: 7px">
@@ -41,19 +41,28 @@
             </li>
 
             <div id="detail-1" *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
-              <div>
-                <div>
-                  <div class="form-group">
-                    <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
-                    <mat-icon style="float: right;border:none;cursor: pointer" (click)="closeExpand(i)" color="primary">cancel</mat-icon>
-                    <select class="form-control" id="sel1">
-                      <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.value">{{sizes.value}}</option>
-                    </select>
-                    <label for="sel1" style="margin-top:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label>
-                    <select class="form-control" id="sel1">
-                      <option *ngFor="let extraprice of items.itemExtraOptionPrice.prices" [value]="extraprice.value">{{extraprice.value}}</option>
-                    </select>
-                  </div>
+              <div class="form-group">
+                <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
+                <mat-icon style="float: right;border:none;cursor: pointer" (click)="closeExpand(i)" color="primary">cancel</mat-icon>
+                <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (ngModelChange)="expandItemAmount()">
+                  <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.value">{{sizes.value}}</option>
+                </select>
+                <label for="sel1" style="margin-top:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label>
+                <select class="form-control" id="sel1" [(ngModel)]="selectedExtraPrice" (ngModelChange)="expandItemAmount()">
+                  <option *ngFor="let extraprice of items.itemExtraOptionPrice.prices" [value]="extraprice.value">{{extraprice.value}}</option>
+                </select>
+                <div class="input-group input-number-group" style="padding-top:10px">
+                    <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
+                      <span class="input-number-decrement">-</span>
+                    </div>
+                    <input class="input-number" type="number" value="{{quantity}}" disabled>
+                    <div class="input-group-button" (click)="incrementItem()">
+                      <span class="input-number-increment">+</span>
+                    </div>
+                  <button mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
+                    <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount}} €</span>
+                    <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
+                  </button>
                 </div>
               </div>
             </div>
@@ -63,31 +72,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="container">
-	<div class="panel panel-default">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1" (click)="collapse = !collapse">
-                    <div class="col-xs-10">
-                        Item 1
-                    </div>
-                    <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
-                </div>
-                <div id="detail-1" *ngIf="collapse">
-                    <hr>
-                    <div class="container">
-                        <div class="fluid-row">
-                            <div class="col-xs-1">
-                                Detail:
-                            </div>
-                            <div class="col-xs-5">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-	</div>
-</div> -->
