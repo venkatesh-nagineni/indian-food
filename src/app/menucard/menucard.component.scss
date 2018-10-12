@@ -232,15 +232,14 @@
     }
 
     .input-number {
-      width: $input-number-size;
-      padding: 0 12px;
+      width: 45px;
       text-align: center;
       outline: none;
       display: block;
       margin: 0;
+      border: none;
     }
 
-    .input-number,
     .input-number-decrement,
     .input-number-increment {
       border: 1px solid medium gray;
@@ -260,11 +259,11 @@
     }
 
     .input-number-decrement {
-      margin-right: 0.3rem;
+      margin-right: 0.2rem;
     }
 
     .input-number-increment {
-      margin-left: 0.3rem;
+      margin-left: 0.2rem;
     }
   }
 
@@ -276,5 +275,10 @@
     pointer-events: none;
   }
 
+  .checkbox {
+    width:230px;
+    float:left;
+
+  }
 
 

@@ -8,7 +8,6 @@ itemPrice: any;
 itemDetailedDescription: Array<Object>; */
 }
 
-
 export const shoppingList = [
   {
     dishType: 'VORSPEISEN',
@@ -34,19 +33,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
 
             ]
         }
@@ -73,19 +72,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
 
             ]
         }
@@ -112,19 +111,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
 
             ]
         }
@@ -151,20 +150,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       }
@@ -195,20 +193,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -234,20 +231,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -273,20 +269,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -312,20 +307,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       }
@@ -356,20 +350,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -395,20 +388,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -434,20 +426,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -473,20 +464,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       }
@@ -516,20 +506,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -555,20 +544,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -594,20 +582,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       },
@@ -633,20 +620,19 @@ export const shoppingList = [
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
-            {value: 'Ø 26cm: 5,00 €', amount: 5.00},
-            {value: 'Ø 30cm: 6,00 €', amount: 6.00},
-            {value: 'Ø 36cm: 8,50 €', amount: 8.50},
-            {value: '34x46cm: 12,50 €', amount: 12.50},
+            {id: 1, name: 'Ø 26cm: 5,00 €', amount: 5.00},
+            {id: 2, name: 'Ø 30cm: 6,00 €', amount: 6.00},
+            {id: 3, name: 'Ø 36cm: 8,50 €', amount: 8.50},
+            {id: 4, name: '34x46cm: 12,50 €', amount: 12.50},
           ]
         },
         itemExtraOptionPrice: {
             itemPlaceholderName: 'Ihre Extras',
             prices: [
-              {value: 'ohne weitere zutat', amount: 0},
-              {value: 'mit Annanas (0,80 €)', amount: 0.80},
-              {value: 'mit Basillikum (0,80 €)', amount: 0.80},
-              {value: 'mit Currysause (0,80 €)', amount: 0.80},
-
+              {id: 1, name: 'ohne weitere zutat', amount: 0},
+              {id: 2, name: 'mit Annanas (0,90 €)', amount: 0.90},
+              {id: 3, name: 'mit Basillikum (1,80 €)', amount: 1.80},
+              {id: 4, name: 'mit Currysause (1,50 €)', amount: 1.50},
             ]
         }
       }

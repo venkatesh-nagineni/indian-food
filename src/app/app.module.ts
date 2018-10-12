@@ -22,6 +22,9 @@ import {SharedService} from './shared.service';
 import { MenucardComponent } from './menucard/menucard.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AdmininterfaceComponent } from './admininterface/admininterface.component';
+import { CurrencyEuroPipe } from './currency-euro.pipe';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { AdmininterfaceComponent } from './admininterface/admininterface.compone
     ForgotpwdComponent,
     ExtraOptionsComponent,
     MenucardComponent,
-    AdmininterfaceComponent
+    AdmininterfaceComponent,
+    CurrencyEuroPipe
   ],
   imports: [
     BrowserModule,
@@ -47,8 +51,10 @@ import { AdmininterfaceComponent } from './admininterface/admininterface.compone
     AppMaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    MultiselectDropdownModule,
     ModalModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    NgMultiSelectDropDownModule.forRoot()
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
   providers: [SharedService],

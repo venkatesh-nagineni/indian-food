@@ -11,18 +11,21 @@ import {SharedService} from '../shared.service';
 })
 export class MenucardComponent implements OnInit {
 
-  hello: boolean;
+  isChecked: boolean;
+
   shoppingListItems: ShopListTypes[] = shoppingList;
-  collapse: boolean;
   listindex: any;
   eachItem: any;
   PizzaSizeAmount: number;
-  pizzaExtraAmount: number;
   selectedPizzaSize: any;
   selectedExtraPrice: any;
   totalAmount: number;
   quantity = 1;
   addCartList = [];
+  extraAmountSum = [];
+
+  dropdownList = [];
+  dropdownSettings = {};
 
   @ViewChildren('linkRef') linkRefs;
 
@@ -31,34 +34,50 @@ export class MenucardComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   expandItem(item, itemNo) {
     this.quantity = 1;
     this.eachItem = item;
     this.listindex = itemNo;
-    this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].value;
-    this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].value;
+    this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
+    this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
+    this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
     this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount + this.eachItem.itemExtraOptionPrice.prices[0].amount;
     this.shared.updatedAmount(this.totalAmount);
   }
 
-  expandItemAmount() {
-    this.eachItem.itemExtraOptionsizes.sizes.forEach(item => {
-      if (item.value === this.selectedPizzaSize) {
-        this.PizzaSizeAmount = item.amount;
-      }
-    });
-    this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
-      if (item.value === this.selectedExtraPrice) {
-        this.pizzaExtraAmount = item.amount;
-      }
-    });
-    const extraAmountSum = [this.PizzaSizeAmount, this.pizzaExtraAmount];
-    this.totalAmount = extraAmountSum.reduce((a, b) => {
-      return a + b;
-    });
-    this.shared.updatedAmount(this.totalAmount);
+  checkExtraOptions(checkeditem, checked) {
+
+    if (checked !== 'noevent') {
+      this.isChecked = checked.target.checked;
+    }
+
+    if (checkeditem === 'notupdate') {
+      this.eachItem.itemExtraOptionsizes.sizes.forEach(item => {
+        if (item.name === this.selectedPizzaSize) {
+          this.totalAmount = item.amount;
+          this.shared.updatedAmount(item.amount);
+        }
+      });
+    } else if (this.isChecked === true) {
+      this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
+        const value = this.shared.updateAmountValue.getValue();
+        if (item.id === checkeditem.id) {
+         this.totalAmount = value + checkeditem.amount;
+          this.shared.updatedAmount(this.totalAmount);
+        }
+      });
+    } else if (this.isChecked === false) {
+      this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
+        const value = this.shared.updateAmountValue.getValue();
+        if (item.id === checkeditem.id) {
+         this.totalAmount = value - checkeditem.amount;
+          this.shared.updatedAmount(this.totalAmount);
+        }
+      });
+    }
   }
 
   incrementItem() {
@@ -96,5 +115,15 @@ export class MenucardComponent implements OnInit {
     el.scrollIntoView({ behavior: 'instant', block: 'start' });
     window.scrollBy(0, -80);
   }
+
+/*   onItemDeSelect(uncheckedItem) {
+    this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
+      const value = this.shared.updateAmountValue.getValue();
+        if (item.id === uncheckedItem.id) {
+          this.totalAmount = value - item.amount;
+          this.shared.updatedAmount(this.totalAmount);
+        }
+    });
+} */
 
 }

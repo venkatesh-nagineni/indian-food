@@ -17,19 +17,14 @@ export class AppComponent implements OnInit {
   isContactVisible: boolean;
   isLoginVisible: boolean;
   disableMenu: boolean;
+  disablePointer = false;
   @ViewChild('onlinebestellen') onlinebestellen: ElementRef;
   homeSection = true;
   onlineSection = true;
   adminSection = false;
+  disableHeader = true;
 
   constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
-    this.sharedService.disableService.subscribe(value => {
-      if (value === true) {
-        this.disableMenu = true;
-      } else {
-        this.disableMenu = false;
-      }
-    });
   }
 
   ngOnInit() {
@@ -49,22 +44,31 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openAdminLogin() {
+  /* openAdminLogin() {
     this.isLoginVisible = true;
     const dialogRef = this.dialog.open(AdminloginComponent, {hasBackdrop: false});
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
     });
-  }
+  } */
 
   openUserLogin() {
     const dialogRef = this.dialog.open(UserloginComponent, {hasBackdrop: false});
+    this.disablePointer = true;
+    this.disableMenu = true;
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
-      if (result.valid === true) {
-        this.adminSection = true;
-        this.homeSection = false;
-        this.onlineSection = false;
+      this.disablePointer = false;
+      this.disableMenu = false;
+      if (result) {
+        if (result.valid === true) {
+          this.adminSection = true;
+          this.homeSection = false;
+          this.onlineSection = false;
+          this.disablePointer = true;
+          this.disableMenu = false;
+          this.disableHeader = false;
+        }
       }
     });
   }
@@ -72,6 +76,7 @@ export class AppComponent implements OnInit {
   navigation(page) {
     if (page === 'online') {
         this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+        this.disableHeader = true;
     }
   }
 
@@ -79,6 +84,8 @@ export class AppComponent implements OnInit {
     this.adminSection = false;
     this.homeSection = true;
     this.onlineSection = true;
+    this.disablePointer = false;
+    this.disableHeader = true;
   }
 
 }

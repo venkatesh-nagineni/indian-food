@@ -8,6 +8,7 @@ export class SharedService {
 
   disableService: BehaviorSubject<boolean> = new BehaviorSubject(false);
   updateAmountValue: BehaviorSubject<number> = new BehaviorSubject(0);
+  itemNo: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor() { }
 
@@ -16,8 +17,11 @@ export class SharedService {
   }
 
   updatedAmount(value) {
-    console.log(value);
     this.updateAmountValue.next(value);
+  }
+
+  updateItemNo(number) {
+    this.itemNo.next(number);
   }
 
 

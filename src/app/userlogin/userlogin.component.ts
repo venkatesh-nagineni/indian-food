@@ -12,6 +12,7 @@ export class UserloginComponent implements OnInit {
 
   username: string;
   password: string;
+  ErrorMessage = false;
 
   constructor(private dialog: MatDialog, public dialogRef: MatDialogRef<UserloginComponent>) { }
 
@@ -39,6 +40,8 @@ export class UserloginComponent implements OnInit {
     let valid = false;
     if (username === 'admin' && password === 'admin') {
       valid = true;
+    } else {
+      this.ErrorMessage = true;
     }
 
     if (valid === true) {

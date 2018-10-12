@@ -4,18 +4,18 @@
       <i class="material-icons"> menu </i>
     </span>
     <div style="text-align:center">
-      <a (click)="home()" class="logo" style="font-family:cursive;cursor: pointer;" [class.disabledpointer]="disableMenu">
+      <a (click)="home()" class="logo" style="font-family:cursive;cursor: pointer;" [class.disabled]="disableMenu">
         <i class="material-icons" style="color:orange">restaurant_menu</i>
         Pizzeria express rodgau
       </a>
     </div>
     <ul class="main-nav" id="js-menu">
       <li>
-        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disableMenu"> ONLINE
+        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> ONLINE
           BESTELLEN </button>
       </li>
       <li>
-        <button mat-icon-button (click)="openUserLogin()">
+        <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
           <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
         </button>
       </li>
@@ -23,7 +23,7 @@
   </nav>
 </div>
 
-<header>
+<header *ngIf="disableHeader">
   <div class="overlay"></div>
   <video autoplay muted loop onloadedmetadata="this.muted = true">
     <source src="../assets/video/background_video.mp4" type="video/mp4" />

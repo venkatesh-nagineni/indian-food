@@ -13,14 +13,19 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+   <!--  <mat-form-field class="example-full-width">
       <mat-select placeholder="{{data.itemExtraOptionPrice.itemPlaceholderName}}" [(ngModel)]="selectedExtraPrice" (ngModelChange)="conformAmount()">
           <mat-option value="secondoption"> Choose Extra</mat-option>
         <mat-option *ngFor="let extraprice of data.itemExtraOptionPrice.prices" [value]="extraprice.value">
           {{extraprice.value}}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="{{data.itemExtraOptionPrice.itemPlaceholderName}}" [(ngModel)]="selectedExtraPrice" (ngModelChange)="conformAmount()"  multiple>
+          <mat-option *ngFor="let extraprice of data.itemExtraOptionPrice.prices" [value]="extraprice.value">{{extraprice.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
   </div>
 </div>
 

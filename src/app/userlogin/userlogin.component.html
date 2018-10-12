@@ -5,13 +5,21 @@
     </button>
   </h3>
   <div class="example-form">
+          <div *ngIf="ErrorMessage">
+            <div class="error-notice">
+                  <div class="oaerror danger">
+                    <strong>Error</strong> - Wrong username/password
+                  </div>
+                </div>
+          </div>
+
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>email</mat-icon>
-      <input type="email" matInput placeholder="Email or username" [(ngModel)]="username">
+      <input type="email" matInput placeholder="Email or username" [(ngModel)]="username" (keyup.enter)="login(username, password)">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+      <input type="password" matInput placeholder="Password" [(ngModel)]="password" (keyup.enter)="login(username, password)">
       <mat-icon matSuffix>visibility_off</mat-icon>
     </mat-form-field>
 
