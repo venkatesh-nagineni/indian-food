@@ -9,6 +9,8 @@ export class SharedService {
   disableService: BehaviorSubject<boolean> = new BehaviorSubject(false);
   updateAmountValue: BehaviorSubject<number> = new BehaviorSubject(0);
   itemNo: BehaviorSubject<number> = new BehaviorSubject(0);
+  cartQuantity: BehaviorSubject<number> = new BehaviorSubject(0);
+  cartTotalAmount: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor() { }
 
@@ -22,6 +24,16 @@ export class SharedService {
 
   updateItemNo(number) {
     this.itemNo.next(number);
+  }
+
+  updateCartQuantity(quantity) {
+    const addEachQuantity = this.cartQuantity + quantity;
+    this.cartQuantity.next(addEachQuantity);
+  }
+
+  updateCartAmount(amount) {
+    const addEachAmount = this.cartTotalAmount + amount;
+    this.cartTotalAmount.next(addEachAmount);
   }
 
 

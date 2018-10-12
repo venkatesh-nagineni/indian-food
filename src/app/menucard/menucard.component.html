@@ -1,9 +1,9 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header">
   <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
-    0 €</span>
+    {{itemTotalAmount || 0}} €</span>
   <span style="cursor:pointer">
-    <mat-icon matBadge="0" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
+    <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
 </mat-toolbar>
 
@@ -42,7 +42,7 @@
 
             <div id="detail-1" *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
               <div class="form-group">
-                <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand(i)">expand_less</mat-icon><br>
+                <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
                 <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
                   <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>

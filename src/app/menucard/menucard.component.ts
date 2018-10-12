@@ -23,6 +23,11 @@ export class MenucardComponent implements OnInit {
   quantity = 1;
   addCartList = [];
   extraAmountSum = [];
+  itemQuantity: number;
+  itemTotalAmount: any;
+
+  cartTotalAmount = [];
+  cartTotalQuantity = [];
 
   dropdownList = [];
   dropdownSettings = {};
@@ -94,20 +99,48 @@ export class MenucardComponent implements OnInit {
     });
   }
 
-  closeExpand(i) {
+  closeExpand() {
     this.listindex = -1;
-    this.quantity = 1;
   }
 
   addToCart() {
-    const data = [
-      {
-        ItemDetails: this.eachItem,
-        quantity: this.quantity,
-        itemtotalamount: this.totalAmount
-      }
-    ];
+    /*     this.itemQuantity = this.quantity;
+        this.itemTotalAmount = this.totalAmount; */
+    this.closeExpand();
+
+    const data = {
+      // ItemDetails: this.eachItem,
+      itemNo: this.eachItem.itemNo,
+      quantity: this.quantity,
+      itemtotalamount: this.totalAmount
+    };
+
+    this.cartTotalAmount.push(data.itemtotalamount);
+    this.cartTotalQuantity.push(data.quantity);
+
+    this.itemTotalAmount = this.cartTotalAmount.reduce((a, b) => {
+      return a + b;
+    });
+
+    this.itemQuantity = this.cartTotalQuantity.reduce((a, b) => {
+      return a + b;
+    });
+
     this.addCartList.push(data);
+    const hello = this.addCartList.reduce((results, org) => {
+      (results[org.itemNo] = results[org.itemNo] || []).push(org);
+      return results;
+  }, {});
+  console.log(hello);
+
+
+    /* this.addCartList.reduce((prev, next) => {
+      if (prev.itemNo === next.itemNo) {
+
+      }
+    }); */
+
+
   }
 
   scrollToSection(scrollSection) {
