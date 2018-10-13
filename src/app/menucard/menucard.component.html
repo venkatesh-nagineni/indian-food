@@ -41,7 +41,7 @@
               </div>
             </li>
 
-            <div id="detail-1" *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
+            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
