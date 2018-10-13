@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef} from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {SharedService} from '../shared.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-menucard',
@@ -24,7 +26,8 @@ export class MenucardComponent implements OnInit {
   addCartList = [];
   extraAmountSum = [];
   itemQuantity: number;
-  itemTotalAmount: any;
+  itemTotalAmount = 0;
+  selectionModalRef: BsModalRef;
 
   cartTotalAmount = [];
   cartTotalQuantity = [];
@@ -32,9 +35,16 @@ export class MenucardComponent implements OnInit {
   dropdownList = [];
   dropdownSettings = {};
 
+  viewCheckoutList = [];
+
+  selectionConfig = {
+    ignoreBackdropClick: false,
+    class: 'modal-lg'
+  };
+
   @ViewChildren('linkRef') linkRefs;
 
-  constructor(fb: FormBuilder, private shared: SharedService) {
+  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService) {
 
   }
 
@@ -104,12 +114,11 @@ export class MenucardComponent implements OnInit {
   }
 
   addToCart() {
-    /*     this.itemQuantity = this.quantity;
-        this.itemTotalAmount = this.totalAmount; */
     this.closeExpand();
 
     const data = {
       // ItemDetails: this.eachItem,
+      itemName: this.eachItem.itemName,
       itemNo: this.eachItem.itemNo,
       quantity: this.quantity,
       itemtotalamount: this.totalAmount
@@ -127,19 +136,38 @@ export class MenucardComponent implements OnInit {
     });
 
     this.addCartList.push(data);
-    const hello = this.addCartList.reduce((results, org) => {
-      (results[org.itemNo] = results[org.itemNo] || []).push(org);
-      return results;
-  }, {});
-  console.log(hello);
+
+   /*  const result = [];
+
+this.addCartList.forEach(function(obj) {
+  const id = obj.itemNo;
+  if (!this[id]) {
+    result.push(this[id] = obj);
+  } else {
+   this[id].quantity += obj.quantity;
+    this[id].itemtotalamount += obj.itemtotalamount;
+  }
+}, Object.create(null));
+
+console.log(result); */
 
 
-    /* this.addCartList.reduce((prev, next) => {
-      if (prev.itemNo === next.itemNo) {
+const result = [];
+const grouped = {};
 
+    this.addCartList.forEach(function (obj) {
+      const id = obj.itemNo;
+      if (!grouped[id]) {
+        const groupedItem = Object.keys(obj).reduce(function (acc, k) { acc[k] = obj[k]; return acc; }, {});
+        result.push(grouped[id] = groupedItem);
+      } else {
+        grouped[id].quantity += obj.quantity;
+        grouped[id].itemtotalamount += obj.itemtotalamount;
       }
-    }); */
+    }, Object.create(null));
 
+this.viewCheckoutList = result;
+console.log(this.viewCheckoutList);
 
   }
 
@@ -149,14 +177,8 @@ export class MenucardComponent implements OnInit {
     window.scrollBy(0, -80);
   }
 
-/*   onItemDeSelect(uncheckedItem) {
-    this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
-      const value = this.shared.updateAmountValue.getValue();
-        if (item.id === uncheckedItem.id) {
-          this.totalAmount = value - item.amount;
-          this.shared.updatedAmount(this.totalAmount);
-        }
-    });
-} */
+  openCart(template: TemplateRef<any>) {
+    this.selectionModalRef = this.modalService.show(template, this.selectionConfig);
+  }
 
 }

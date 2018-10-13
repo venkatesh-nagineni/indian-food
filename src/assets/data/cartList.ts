@@ -11,6 +11,7 @@ itemDetailedDescription: Array<Object>; */
 export const shoppingList = [
   {
     dishType: 'VORSPEISEN',
+    banner: '../assets/images/pizza_banner.png',
     dishItems: [
       {
         itemNo: 1,
@@ -171,6 +172,7 @@ export const shoppingList = [
 
   {
     dishType: 'SUPPEN',
+    banner: '../assets/images/supen_banner.png',
     dishItems: [
       {
         itemNo: 5,
@@ -328,6 +330,7 @@ export const shoppingList = [
 
   {
     dishType: 'SALATE',
+    banner: '../assets/images/salat_banner.png',
     dishItems: [
       {
         itemNo: 9,
@@ -484,6 +487,7 @@ export const shoppingList = [
   },
   {
     dishType: 'Pizza Die Besteller',
+    banner: '../assets/images/besteller_banner.png',
     dishItems: [
       {
         itemNo: 13,

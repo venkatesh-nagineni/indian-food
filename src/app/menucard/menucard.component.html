@@ -1,8 +1,8 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header">
   <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
-    {{itemTotalAmount || 0}} €</span>
-  <span style="cursor:pointer">
+    {{itemTotalAmount | currencyEuro}} €</span>
+  <span style="cursor:pointer" (click)="openCart(template)">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
 </mat-toolbar>
@@ -18,6 +18,7 @@
     <div class="col-md-9">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems;let j = index;">
+            <img src="{{shoppinglist.banner}}" alt="category banner" />
           <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}">
             {{shoppinglist.dishType}}
           </h4>
@@ -79,3 +80,47 @@
     </div>
   </div>
 </div>
+
+<ng-template #template>
+  <div class="modal-body gray modal-lg">
+    <div>
+      <table id="cart" class="table table-hover table-condensed">
+          <thead>
+            <tr>
+              <th style="width:40%">Item</th>
+              <th style="width:10%">Quantity</th>
+              <th style="width:25%" class="aligntex">Subtotal</th>
+              <th style="width:10%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of viewCheckoutList;let i = index;">
+              <td data-th="Product" style="padding-top:10px !important">
+                <div class="row">
+                  <div class="col-sm-10">
+                    <p style="margin-top:5px">{{item.quantity}} x {{item.itemName}}</p>
+                  </div>
+                </div>
+              </td>
+              <td data-th="Quantity">
+                <mat-icon class="iconremove">remove</mat-icon>&nbsp;&nbsp;
+                <mat-icon class="iconadd">add</mat-icon>
+              </td>
+              <td data-th="Subtotal" class="aligntex">€ {{item.itemtotalamount | currencyEuro}}</td>
+              <td class="actions" data-th="">
+                  <mat-icon color="warn" class="icondelete">cancel</mat-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+          <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px"> Total: {{itemTotalAmount | currencyEuro}} € </strong>
+              <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left">
+                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Cancel</span>
+                </button>
+              <button mat-raised-button color="primary" style="float: right" (click)="confirmSelection(confirmselection)">
+                  <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span> <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
+                </button>
+          </p>
+        </div>
+  </div>
+</ng-template>
