@@ -18,10 +18,10 @@
     <div class="col-md-9">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems;let j = index;">
-            <img src="{{shoppinglist.banner}}" alt="category banner" />
           <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}">
             {{shoppinglist.dishType}}
           </h4>
+          <img src="{{shoppinglist.banner}}" alt="category banner" />
           <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
             <li (click)="expandItem(items, items.itemNo)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">

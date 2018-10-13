@@ -126,7 +126,7 @@
 	.google-plus:hover a {
 		color: rgb(255, 255, 255) !important;
 		background-color: rgb(221, 75, 57) !important;
-	}
+  }
 
 	@media (min-width: 768px) {
 		.event-list > li {
@@ -278,6 +278,7 @@
   img {
     width: 100%;
     height: 20%;
+    border-radius: 5px;
   }
 
 
