@@ -18,7 +18,6 @@ export const shoppingList = [
         itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/pizza1.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -57,7 +56,6 @@ export const shoppingList = [
         itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
-        imgSrc: '../assets/images/pizza2.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -96,7 +94,6 @@ export const shoppingList = [
         itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
-        imgSrc: '../assets/images/pizza3.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -135,7 +132,6 @@ export const shoppingList = [
         itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
-        imgSrc: '../assets/images/pizza4.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -179,7 +175,6 @@ export const shoppingList = [
         itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/pizza1.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -217,7 +212,6 @@ export const shoppingList = [
         itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
-        imgSrc: '../assets/images/pizza2.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -255,7 +249,6 @@ export const shoppingList = [
         itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
-        imgSrc: '../assets/images/pizza3.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -293,7 +286,6 @@ export const shoppingList = [
         itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
-        imgSrc: '../assets/images/pizza4.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -337,7 +329,6 @@ export const shoppingList = [
         itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/pizza1.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -375,7 +366,6 @@ export const shoppingList = [
         itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
-        imgSrc: '../assets/images/pizza2.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -413,7 +403,6 @@ export const shoppingList = [
         itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
-        imgSrc: '../assets/images/pizza3.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -451,7 +440,6 @@ export const shoppingList = [
         itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
-        imgSrc: '../assets/images/pizza4.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -494,7 +482,6 @@ export const shoppingList = [
         itemName: 'Pizza Salami',
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
-        imgSrc: '../assets/images/pizza1.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -532,7 +519,6 @@ export const shoppingList = [
         itemName: 'Pizza Margherita',
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
-        imgSrc: '../assets/images/pizza2.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -570,7 +556,6 @@ export const shoppingList = [
         itemName: 'Pizza Boston',
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
-        imgSrc: '../assets/images/pizza3.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {
@@ -608,7 +593,6 @@ export const shoppingList = [
         itemName: 'Pizza Chemnitz',
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
-        imgSrc: '../assets/images/pizza4.png',
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
         itemDetailedDescription: [
           {

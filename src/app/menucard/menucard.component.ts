@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {SharedService} from '../shared.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
@@ -80,7 +80,7 @@ export class MenucardComponent implements OnInit {
       this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
         const value = this.shared.updateAmountValue.getValue();
         if (item.id === checkeditem.id) {
-         this.totalAmount = value + checkeditem.amount;
+          this.totalAmount = value + checkeditem.amount;
           this.shared.updatedAmount(this.totalAmount);
         }
       });
@@ -88,7 +88,7 @@ export class MenucardComponent implements OnInit {
       this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
         const value = this.shared.updateAmountValue.getValue();
         if (item.id === checkeditem.id) {
-         this.totalAmount = value - checkeditem.amount;
+          this.totalAmount = value - checkeditem.amount;
           this.shared.updatedAmount(this.totalAmount);
         }
       });
@@ -96,14 +96,14 @@ export class MenucardComponent implements OnInit {
   }
 
   incrementItem() {
-    this.quantity ++;
+    this.quantity++;
     this.shared.updateAmountValue.subscribe(amount => {
       this.totalAmount = amount * this.quantity;
     });
   }
 
   decrementItem() {
-    this.quantity --;
+    this.quantity--;
     this.shared.updateAmountValue.subscribe(amount => {
       this.totalAmount = amount * this.quantity;
     });
@@ -137,23 +137,8 @@ export class MenucardComponent implements OnInit {
 
     this.addCartList.push(data);
 
-   /*  const result = [];
-
-this.addCartList.forEach(function(obj) {
-  const id = obj.itemNo;
-  if (!this[id]) {
-    result.push(this[id] = obj);
-  } else {
-   this[id].quantity += obj.quantity;
-    this[id].itemtotalamount += obj.itemtotalamount;
-  }
-}, Object.create(null));
-
-console.log(result); */
-
-
-const result = [];
-const grouped = {};
+    const result = [];
+    const grouped = {};
 
     this.addCartList.forEach(function (obj) {
       const id = obj.itemNo;
@@ -166,8 +151,7 @@ const grouped = {};
       }
     }, Object.create(null));
 
-this.viewCheckoutList = result;
-console.log(this.viewCheckoutList);
+    this.viewCheckoutList = result;
 
   }
 

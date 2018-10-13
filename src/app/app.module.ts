@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ContactComponent} from './contact/contact.component';
-import {AdminloginComponent} from './adminlogin/adminlogin.component';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ContactComponent} from './contact/contact.component';
+import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { ShopitemsComponent } from './shopitems/shopitems.component';
-import {routingModule} from './routing.module';
-import {HomeComponent} from './home/home.component';
-import { NgxGalleryModule } from 'ngx-gallery';
+import { routingModule} from './routing.module';
+import { HomeComponent} from './home/home.component';
 import { InfoTextComponent } from './info-text/info-text.component';
 import { AppMaterialModule } from './material.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -18,13 +17,10 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { ExtraOptionsComponent } from './extra-options/extra-options.component';
-import {SharedService} from './shared.service';
+import { SharedService} from './shared.service';
 import { MenucardComponent } from './menucard/menucard.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AdmininterfaceComponent } from './admininterface/admininterface.component';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 @NgModule({
   declarations: [
@@ -47,14 +43,10 @@ import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
     BrowserModule,
     BrowserAnimationsModule,
     routingModule,
-    NgxGalleryModule,
     AppMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MultiselectDropdownModule,
     ModalModule.forRoot(),
-    CollapseModule.forRoot(),
-    NgMultiSelectDropDownModule.forRoot()
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
   providers: [SharedService],
