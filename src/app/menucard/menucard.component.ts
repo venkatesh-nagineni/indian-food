@@ -5,6 +5,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {InfoTextComponent} from '../info-text/info-text.component';
+import { MatDialog } from '@angular/material';
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
+import { groupBy } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-menucard',
@@ -24,34 +30,42 @@ export class MenucardComponent implements OnInit {
   totalAmount: number;
   quantity = 1;
   addCartList = [];
-  extraAmountSum = [];
-  itemQuantity: number;
+  itemQuantity = 0;
   totalAmountOnHeader = 0;
   selectionModalRef: BsModalRef;
-
-  cartTotalAmount = [];
-  cartTotalQuantity = [];
-
-  dropdownList = [];
-  dropdownSettings = {};
-
-  viewCheckoutList = [];
-  cartFinalTotalAmount = 0;
+  extraModalref: BsModalRef;
+  checkoutaddressRef: BsModalRef;
+  extras = [];
+  data: any;
 
   selectionConfig = {
     ignoreBackdropClick: false,
     class: 'modal-lg'
   };
 
+  extraConfig = {
+    ignoreBackdropClick: false,
+    class: 'modal-dialog-centered'
+  };
+
   @ViewChildren('linkRef') linkRefs;
 
-  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService) {
+  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog) {
 
   }
 
   ngOnInit() {
 
   }
+
+  UncheckAll() {
+    const w = document.getElementsByTagName('input');
+    for (let i = 0; i < w.length; i++) {
+      if (w[i].type === 'checkbox') {
+        w[i].checked = false;
+      }
+    }
+}
 
   expandItem(item, itemNo) {
     this.quantity = 1;
@@ -73,24 +87,33 @@ export class MenucardComponent implements OnInit {
     if (checkeditem === 'notupdate') {
       this.eachItem.itemExtraOptionsizes.sizes.forEach(item => {
         if (item.name === this.selectedPizzaSize) {
+          console.log(item);
           this.totalAmount = item.amount;
           this.shared.updatedAmount(item.amount);
+          this.UncheckAll();
+          this.quantity = 1;
         }
       });
     } else if (this.isChecked === true) {
       this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
-        const value = this.shared.updateAmountValue.getValue();
         if (item.id === checkeditem.id) {
+          const value = this.shared.updateAmountValue.getValue();
           this.totalAmount = value + checkeditem.amount;
           this.shared.updatedAmount(this.totalAmount);
+          this.extras.push(checkeditem);
+          const amount = this.shared.updateAmountValue.getValue();
+          this.totalAmount = amount * this.quantity;
         }
       });
     } else if (this.isChecked === false) {
       this.eachItem.itemExtraOptionPrice.prices.forEach(item => {
-        const value = this.shared.updateAmountValue.getValue();
         if (item.id === checkeditem.id) {
+          const value = this.shared.updateAmountValue.getValue();
           this.totalAmount = value - checkeditem.amount;
           this.shared.updatedAmount(this.totalAmount);
+          this.extras = this.extras.filter(x => x.id !== checkeditem.id);
+          const amount = this.shared.updateAmountValue.getValue();
+          this.totalAmount = amount * this.quantity;
         }
       });
     }
@@ -98,16 +121,16 @@ export class MenucardComponent implements OnInit {
 
   incrementItem() {
     this.quantity++;
-    this.shared.updateAmountValue.subscribe(amount => {
-      this.totalAmount = amount * this.quantity;
-    });
+    const amount = this.shared.updateAmountValue.getValue();
+    this.totalAmount = amount * this.quantity;
+    this.shared.updateCartAmount(this.totalAmount);
   }
 
   decrementItem() {
     this.quantity--;
-    this.shared.updateAmountValue.subscribe(amount => {
-      this.totalAmount = amount * this.quantity;
-    });
+    const amount = this.shared.updateAmountValue.getValue();
+    this.totalAmount = amount * this.quantity;
+    this.shared.updateCartAmount(this.totalAmount);
   }
 
   closeExpand() {
@@ -115,44 +138,23 @@ export class MenucardComponent implements OnInit {
   }
 
   addToCart() {
-    this.closeExpand();
-
     const data = {
-      // ItemDetails: this.eachItem,
       itemName: this.eachItem.itemName,
       itemNo: this.eachItem.itemNo,
       quantity: this.quantity,
-      itemtotalamount: this.totalAmount
+      itemtotalamount: this.totalAmount,
+      extras: this.extras,
+      pizzaSize: this.selectedPizzaSize
     };
 
-    this.cartTotalAmount.push(data.itemtotalamount);
-    this.cartTotalQuantity.push(data.quantity);
-
-    this.totalAmountOnHeader = this.cartTotalAmount.reduce((a, b) => {
-      return a + b;
-    });
-
-    this.itemQuantity = this.cartTotalQuantity.reduce((a, b) => {
-      return a + b;
-    });
+    this.itemQuantity += this.quantity;
 
     this.addCartList.push(data);
 
-    const result = [];
-    const grouped = {};
+    this.totalAmountOnHeader += this.totalAmount;
 
-    this.addCartList.forEach(function (obj) {
-      const id = obj.itemNo;
-      if (!grouped[id]) {
-        const groupedItem = Object.keys(obj).reduce(function (acc, k) { acc[k] = obj[k]; return acc; }, {});
-        result.push(grouped[id] = groupedItem);
-      } else {
-        grouped[id].quantity += obj.quantity;
-        grouped[id].itemtotalamount += obj.itemtotalamount;
-      }
-    }, Object.create(null));
-
-    this.viewCheckoutList = result;
+    this.extras = [];
+    this.closeExpand();
 
   }
 
@@ -164,47 +166,54 @@ export class MenucardComponent implements OnInit {
 
   openCart(template: TemplateRef<any>) {
     this.selectionModalRef = this.modalService.show(template, this.selectionConfig);
-   /*  if (this.viewCheckoutList.length !== 1) {
-      this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
-        return a.itemtotalamount + b.itemtotalamount;
-      });
-    } else {
-      this.cartFinalTotalAmount = this.viewCheckoutList[0].itemtotalamount;
-    } */
   }
 
   cartDecrement(actionitem, index) {
-    this.viewCheckoutList.forEach((item) => {
-      if (actionitem.itemNo === item.itemNo) {
-          const eachItemPrice = actionitem.itemtotalamount / actionitem.quantity;
-          this.viewCheckoutList[index].quantity = this.viewCheckoutList[index].quantity - 1;
-          this.viewCheckoutList[index].itemtotalamount = this.viewCheckoutList[index].itemtotalamount - eachItemPrice;
-          this.itemQuantity = this.itemQuantity - 1;
-          this.totalAmountOnHeader = this.totalAmountOnHeader - eachItemPrice;
+    this.addCartList.forEach(item => {
+      if (item.itemNo === actionitem.itemNo) {
+        const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
+        this.addCartList[index].itemtotalamount -= eachitemprice;
+        this.addCartList[index].quantity -= 1;
+        this.totalAmount -= eachitemprice;
+        this.totalAmountOnHeader -= eachitemprice;
+        this.itemQuantity -= 1;
       }
     });
-    /* this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
-      return a.itemtotalamount + b.itemtotalamount;
-    }); */
   }
 
   cartIncrement(actionitem, index) {
-    this.viewCheckoutList.forEach((item) => {
-      if (actionitem.itemNo === item.itemNo) {
-          const eachItemPrice = actionitem.itemtotalamount / actionitem.quantity;
-          this.viewCheckoutList[index].quantity = this.viewCheckoutList[index].quantity + 1;
-          this.viewCheckoutList[index].itemtotalamount = this.viewCheckoutList[index].itemtotalamount + eachItemPrice;
-          this.itemQuantity = this.itemQuantity + 1;
-          this.totalAmountOnHeader = this.totalAmountOnHeader + eachItemPrice;
+    console.log(actionitem);
+    this.addCartList.forEach(item => {
+      if (item.itemNo === actionitem.itemNo) {
+        const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
+        this.addCartList[index].itemtotalamount += eachitemprice;
+        this.addCartList[index].quantity += 1;
+        this.totalAmount += eachitemprice;
+        this.totalAmountOnHeader += eachitemprice;
+        this.itemQuantity += 1;
       }
     });
-    /* this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
-      return a.itemtotalamount + b.itemtotalamount;
-    }); */
   }
 
-  cartDelete(item) {
-    console.log(item);
+  openInfoText(templateNested, infotext) {
+    this.extraModalref = this.modalService.show(templateNested, this.extraConfig);
+    this.data = infotext;
+  }
+
+
+  cartDelete(actionitem, index) {
+    this.addCartList.splice(index, 1);
+    this.totalAmount -= actionitem.itemtotalamount;
+    this.totalAmountOnHeader -= actionitem.itemtotalamount;
+    this.itemQuantity -= actionitem.quantity;
+    if (this.itemQuantity === 0) {
+      this.selectionModalRef.hide();
+    }
+  }
+
+  confirmBestellen(template: TemplateRef<any>) {
+    this.checkoutaddressRef = this.modalService.show(template, this.selectionConfig);
+    this.selectionModalRef.hide();
   }
 
 }

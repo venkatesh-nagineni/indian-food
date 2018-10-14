@@ -1,0 +1,56 @@
+.example-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.cc-selector-2 {
+
+  .cc-selector-2 input{
+    position:absolute;
+    z-index:999;
+  }
+
+  .visa{background-image:url(https://scitechafrica.files.wordpress.com/2018/02/cashless-policy.jpg?w=640);}
+  .mastercard{background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRonxTNciDEsEJQjXga6Xyp5bNCZT9sTkxBQ29k4E8MsTPBdO3eEw);}
+
+  .cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: 0.2;}
+  .cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+  }
+  .drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+            -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+                 filter: brightness(1.2) grayscale(.5) opacity(.9);
+  }
+  .drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+  }
+
+  /* Extras */
+  a{color:#444;text-decoration:none;}
+  p{margin-bottom:.3em;}
+  * { font-family:monospace; }
+  .cc-selector-2 input{ margin: 5px 0 0 12px; }
+  .cc-selector-2 label{ margin-left: 7px; }
+  span.cc{ color:#6d84b4 }
+
+}
+
+

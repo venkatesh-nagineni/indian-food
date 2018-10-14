@@ -1,12 +1,14 @@
-<h1 mat-dialog-title>Chicken Tikka
+<h1 mat-dialog-title>Extras
   <button mat-icon-button color="primary" style="float: right;border:none" (click)="cancelDialog()">
     <mat-icon>cancel</mat-icon>
   </button>
 </h1><br>
 <div mat-dialog-content>
-  <ul *ngFor="let text of data">
-    <li>
-      {{text.ingredients}}
-    </li>
-  </ul>
+  <div>
+      <ul *ngFor="let text of data">
+          <li>
+            {{text.name}}
+          </li>
+        </ul>
+  </div>
 </div>
