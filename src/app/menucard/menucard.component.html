@@ -1,6 +1,6 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header">
-  <span class="example-fill-remaining-space" style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+  <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{totalAmountOnHeader | currencyEuro}} €</span>
   <span style="cursor:pointer" (click)="openCart(template)">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
@@ -32,16 +32,16 @@
                 <p class="desc">{{items.itemShortDescription}}</p>
                 <p class="desc">{{items.chooseExtraInfo}}</p>
               </div>
-              <div class="social">
+            <!--  <div class="social">
                 <ul>
                   <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
                   <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
                   <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
                 </ul>
-              </div>
+              </div> -->
             </li>
 
-            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 20px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
+            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>

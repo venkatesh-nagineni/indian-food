@@ -1,11 +1,33 @@
 <mat-tab-group>
-    <mat-tab label="Main Category">
-      <p>Here you can Enter information about Main Category</p>
+    <mat-tab label="Gerichte Ändern">
+        <div class="container-fluid">
+            <mat-card class="dishCard" style="margin:2%;">
+                <mat-card-header [style.backgroundColor]=" 'light gray' ">
+                    <mat-card-title>Gerichte Ändern</mat-card-title>
+                </mat-card-header>               
+                                     
+            </mat-card>
+
+            <div class="dish">
+                <form style="padding-left">
+                    <tr>
+                        <td>
+                            <input type="radio" name="Add Dish" value="male" checked> Male<br>
+                        </td>
+
+                        <td>
+                            <input type="radio" name="gender" value="remove Dish"> Other
+                        </td>
+                    </tr>
+                </form>
+            </div>
+        </div>
+        <p>Here you can Enter information about Main Category</p>
     </mat-tab>
-    <mat-tab label="Dish Items">
+    <mat-tab label="Angebote Ändern">
         <p>Here you can Enter information about Category specials</p>
     </mat-tab>
-    <mat-tab label="Done">
+    <mat-tab label="Benutzer Admin">
         <p>Finally upload data</p>
     </mat-tab>
-  </mat-tab-group>
+</mat-tab-group>
