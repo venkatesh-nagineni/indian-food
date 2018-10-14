@@ -1,6 +1,6 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header">
-  <span class="example-fill-remaining-space" style="text-align:right;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+  <span class="example-fill-remaining-space" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{itemTotalAmount | currencyEuro}} €</span>
   <span style="cursor:pointer" (click)="openCart(template)">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
