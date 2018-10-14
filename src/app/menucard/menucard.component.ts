@@ -26,7 +26,7 @@ export class MenucardComponent implements OnInit {
   addCartList = [];
   extraAmountSum = [];
   itemQuantity: number;
-  itemTotalAmount = 0;
+  totalAmountOnHeader = 0;
   selectionModalRef: BsModalRef;
 
   cartTotalAmount = [];
@@ -36,6 +36,7 @@ export class MenucardComponent implements OnInit {
   dropdownSettings = {};
 
   viewCheckoutList = [];
+  cartFinalTotalAmount = 0;
 
   selectionConfig = {
     ignoreBackdropClick: false,
@@ -127,7 +128,7 @@ export class MenucardComponent implements OnInit {
     this.cartTotalAmount.push(data.itemtotalamount);
     this.cartTotalQuantity.push(data.quantity);
 
-    this.itemTotalAmount = this.cartTotalAmount.reduce((a, b) => {
+    this.totalAmountOnHeader = this.cartTotalAmount.reduce((a, b) => {
       return a + b;
     });
 
@@ -163,6 +164,47 @@ export class MenucardComponent implements OnInit {
 
   openCart(template: TemplateRef<any>) {
     this.selectionModalRef = this.modalService.show(template, this.selectionConfig);
+   /*  if (this.viewCheckoutList.length !== 1) {
+      this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
+        return a.itemtotalamount + b.itemtotalamount;
+      });
+    } else {
+      this.cartFinalTotalAmount = this.viewCheckoutList[0].itemtotalamount;
+    } */
+  }
+
+  cartDecrement(actionitem, index) {
+    this.viewCheckoutList.forEach((item) => {
+      if (actionitem.itemNo === item.itemNo) {
+          const eachItemPrice = actionitem.itemtotalamount / actionitem.quantity;
+          this.viewCheckoutList[index].quantity = this.viewCheckoutList[index].quantity - 1;
+          this.viewCheckoutList[index].itemtotalamount = this.viewCheckoutList[index].itemtotalamount - eachItemPrice;
+          this.itemQuantity = this.itemQuantity - 1;
+          this.totalAmountOnHeader = this.totalAmountOnHeader - eachItemPrice;
+      }
+    });
+    /* this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
+      return a.itemtotalamount + b.itemtotalamount;
+    }); */
+  }
+
+  cartIncrement(actionitem, index) {
+    this.viewCheckoutList.forEach((item) => {
+      if (actionitem.itemNo === item.itemNo) {
+          const eachItemPrice = actionitem.itemtotalamount / actionitem.quantity;
+          this.viewCheckoutList[index].quantity = this.viewCheckoutList[index].quantity + 1;
+          this.viewCheckoutList[index].itemtotalamount = this.viewCheckoutList[index].itemtotalamount + eachItemPrice;
+          this.itemQuantity = this.itemQuantity + 1;
+          this.totalAmountOnHeader = this.totalAmountOnHeader + eachItemPrice;
+      }
+    });
+    /* this.cartFinalTotalAmount =  this.viewCheckoutList.reduce((a, b) => {
+      return a.itemtotalamount + b.itemtotalamount;
+    }); */
+  }
+
+  cartDelete(item) {
+    console.log(item);
   }
 
 }

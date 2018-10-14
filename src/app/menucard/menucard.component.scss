@@ -286,3 +286,24 @@
     border: 1px solid transparent;
     border-radius: 4px;
   }
+
+  .iconremove:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(42, 22, 116, 0.822);
+    transition: 0.5s;
+    border-radius:50%;
+  }
+
+  .iconadd:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(42, 22, 116, 0.822);
+    transition: 0.5s;
+    border-radius:50%;
+  }
+
+  .icondelete:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(212, 15, 25, 0.842);
+    transition: 0.5s;
+    border-radius:50%;
+  }
