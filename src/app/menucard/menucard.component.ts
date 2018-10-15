@@ -5,11 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import {InfoTextComponent} from '../info-text/info-text.component';
 import { MatDialog } from '@angular/material';
-import { Observable } from 'rxjs';
-import { from } from 'rxjs';
-import { groupBy } from 'rxjs/operators';
 
 
 @Component({

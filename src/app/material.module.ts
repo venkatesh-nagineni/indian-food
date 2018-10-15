@@ -13,6 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSidenavModule,
     MatListModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
   ],
   exports: [
     MatSelectModule,
@@ -50,7 +52,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSidenavModule,
     MatListModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
   ]
 })
 export class AppMaterialModule { }

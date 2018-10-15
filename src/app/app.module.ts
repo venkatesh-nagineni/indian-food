@@ -21,6 +21,7 @@ import { SharedService} from './shared.service';
 import { MenucardComponent } from './menucard/menucard.component';
 import { AdmininterfaceComponent } from './admininterface/admininterface.component';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CurrencyEuroPipe } from './currency-euro.pipe';
     AppMaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     ModalModule.forRoot(),
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],

@@ -1,0 +1,57 @@
+p {
+  padding: 170px;
+  margin: 100px auto;
+}
+
+.dish {
+    float: left;
+    margin-left: 5% ;
+    margin-top: 5% ;
+    border: 1px black;
+    }
+
+    .example-full-width {
+      width: 400px;
+    }
+
+    .container-fluid {
+      padding-left: 2% !important;
+    }
+
+    .radio-group {
+      padding-top: 2% !important;
+      padding-bottom: 15px;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .flexrow {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .flexcol {
+      margin-right: 10px;
+    }
+
+    .icondelete:hover {
+      cursor: pointer;
+      box-shadow: 0 0 0 2px rgba(212, 15, 25, 0.842);
+      transition: 0.5s;
+      border-radius:50%;
+    }
+
+    td {
+      padding-right: 30px;
+      padding-left: 10px;
+    }
+
+    td:last-child {
+      padding-right: 10px;
+    }
+
+    ::ng-deep .mat-tab-label {
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+ }

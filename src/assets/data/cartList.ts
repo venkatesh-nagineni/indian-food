@@ -19,17 +19,6 @@ export const shoppingList = [
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -57,17 +46,6 @@ export const shoppingList = [
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -95,17 +73,6 @@ export const shoppingList = [
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -133,17 +100,6 @@ export const shoppingList = [
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -176,17 +132,6 @@ export const shoppingList = [
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -213,17 +158,6 @@ export const shoppingList = [
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -250,17 +184,6 @@ export const shoppingList = [
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -287,17 +210,6 @@ export const shoppingList = [
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -330,17 +242,6 @@ export const shoppingList = [
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -367,17 +268,6 @@ export const shoppingList = [
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -404,17 +294,6 @@ export const shoppingList = [
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -441,17 +320,6 @@ export const shoppingList = [
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -483,17 +351,6 @@ export const shoppingList = [
         itemShortDescription: 'mariniertes im Tandoor gegrilltes',
         itemPrice: 7.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -520,17 +377,6 @@ export const shoppingList = [
         itemShortDescription: 'Vegetarische Kartoffeltaschen',
         itemPrice: 6.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -557,17 +403,6 @@ export const shoppingList = [
         itemShortDescription: 'Salat der Saison',
         itemPrice: 8.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [
@@ -594,17 +429,6 @@ export const shoppingList = [
         itemShortDescription: 'Paanipoori der Saison',
         itemPrice: 9.5,
         chooseExtraInfo: 'Wahl aus: Classic (ø 25cm), Medium (ø 28cm) oder Large (ø 32cm).',
-        itemDetailedDescription: [
-          {
-            ingredients: 'Enthält Erdnüsse/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          },
-          {
-            ingredients: 'Enthält Sojabohnen/-Erzeugnisse',
-          }
-        ],
         itemExtraOptionsizes: {
           itemPlaceholderName: 'Pizza Name',
           sizes: [

@@ -1,33 +1,144 @@
 <mat-tab-group>
-    <mat-tab label="Gerichte Ändern">
-        <div class="container-fluid">
-            <mat-card class="dishCard" style="margin:2%;">
+  <mat-tab label="Gerichte Ändern">
+    <div class="container-fluid">
+      <!--    <mat-card class="dishCard" style="margin:2%;">
                 <mat-card-header [style.backgroundColor]=" 'light gray' ">
                     <mat-card-title>Gerichte Ändern</mat-card-title>
-                </mat-card-header>               
-                                     
-            </mat-card>
+                </mat-card-header>
+            </mat-card> -->
 
-            <div class="dish">
-                <form style="padding-left">
-                    <tr>
-                        <td>
-                            <input type="radio" name="Add Dish" value="male" checked> Male<br>
-                        </td>
+      <div class="radio-group">
+        <mat-radio-group [(ngModel)]="radiogroup">
+          <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Add dish </mat-radio-button>
+          <mat-radio-button value="removedish" color="primary" style="margin-left:50px; font-family: 'Helvetica Neue', sans-serif;"> Remove dish </mat-radio-button>
+        </mat-radio-group><br>
+      </div>
 
-                        <td>
-                            <input type="radio" name="gender" value="remove Dish"> Other
-                        </td>
-                    </tr>
-                </form>
-            </div>
+      <mat-form-field>
+        <mat-select placeholder="Select category" [(ngModel)]="categoryName">
+          <mat-option *ngFor="let category of shoppingListItems" [value]="category.dishType">
+            {{category.dishType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Add new category</label>&nbsp;&nbsp;
+      <button mat-mini-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </button><br>
+
+      <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+      <button mat-raised-button (click)="fileInput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select category banner</button>
+      <button mat-raised-button color="primary" style="letter-spacing:1px">UPLOAD</button><br><br>
+
+      <label style="font-family: 'Helvetica Neue', sans-serif;">Add dish</label>&nbsp;&nbsp;
+      <button mat-mini-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </button><br>
+
+      <form [formGroup]="adminForm">
+        <div class="flexrow">
+          <div class="flexcol">
+            <mat-form-field>
+              <input formControlName="itemNo" type="number" matInput placeholder="Provide item number">
+            </mat-form-field>
+          </div>
+          <div class="flexcol">
+            <mat-form-field>
+              <input formControlName="itemName" type="text" matInput placeholder="item name you wish to add">
+            </mat-form-field>
+          </div>
+          <div class="flexcol">
+            <mat-form-field>
+              <input formControlName="itemPrice" type="text" matInput placeholder="item price">
+            </mat-form-field>
+          </div>
         </div>
-        <p>Here you can Enter information about Main Category</p>
-    </mat-tab>
-    <mat-tab label="Angebote Ändern">
-        <p>Here you can Enter information about Category specials</p>
-    </mat-tab>
-    <mat-tab label="Benutzer Admin">
-        <p>Finally upload data</p>
-    </mat-tab>
+        <mat-form-field class="example-full-width">
+          <textarea matInput formControlName="itemShortDescription" type="text" placeholder="provide description about item"></textarea>
+          <mat-icon matSuffix>message</mat-icon>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <textarea matInput formControlName="chooseExtraInfo" type="text" placeholder="provide extra description about item"></textarea>
+          <mat-icon matSuffix>message</mat-icon>
+        </mat-form-field><br>
+      </form>
+
+      <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza sizes with amount</label><br>
+      <table *ngIf="extraSizes.length != 0">
+        <tr *ngFor="let sizes of extraSizes" style="background:lightgray;padding: 20px">
+          <td> {{sizes.id}} </td>
+          <td> {{sizes.name}} </td>
+          <td> {{sizes.amount}} </td>
+          <td style="margin-top:7px">
+            <mat-icon color="warn" class="icondelete" (click)="itemsizedelete(sizes)" style="margin-top:5px">cancel</mat-icon>
+          </td>
+        </tr><br>
+      </table>
+
+      <div class="flexrow">
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="number" [(ngModel)]="extraoptionsizes.sizes[0].id" matInput placeholder="Provide item number">
+          </mat-form-field>
+        </div>
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].name" matInput placeholder="item name you wish to add">
+          </mat-form-field>
+        </div>
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].amount" matInput placeholder="item price">
+          </mat-form-field>
+        </div>
+        <div class="flexcol" style="margin-top:10px">
+          <button mat-mini-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button><br>
+        </div>
+      </div>
+
+      <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza extra option name with price</label>
+      <table *ngIf="extraPrices.length != 0">
+        <tr *ngFor="let prices of extraPrices" style="background:lightgray;padding: 20px">
+          <td> {{prices.id}} </td>
+          <td> {{prices.name}} </td>
+          <td> {{prices.amount}} </td>
+          <td style="margin-top:7px">
+            <mat-icon color="warn" class="icondelete" (click)="itempricedelete(prices)">cancel</mat-icon>
+          </td>
+        </tr><br>
+      </table>
+      <div class="flexrow">
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="number" [(ngModel)]="extraoptionprices.prices[0].id" matInput placeholder="Provide item number">
+          </mat-form-field>
+        </div>
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="extraoptionprices.prices[0].name" matInput placeholder="item name you wish to add">
+          </mat-form-field>
+        </div>
+        <div class="flexcol">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="extraoptionprices.prices[0].amount" matInput placeholder="item price">
+          </mat-form-field>
+        </div>
+        <div class="flexbox" style="margin-top:10px">
+          <button mat-mini-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button><br>
+        </div>
+      </div><br>
+
+      <button mat-raised-button color="primary" style="width:10%;letter-spacing: 1px"> SUBMIT DATA </button><br><br>
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Angebote Ändern">
+    <p>Here you can Enter information about Category specials</p>
+  </mat-tab>
+  <mat-tab label="Benutzer Admin">
+    <p>Finally upload data</p>
+  </mat-tab>
 </mat-tab-group>
