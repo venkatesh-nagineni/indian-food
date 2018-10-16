@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef, ViewEncapsulation  } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -12,7 +12,8 @@ import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-menucard',
   templateUrl: './menucard.component.html',
-  styleUrls: ['./menucard.component.scss']
+  styleUrls: ['./menucard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MenucardComponent implements OnInit {
 
@@ -63,7 +64,7 @@ export class MenucardComponent implements OnInit {
         this.addCartList.push(angeboteData);
         this.itemQuantity += 1;
         this.totalAmountOnHeader += angeboteData.itemtotalamount;
-        this.openSnackBar('1 item was added successfully', '');
+        this.openSnackBar('1 item was added successfully', 'View cart');
       }
     });
   }
@@ -228,8 +229,12 @@ export class MenucardComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 2000,
-      panelClass: ['red-snackbar']
+      duration: 3000,
+      panelClass: ['red-snackbar'],
+    });
+    this.snackBar._openedSnackBarRef.onAction().subscribe(data => {
+      const el = document.getElementById('matBar');
+      el.scrollIntoView({ behavior: 'instant', block: 'start' });
     });
   }
 

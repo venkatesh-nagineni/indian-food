@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,7 +7,8 @@ import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-admininterface',
   templateUrl: './admininterface.component.html',
-  styleUrls: ['./admininterface.component.scss']
+  styleUrls: ['./admininterface.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdmininterfaceComponent implements OnInit {
 

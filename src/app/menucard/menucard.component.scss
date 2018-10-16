@@ -193,9 +193,9 @@
   }
 
   mat-toolbar {
-    background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%);
+    background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%) !important;
     span {
-      color: white;
+      color: white !important;
     }
   }
 
@@ -309,9 +309,11 @@
   }
 
   .button:focus {
-    outline: none;
+    outline: none !important;
   }
 
   .red-snackbar {
-    background: red !important;
+    background: #06203b !important;
+    color: white !important;
+    letter-spacing: 1px !important;
   }

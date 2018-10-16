@@ -1,5 +1,5 @@
 <!-- header to show cart icon and anount to be selected itmes -->
-<mat-toolbar class="fixed-header">
+<mat-toolbar class="fixed-header" id="matBar">
   <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{totalAmountOnHeader | currencyEuro}} €</span>
   <span style="cursor:pointer" (click)="openCart(template)">
