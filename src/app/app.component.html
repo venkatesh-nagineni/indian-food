@@ -23,9 +23,9 @@
   </nav>
 </div>
 
-<app-admininterface></app-admininterface>
-
-<!-- <header *ngIf="disableHeader">
+<!-- <app-admininterface></app-admininterface>
+ -->
+<header *ngIf="disableHeader">
   <div class="overlay"></div>
   <video autoplay muted loop onloadedmetadata="this.muted = true">
     <source src="../assets/video/background_video.mp4" type="video/mp4" />
@@ -49,7 +49,7 @@
 
 <div #onlinebestellen *ngIf="onlineSection">
     <app-menucard></app-menucard>
-</div> -->
+</div>
 
 
 <div class="footersection">
