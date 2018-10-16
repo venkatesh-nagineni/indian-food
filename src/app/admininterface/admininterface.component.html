@@ -27,7 +27,7 @@
 
       <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
       <button mat-raised-button (click)="fileInput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select category banner</button>
-      <button mat-raised-button color="primary" style="letter-spacing:1px">UPLOAD</button><br><br>
+      <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">UPLOAD</button><br><br>
 
       <label style="font-family: 'Helvetica Neue', sans-serif;">Add dish</label>&nbsp;&nbsp;
       <button mat-mini-fab color="primary">
@@ -130,15 +130,64 @@
           </button><br>
         </div>
       </div><br>
-
-      <button mat-raised-button color="primary" style="width:10%;letter-spacing: 1px"> SUBMIT DATA </button><br><br>
-
+      <button mat-raised-button color="primary" style="width:10%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" (click)="onSubmitData()"> SUBMIT DATA </button><br><br>
     </div>
   </mat-tab>
+
   <mat-tab label="Angebote Ändern">
-    <p>Here you can Enter information about Category specials</p>
+    <div style="padding:30px">
+      <input style="display: none" type="file" (change)="onofferFileChanged($event)" #offerinput>
+      <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select
+        Angebote image</button>
+      <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" (click)="angeboteUpload()">UPLOAD</button><br><br>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Angebote name" [(ngModel)]="previewAngebote.name">
+      </mat-form-field><br>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Angebote price" [(ngModel)]="previewAngebote.price">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width">
+        <textarea matInput type="text" placeholder="Angebote description" [(ngModel)]="previewAngebote.extraInfo"></textarea>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field><br>
+    </div>
+    <div class="row" *ngIf="previewShow">
+      <div class="col-md-4" style="margin-left:30px">
+        <div class="card">
+          <div style="position:relative">
+            <img class="card-img-top" [src]="url" alt="Card image cap">
+            <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px" (click)="removepreview()"> REMOVE </button>
+            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0">
+              {{previewAngebote.price}} €</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title border-bottom pb-3"> {{previewAngebote.name}} </h5>
+            <p>{{previewAngebote.extraInfo}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;margin-left: 30px;margin-top: 20px">
+      <button mat-raised-button color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px" (click)="preview()">PREVIEW</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px" (click)="submitAngebote()">SUBMIT
+        ANGEBOTE</button>
+    </div>
   </mat-tab>
+
   <mat-tab label="Benutzer Admin">
-    <p>Finally upload data</p>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <p style="text-align:center"> Or </p>
+      <mat-form-field class="example-full-width">
+        <span matPrefix>+49 &nbsp;</span>
+        <input type="tel" matInput placeholder="Telephone">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field><br>
+      <button mat-raised-button color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 20px;margin-bottom: 80px;letter-spacing: 1px">SAVE
+        AS BLOCK LIST</button>
+    </form>
   </mat-tab>
 </mat-tab-group>

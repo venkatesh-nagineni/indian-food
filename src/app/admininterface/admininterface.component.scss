@@ -1,6 +1,12 @@
-p {
-  padding: 170px;
-  margin: 100px auto;
+.red-snackbar {
+  background-color: rgb(182, 35, 35) !important;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  padding: 40px;
 }
 
 .dish {

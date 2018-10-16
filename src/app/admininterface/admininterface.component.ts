@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-admininterface',
@@ -14,10 +15,13 @@ export class AdmininterfaceComponent implements OnInit {
   categoryName: string;
   radiogroup: any;
   selectedFile: File;
+  selectedOfferFile: File;
   adminForm: FormGroup;
   submitted = false;
   extraSizes = [];
   extraPrices = [];
+  url = '';
+  previewShow = false;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
@@ -29,13 +33,23 @@ export class AdmininterfaceComponent implements OnInit {
     prices: [{ id: '', name: '', amount: '' }]
   };
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  previewAngebote = {
+    name: '',
+    extraInfo: '',
+    price: ''
+  };
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.radiogroup = 'adddish';
   }
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
+
+  /* onofferFileChanged(event) {
+    this.selectedOfferFile = event.target.files[0];
+  } */
 
   /* onUpload() {
     const uploadData = new FormData();
@@ -53,7 +67,7 @@ export class AdmininterfaceComponent implements OnInit {
     this.adminForm = this.formBuilder.group({
       itemNo: ['', Validators.required],
       itemName: ['', Validators.required],
-      itemShortDescription: ['', [Validators.required, Validators.email]],
+      itemShortDescription: ['', [Validators.required]],
       itemPrice: ['', [Validators.required]],
       chooseExtraInfo: ['', Validators.required]
     });
@@ -77,8 +91,74 @@ export class AdmininterfaceComponent implements OnInit {
     this.extraPrices = this.extraPrices.filter(x => x.id !== item.id);
   }
 
- /*  onSubmitData() {
-    console.log(this.adminForm.value);
-  } */
+  onSubmitData() {
+    const dishItem = {
+      itemNo: this.adminForm.value.itemNo,
+      itemName: this.adminForm.value.itemName,
+      itemShortDescription: this.adminForm.value.itemShortDescription,
+      itemPrice: this.adminForm.value.itemPrice,
+      chooseExtraInfo: this.adminForm.value.chooseExtraInfo,
+      itemExtraOptionsizes: {
+        itemPlaceholderName: this.adminForm.value.itemName,
+        sizes: this.extraPrices
+      },
+      itemExtraOptionPrice: {
+        itemPlaceholderName: 'Ihre Extras',
+        prices: this.extraPrices
+      }
+    };
+    console.log(dishItem);
+  }
+
+  onofferFileChanged(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]);
+
+      reader.onload = (eve: any) => {
+        this.url = eve.target.result;
+      };
+    }
+}
+
+preview() {
+  if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
+    this.previewShow = true;
+  } else {
+    this.openSnackBar('Please fill out all fields', '');
+  }
+}
+
+  removepreview() {
+    this.previewShow = false;
+    this.previewAngebote = { name: '', extraInfo: '', price: '' };
+    this.url = '';
+  }
+
+  submitAngebote() {
+    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
+      this.previewShow = false;
+      this.previewAngebote = { name: '', extraInfo: '', price: '' };
+      this.url = '';
+    } else {
+      this.openSnackBar('Please fill out all fields', '');
+    }
+  }
+
+  angeboteUpload() {
+    if (this.url === '') {
+      this.openSnackBar('Please select a file', '');
+    } else {
+      this.openSnackBar('Uploaded!', '');
+    }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['red-snackbar']
+    });
+  }
 
 }
