@@ -6,7 +6,8 @@ import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { MatDialog } from '@angular/material';
-
+import {Angebotetypes} from '../../assets/data/cartList';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-menucard',
@@ -46,12 +47,25 @@ export class MenucardComponent implements OnInit {
 
   @ViewChildren('linkRef') linkRefs;
 
-  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog) {
+  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog, private snackBar: MatSnackBar) {
 
   }
 
   ngOnInit() {
-
+    this.shared.angeboteitem.subscribe((data: Angebotetypes) => {
+      if (Object.keys(data).length !== 0) {
+        const angeboteData = {
+          itemName: data.name,
+          itemNo: data.id,
+          quantity: 1,
+          itemtotalamount: data.price,
+        };
+        this.addCartList.push(angeboteData);
+        this.itemQuantity += 1;
+        this.totalAmountOnHeader += angeboteData.itemtotalamount;
+        this.openSnackBar('1 item was added successfully', '');
+      }
+    });
   }
 
   UncheckAll() {
@@ -210,6 +224,13 @@ export class MenucardComponent implements OnInit {
   confirmBestellen(template: TemplateRef<any>) {
     this.checkoutaddressRef = this.modalService.show(template, this.selectionConfig);
     this.selectionModalRef.hide();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['red-snackbar']
+    });
   }
 
 }

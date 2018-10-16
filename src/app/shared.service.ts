@@ -11,8 +11,15 @@ export class SharedService {
   itemNo: BehaviorSubject<number> = new BehaviorSubject(0);
   cartQuantity: BehaviorSubject<number> = new BehaviorSubject(0);
   cartTotalAmount: BehaviorSubject<number> = new BehaviorSubject(0);
+  angeboteitem: BehaviorSubject<Object> = new BehaviorSubject({});
 
-  constructor() { }
+  constructor() {
+
+  }
+
+  angeboteupdate(item: Object) {
+    this.angeboteitem.next(item);
+  }
 
   toggledisableService (value) {
     this.disableService.next(value);
@@ -35,7 +42,6 @@ export class SharedService {
     const addEachAmount = this.cartTotalAmount + amount;
     this.cartTotalAmount.next(addEachAmount);
   }
-
 
 }
 

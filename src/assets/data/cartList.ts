@@ -8,6 +8,23 @@ itemPrice: any;
 itemDetailedDescription: Array<Object>; */
 }
 
+export class Angebotetypes {
+  id: number;
+  imgSrc: string;
+  price: number;
+  name: string;
+  extraInfo: string;
+}
+
+export const angeboteList = [
+  {id: 100, imgSrc: '../assets/images/chicken.jpg', price: 7.5, name: 'Chicken Tikka', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+  {id: 101, imgSrc: '../assets/images/samosa.jpg', price: 7.5, name: 'Samosa', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+  {id: 102, imgSrc: '../assets/images/salat.jpg', price: 7.5, name: 'Salat', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+  {id: 103, imgSrc: '../assets/images/chicken.jpg', price: 7.5, name: 'Chicken Tikka', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+  {id: 104, imgSrc: '../assets/images/chicken.jpg', price: 7.5, name: 'Chicken Tikka', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+  {id: 105, imgSrc: '../assets/images/chicken.jpg', price: 7.5, name: 'Chicken Tikka', extraInfo: 'mariniertes im Tandoor gegrilltes'},
+];
+
 export const shoppingList = [
   {
     dishType: 'VORSPEISEN',

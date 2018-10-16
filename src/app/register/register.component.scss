@@ -20,3 +20,7 @@
 .registerbutton {
   width: 350px;
 }
+
+.btn:focus {
+  outline: none !important;
+}

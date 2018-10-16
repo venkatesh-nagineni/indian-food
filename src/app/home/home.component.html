@@ -3,87 +3,17 @@
     Täglich neue Angebote!
   </h3>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2" *ngFor="let item of angeboteList">
       <div class="card">
         <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/chicken.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
+          <img class="card-img-top" src="{{item.imgSrc}}" alt="Card image cap">
+          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px" (click)="angeboteToCart(item)"> toCart
             <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
+            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> {{item.price}} €</span>
         </div>
         <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Chicken Tikka </h5>
-          <p class="card-text">mariniertes im Tandoor gegrilltes</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/samosa.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
-            <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3"> Samosa</h5>
-          <p class="card-text">Vegetarische Kartoffeltaschen</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/salat.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
-            <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Gemischter Salat</h5>
-          <p class="card-text">Salat der Saison</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/salat.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
-            <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Paanipoori</h5>
-          <p class="card-text">Paani poori der Saison</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/salat.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
-            <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Paanipoori</h5>
-          <p class="card-text">Paani poori der Saison</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div style="position:relative">
-          <img class="card-img-top" src="../assets/images/paanipoori.jpg" alt="Card image cap">
-          <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"> toCart
-            <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> 7.5 €</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">Paanipoori</h5>
-          <p class="card-text">Paani poori der Saison</p>
+          <h5 class="card-title border-bottom pb-3">{{item.name}} </h5>
+          <p class="card-text">{{item.extraInfo}}</p>
         </div>
       </div>
     </div>
