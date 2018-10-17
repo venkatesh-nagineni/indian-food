@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
@@ -13,25 +13,29 @@ import {MatSnackBar} from '@angular/material';
 export class AdmininterfaceComponent implements OnInit {
 
   shoppingListItems: any[] = shoppingList;
-  categoryName: string;
   radiogroup: any;
   selectedFile: File;
   selectedOfferFile: File;
+  categoryName: string;
   adminForm: FormGroup;
   submitted = false;
+  url = '';
   extraSizes = [];
   extraPrices = [];
-  url = '';
   previewShow = false;
+  openformtoadd = false;
+  displaynewcategory = false;
+  selectedCategoryFile: File;
+  categorydishforRemove: any;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
-    sizes: [{ id: '', name: '', amount: '' }]
+    sizes: [{ name: '', amount: '' }]
   };
 
   extraoptionprices = {
     itemPlaceholderName: '',
-    prices: [{ id: '', name: '', amount: '' }]
+    prices: [{ name: '', amount: '' }]
   };
 
   previewAngebote = {
@@ -40,17 +44,51 @@ export class AdmininterfaceComponent implements OnInit {
     price: ''
   };
 
+  newCategoryData = { name: '', categoryBanner: ''};
+
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.radiogroup = 'adddish';
+  }
+
+  addNewCategory() {
+    this.displaynewcategory = true;
+    this.categoryName = '';
+    this.openformtoadd = false;
+  }
+
+  submitCategoryData() {
+    if (this.newCategoryData.name === '' && this.newCategoryData.categoryBanner === '') {
+      this.openSnackBar('Please fill all fields', '');
+    } else {
+      this.openSnackBar('Category submitted successfully', '');
+    }
+  }
+
+  categorychanged(name) {
+    this.openformtoadd = false;
+    this.displaynewcategory = false;
+    console.log(name);
   }
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
 
-  /* onofferFileChanged(event) {
-    this.selectedOfferFile = event.target.files[0];
-  } */
+  adddishform() {
+    this.openformtoadd = true;
+  }
+
+  oncategoryFileChanged(event) {
+    this.selectedCategoryFile = event.target.files[0];
+  }
+
+  oncategoryUpload() {
+    if (!this.selectedCategoryFile) {
+      this.openSnackBar('Please select a file', '');
+    } else {
+      this.openSnackBar('Uploaded successfully !', '');
+    }
+  }
 
   /* onUpload() {
     const uploadData = new FormData();
@@ -66,49 +104,64 @@ export class AdmininterfaceComponent implements OnInit {
 
   ngOnInit() {
     this.adminForm = this.formBuilder.group({
-      itemNo: ['', Validators.required],
       itemName: ['', Validators.required],
       itemShortDescription: ['', [Validators.required]],
       itemPrice: ['', [Validators.required]],
-      chooseExtraInfo: ['', Validators.required]
+      chooseExtraInfo: ['']
     });
   }
 
   addpizzasizes() {
     this.extraSizes.push(this.extraoptionsizes.sizes[0]);
-    this.extraoptionsizes.sizes[0] = { id: '', name: '', amount: '' };
+    this.extraoptionsizes.sizes[0] = { name: '', amount: '' };
   }
 
   addextraoptionprices() {
     this.extraPrices.push(this.extraoptionprices.prices[0]);
-    this.extraoptionprices.prices[0] = { id: '', name: '', amount: '' };
+    this.extraoptionprices.prices[0] = { name: '', amount: '' };
   }
 
   itemsizedelete(item) {
-    this.extraSizes = this.extraSizes.filter(x => x.id !== item.id);
+    this.extraSizes = this.extraSizes.filter(x => x.name !== item.name);
   }
 
   itempricedelete(item) {
-    this.extraPrices = this.extraPrices.filter(x => x.id !== item.id);
+    this.extraPrices = this.extraPrices.filter(x => x.name !== item.name);
   }
 
   onSubmitData() {
-    const dishItem = {
-      itemNo: this.adminForm.value.itemNo,
-      itemName: this.adminForm.value.itemName,
-      itemShortDescription: this.adminForm.value.itemShortDescription,
-      itemPrice: this.adminForm.value.itemPrice,
-      chooseExtraInfo: this.adminForm.value.chooseExtraInfo,
-      itemExtraOptionsizes: {
-        itemPlaceholderName: this.adminForm.value.itemName,
-        sizes: this.extraPrices
-      },
-      itemExtraOptionPrice: {
-        itemPlaceholderName: 'Ihre Extras',
-        prices: this.extraPrices
+    if (this.adminForm.invalid) {
+      this.validateAllFormFields(this.adminForm);
+      this.openSnackBar('Please fill required fields', '');
+    } else {
+      const dishItem = {
+        itemName: this.adminForm.value.itemName,
+        itemShortDescription: this.adminForm.value.itemShortDescription,
+        itemPrice: this.adminForm.value.itemPrice,
+        chooseExtraInfo: this.adminForm.value.chooseExtraInfo,
+        itemExtraOptionsizes: {
+          itemPlaceholderName: this.adminForm.value.itemName,
+          sizes: this.extraPrices
+        },
+        itemExtraOptionPrice: {
+          itemPlaceholderName: 'Ihre Extras',
+          prices: this.extraPrices
+        }
+      };
+      console.log(dishItem);
+    }
+  }
+
+   // validate form on submit button press
+   validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
       }
-    };
-    console.log(dishItem);
+    });
   }
 
   onofferFileChanged(event) {
@@ -135,6 +188,19 @@ preview() {
     this.previewShow = false;
     this.previewAngebote = { name: '', extraInfo: '', price: '' };
     this.url = '';
+  }
+
+  removecategoryChanged(category) {
+    this.categorydishforRemove = this.shoppingListItems;
+    this.shoppingListItems.forEach(items => {
+      if (items.dishType === category) {
+        this.categorydishforRemove = items.dishItems;
+      }
+    });
+  }
+
+  removeDishchanged(dish) {
+    console.log(dish);
   }
 
   submitAngebote() {
