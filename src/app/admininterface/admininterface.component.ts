@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-admininterface',
@@ -44,7 +44,7 @@ export class AdmininterfaceComponent implements OnInit {
     price: ''
   };
 
-  newCategoryData = { name: '', categoryBanner: ''};
+  newCategoryData = { name: '', categoryBanner: '' };
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.radiogroup = 'adddish';
@@ -152,8 +152,8 @@ export class AdmininterfaceComponent implements OnInit {
     }
   }
 
-   // validate form on submit button press
-   validateAllFormFields(formGroup: FormGroup) {
+  // validate form on submit button press
+  validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
@@ -174,15 +174,15 @@ export class AdmininterfaceComponent implements OnInit {
         this.url = eve.target.result;
       };
     }
-}
-
-preview() {
-  if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
-    this.previewShow = true;
-  } else {
-    this.openSnackBar('Please fill out all fields', '');
   }
-}
+
+  preview() {
+    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
+      this.previewShow = true;
+    } else {
+      this.openSnackBar('Please fill out all fields', '');
+    }
+  }
 
   removepreview() {
     this.previewShow = false;
