@@ -96,7 +96,7 @@
                 </div>
               </td>
               <td data-th="Quantity">
-                <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="itemQuantity == 1">remove</mat-icon>&nbsp;&nbsp;
+                <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="item.quantity == 1">remove</mat-icon>&nbsp;&nbsp;
                 <mat-icon class="iconadd" (click)="cartIncrement(item, i)">add</mat-icon>
               </td>
               <td data-th="Subtotal" class="aligntex">€ {{item.itemtotalamount | currencyEuro}}</td>
@@ -108,7 +108,7 @@
         </table>
           <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px"> Total: {{totalAmountOnHeader | currencyEuro}} € </strong>
               <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left">
-                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Cancel</span>
+                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
                 </button>
               <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)" [class.disabledDecriment]="itemQuantity == 0">
                   <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span> <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>

@@ -35,6 +35,7 @@ export class MenucardComponent implements OnInit {
   checkoutaddressRef: BsModalRef;
   extras = [];
   data: any;
+  decrementdisable = 1;
 
   selectionConfig = {
     ignoreBackdropClick: false,
@@ -188,12 +189,13 @@ export class MenucardComponent implements OnInit {
         this.totalAmount -= eachitemprice;
         this.totalAmountOnHeader -= eachitemprice;
         this.itemQuantity -= 1;
+        this.decrementdisable = actionitem.quantity;
       }
     });
   }
 
   cartIncrement(actionitem, index) {
-    console.log(actionitem);
+    console.log(actionitem, index);
     this.addCartList.forEach(item => {
       if (item.itemNo === actionitem.itemNo) {
         const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
@@ -202,6 +204,7 @@ export class MenucardComponent implements OnInit {
         this.totalAmount += eachitemprice;
         this.totalAmountOnHeader += eachitemprice;
         this.itemQuantity += 1;
+        this.decrementdisable = actionitem.quantity;
       }
     });
   }
