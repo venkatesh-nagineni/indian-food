@@ -10,7 +10,7 @@ app.use('/api', router);
 const app = express();
 var shoppingList = require('./Routes/cartlist.js');
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/restraunt'));
@@ -22,7 +22,7 @@ res.sendFile(path.join(__dirname,'/dist/restraunt/index.html'));
 
 // Start the app by listening on the default Heroku port
 app.listen(port, function() {
-  console.log("listening on port 5000")
+  console.log("listening on port 8000")
 });
 
 router.post('/postShoppingListdish', shoppingList.postShoppingListdish);
