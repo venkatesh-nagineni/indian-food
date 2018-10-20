@@ -15,8 +15,8 @@
       <!-- view enable only when user click on add dish -->
       <div *ngIf="radiogroup == 'adddish'">
         <mat-form-field>
-          <mat-select placeholder="Select category" [(ngModel)]="categoryName" (selectionChange)="categorychanged(categoryName)">
-            <mat-option *ngFor="let category of shoppingListItems" [value]="category.dishType">
+          <mat-select placeholder="Select category" [(ngModel)]="categoryid" (selectionChange)="categorychanged(categoryid)">
+            <mat-option *ngFor="let category of mainshoppinglistitems" [value]="category._id">
               {{category.dishType}}
             </mat-option>
           </mat-select>
@@ -42,8 +42,8 @@
         </div>
 
         <!-- enable only after user select category from list -->
-        <div *ngIf="categoryName">
-          <p>Add dish item in category <strong>{{categoryName}}</strong></p>
+        <div *ngIf="categoryid">
+          <p>Add dish item in category <strong>{{selectedfromlist}}</strong></p>
           <label style="font-family: 'Helvetica Neue', sans-serif;">Add dish</label>&nbsp;&nbsp;
           <button mat-mini-fab color="primary" (click)="adddishform()">
             <mat-icon>add</mat-icon>

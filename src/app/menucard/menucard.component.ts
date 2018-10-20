@@ -8,6 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { MatDialog } from '@angular/material';
 import {Angebotetypes} from '../../assets/data/cartList';
 import {MatSnackBar} from '@angular/material';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-menucard',
@@ -49,7 +50,7 @@ export class MenucardComponent implements OnInit {
 
   @ViewChildren('linkRef') linkRefs;
 
-  constructor(fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog, private snackBar: MatSnackBar) {
 
   }
 

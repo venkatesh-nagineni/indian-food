@@ -3,6 +3,7 @@ import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-admininterface',
@@ -13,10 +14,11 @@ import { MatSnackBar } from '@angular/material';
 export class AdmininterfaceComponent implements OnInit {
 
   shoppingListItems: any[] = shoppingList;
+  mainshoppinglistitems: any;
   radiogroup: any;
   selectedFile: File;
   selectedOfferFile: File;
-  categoryName: string;
+  categoryid: string;
   adminForm: FormGroup;
   submitted = false;
   url = '';
@@ -27,15 +29,16 @@ export class AdmininterfaceComponent implements OnInit {
   displaynewcategory = false;
   selectedCategoryFile: File;
   categorydishforRemove: any;
+  selectedfromlist: string;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
-    sizes: [{ name: '', amount: '' }]
+    sizes: [{id: new Date().valueOf(), name: '', amount: '' }]
   };
 
   extraoptionprices = {
     itemPlaceholderName: '',
-    prices: [{ name: '', amount: '' }]
+    prices: [{id: new Date().valueOf(), name: '', amount: '' }]
   };
 
   previewAngebote = {
@@ -44,30 +47,42 @@ export class AdmininterfaceComponent implements OnInit {
     price: ''
   };
 
-  newCategoryData = { name: '', categoryBanner: '' };
+  newCategoryData = { name: '' };
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService) {
     this.radiogroup = 'adddish';
   }
 
   addNewCategory() {
     this.displaynewcategory = true;
-    this.categoryName = '';
+    this.categoryid = '';
     this.openformtoadd = false;
   }
 
   submitCategoryData() {
-    if (this.newCategoryData.name === '' && this.newCategoryData.categoryBanner === '') {
+    if (this.newCategoryData.name === '' && !this.selectedCategoryFile) {
       this.openSnackBar('Please fill all fields', '');
     } else {
+      const newcategorydata = {
+        dishType: this.newCategoryData.name,
+        banner: this.selectedCategoryFile.name,
+        dishItems: []
+      };
+      this.cartservice.postnewcategory(newcategorydata).then(response => {
+        console.log(response);
+      });
       this.openSnackBar('Category submitted successfully', '');
     }
   }
 
-  categorychanged(name) {
+  categorychanged(id) {
     this.openformtoadd = false;
     this.displaynewcategory = false;
-    console.log(name);
+    this.mainshoppinglistitems.forEach(items => {
+      if (items._id === id) {
+        this.selectedfromlist = items.dishType;
+      }
+    });
   }
 
   onFileChanged(event) {
@@ -109,24 +124,30 @@ export class AdmininterfaceComponent implements OnInit {
       itemPrice: ['', [Validators.required]],
       chooseExtraInfo: ['']
     });
+    this.cartservice.getShoppingList().then(response => {
+      console.log(response);
+      this.mainshoppinglistitems = response['data'];
+    });
   }
 
   addpizzasizes() {
     this.extraSizes.push(this.extraoptionsizes.sizes[0]);
-    this.extraoptionsizes.sizes[0] = { name: '', amount: '' };
+    this.extraoptionsizes.sizes[0] = {id: new Date().valueOf(), name: '', amount: '' };
+    console.log(this.extraSizes);
   }
 
   addextraoptionprices() {
     this.extraPrices.push(this.extraoptionprices.prices[0]);
-    this.extraoptionprices.prices[0] = { name: '', amount: '' };
+    this.extraoptionprices.prices[0] = {id: new Date().valueOf(), name: '', amount: '' };
+    console.log(this.extraPrices);
   }
 
   itemsizedelete(item) {
-    this.extraSizes = this.extraSizes.filter(x => x.name !== item.name);
+    this.extraSizes = this.extraSizes.filter(x => x.id !== item.id);
   }
 
   itempricedelete(item) {
-    this.extraPrices = this.extraPrices.filter(x => x.name !== item.name);
+    this.extraPrices = this.extraPrices.filter(x => x.id !== item.id);
   }
 
   onSubmitData() {
@@ -148,7 +169,11 @@ export class AdmininterfaceComponent implements OnInit {
           prices: this.extraPrices
         }
       };
-      console.log(dishItem);
+      this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
+        console.log(response);
+      }, (error) => {
+        console.log(error);
+      });
     }
   }
 
