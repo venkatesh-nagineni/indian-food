@@ -3,11 +3,11 @@ const path = require('path');
 var bodyParser = require("body-parser");
 var cors = require('cors');
 var router = express.Router();
+const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
-const app = express();
 var shoppingList = require('./Routes/cartlist.js');
 
 var port = process.env.PORT || 8000;
