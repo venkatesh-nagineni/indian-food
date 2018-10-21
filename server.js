@@ -15,7 +15,7 @@ const MongoClient = require("mongodb").MongoClient;
 
 var shoppingList = require('./Routes/cartlist.js');
 
-var port = process.env.PORT || 8010;
+var port = 8000;
 
 const uri = "mongodb+srv://venkatesh:ivedamar.91@node-mongo-jyags.mongodb.net/test?retryWrites=true";
 
@@ -28,7 +28,7 @@ res.sendFile(path.join(__dirname,'/dist/restraunt/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
   console.log("listening on port 8010")
 });
 
