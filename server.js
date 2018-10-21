@@ -15,7 +15,9 @@ const MongoClient = require("mongodb").MongoClient;
 
 var shoppingList = require('./Routes/cartlist.js');
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8010;
+
+const uri = "mongodb+srv://venkatesh:ivedamar.91@node-mongo-jyags.mongodb.net/test?retryWrites=true";
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/restraunt'));
@@ -27,7 +29,7 @@ res.sendFile(path.join(__dirname,'/dist/restraunt/index.html'));
 
 // Start the app by listening on the default Heroku port
 app.listen(port, function() {
-  console.log("listening on port 8000")
+  console.log("listening on port 8010")
 });
 
 var storage = multer.diskStorage({
@@ -39,7 +41,6 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({ storage: storage });
-const uri = "mongodb+srv://venkatesh:ivedamar.91@node-mongo-jyags.mongodb.net/test?retryWrites=true";
 
 router.post('/postShoppingListdish', shoppingList.postShoppingListdish);
 router.get('/getShoppingList', shoppingList.getShoppingList);
