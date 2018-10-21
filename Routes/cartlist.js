@@ -2,7 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 var mongodb = require('mongodb');
 var ObjectId = mongodb.ObjectID;
-
+var fs = require('fs');
 const uri = "mongodb+srv://venkatesh:ivedamar.91@node-mongo-jyags.mongodb.net/test?retryWrites=true";
 
 module.exports = {
@@ -38,9 +38,13 @@ module.exports = {
             const client = await MongoClient.connect(uri, { useNewUrlParser: true });
             const collection = client.db("shoppingCart").collection("shoppingList");
             const insertData = await collection.find().toArray();
-            if (insertData) {
-                res.status(200).json({ success: true, data: insertData });
-            }
+            var imgData = [];
+            fs.readdirSync('./images/uploads').forEach(file => {
+                var base64String = './images/uploads/'+file+'';
+                var body = fs.readFileSync(base64String);
+                imgData.push({data: body.toString('base64'), fileName: file});
+              })
+              res.status(200).json({ success: true, data: insertData, imgData: imgData});
         } catch (error) {
             res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
         }

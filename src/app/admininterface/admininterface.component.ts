@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import {CartService} from '../cart.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-admininterface',
@@ -33,12 +33,12 @@ export class AdmininterfaceComponent implements OnInit {
 
   extraoptionsizes = {
     itemPlaceholderName: '',
-    sizes: [{id: new Date().valueOf(), name: '', amount: '' }]
+    sizes: [{ id: new Date().valueOf(), name: '', amount: '' }]
   };
 
   extraoptionprices = {
     itemPlaceholderName: '',
-    prices: [{id: new Date().valueOf(), name: '', amount: '' }]
+    prices: [{ id: new Date().valueOf(), name: '', amount: '' }]
   };
 
   previewAngebote = {
@@ -63,13 +63,19 @@ export class AdmininterfaceComponent implements OnInit {
     if (this.newCategoryData.name === '' && !this.selectedCategoryFile) {
       this.openSnackBar('Please fill all fields', '');
     } else {
-      const newcategorydata = {
-        dishType: this.newCategoryData.name,
-        banner: this.selectedCategoryFile.name,
-        dishItems: []
-      };
-      this.cartservice.postnewcategory(newcategorydata).then(response => {
-        console.log(response);
+      const uploadData = new FormData();
+      uploadData.append('image', this.selectedCategoryFile, this.selectedCategoryFile.name);
+      uploadData.append('extraData', this.newCategoryData.name);
+
+      let httpHeaders = new HttpHeaders();
+      httpHeaders = httpHeaders.append('name', this.newCategoryData.name);
+
+      this.http.post('http://localhost:3000/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+        }
       });
       this.openSnackBar('Category submitted successfully', '');
     }
@@ -122,7 +128,7 @@ export class AdmininterfaceComponent implements OnInit {
       itemName: ['', Validators.required],
       itemShortDescription: ['', [Validators.required]],
       itemPrice: ['', [Validators.required]],
-      chooseExtraInfo: ['']
+      // chooseExtraInfo: ['']
     });
     this.cartservice.getShoppingList().then(response => {
       console.log(response);
@@ -131,15 +137,23 @@ export class AdmininterfaceComponent implements OnInit {
   }
 
   addpizzasizes() {
-    this.extraSizes.push(this.extraoptionsizes.sizes[0]);
-    this.extraoptionsizes.sizes[0] = {id: new Date().valueOf(), name: '', amount: '' };
-    console.log(this.extraSizes);
+    const newSizes = {
+      id: new Date().valueOf(),
+      name: this.extraoptionsizes.sizes[0].name,
+      amount: Number(this.extraoptionsizes.sizes[0].amount)
+    };
+    this.extraSizes.push(newSizes);
+    this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), name: '', amount: '' };
   }
 
   addextraoptionprices() {
-    this.extraPrices.push(this.extraoptionprices.prices[0]);
-    this.extraoptionprices.prices[0] = {id: new Date().valueOf(), name: '', amount: '' };
-    console.log(this.extraPrices);
+    const newPrices = {
+      id: new Date().valueOf(),
+      name: this.extraoptionprices.prices[0].name,
+      amount: Number(this.extraoptionprices.prices[0].amount)
+    };
+    this.extraPrices.push(newPrices);
+    this.extraoptionprices.prices[0] = { id: new Date().valueOf(), name: '', amount: '' };
   }
 
   itemsizedelete(item) {
@@ -156,13 +170,14 @@ export class AdmininterfaceComponent implements OnInit {
       this.openSnackBar('Please fill required fields', '');
     } else {
       const dishItem = {
+        itemNo: new Date().valueOf(),
         itemName: this.adminForm.value.itemName,
         itemShortDescription: this.adminForm.value.itemShortDescription,
-        itemPrice: this.adminForm.value.itemPrice,
+        itemPrice: Number(this.adminForm.value.itemPrice),
         chooseExtraInfo: this.adminForm.value.chooseExtraInfo,
         itemExtraOptionsizes: {
           itemPlaceholderName: this.adminForm.value.itemName,
-          sizes: this.extraPrices
+          sizes: this.extraSizes
         },
         itemExtraOptionPrice: {
           itemPlaceholderName: 'Ihre Extras',

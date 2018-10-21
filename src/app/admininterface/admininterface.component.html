@@ -71,13 +71,14 @@
               <textarea matInput formControlName="itemShortDescription" type="text" placeholder="provide description about item"></textarea>
               <mat-icon matSuffix>message</mat-icon>
             </mat-form-field><br>
-            <mat-form-field class="example-full-width">
+           <!--  <mat-form-field class="example-full-width" *ngIf="selectedfromlist == 'Pizza'">
               <textarea matInput formControlName="chooseExtraInfo" type="text" placeholder="provide extra description about item"></textarea>
               <mat-icon matSuffix>message</mat-icon>
-            </mat-form-field><br>
+            </mat-form-field><br> -->
           </form>
 
           <!-- displaying user entered items as table and giving option to remove -->
+          <div *ngIf="selectedfromlist == 'Pizza'">
           <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza sizes with amount</label><br>
           <table *ngIf="extraSizes.length != 0">
             <tr *ngFor="let sizes of extraSizes" style="background:lightgray;padding: 20px">
@@ -107,7 +108,7 @@
             </div>
           </div>
 
-           <!-- displaying user entered items as table and giving option to remove -->
+          <!-- displaying user entered items as table and giving option to remove -->
           <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza extra option name with price</label>
           <table *ngIf="extraPrices.length != 0">
             <tr *ngFor="let prices of extraPrices" style="background:lightgray;padding: 20px">
@@ -135,35 +136,36 @@
               </button><br>
             </div>
           </div><br>
-          <button mat-raised-button color="primary" style="width:10%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-            (click)="onSubmitData()"> SUBMIT DATA </button><br><br>
         </div>
+        <button mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+          (click)="onSubmitData()"> SUBMIT DATA </button><br><br>
       </div>
+    </div>
 
-      <!-- view appear only when user click on remove dish -->
-      <div *ngIf="radiogroup == 'removedish'">
-        <mat-form-field>
-          <mat-select placeholder="Select category" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
-            <mat-option *ngFor="let category of shoppingListItems;" [value]="category.dishType">
-              {{category.dishType}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field><br>
-        <mat-form-field *ngIf="categorydishforRemove">
-          <mat-select placeholder="Select category" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
-            <mat-option *ngFor="let category of categorydishforRemove" [value]="category.itenName">
-              {{category.itemName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div style="margin-bottom: 230px;"></div>
-      </div>
+    <!-- view appear only when user click on remove dish -->
+    <div *ngIf="radiogroup == 'removedish'">
+      <mat-form-field>
+        <mat-select placeholder="Select category" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
+          <mat-option *ngFor="let category of shoppingListItems;" [value]="category.dishType">
+            {{category.dishType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+      <mat-form-field *ngIf="categorydishforRemove">
+        <mat-select placeholder="Select category" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
+          <mat-option *ngFor="let category of categorydishforRemove" [value]="category.itenName">
+            {{category.itemName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div style="margin-bottom: 230px;"></div>
+    </div>
 
     </div>
   </mat-tab>
 
   <mat-tab label="Angebote Ändern">
-   <!--  providing angebote information -->
+    <!--  providing angebote information -->
     <div style="padding:30px">
       <input style="display: none" type="file" (change)="onofferFileChanged($event)" #offerinput>
       <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select
@@ -209,7 +211,7 @@
   </mat-tab>
 
   <mat-tab label="Benutzer Admin">
-   <!--  providing information for block list -->
+    <!--  providing information for block list -->
     <label style="padding-top:20px;padding-left:20px">Enter Email or Phone to keep it in Block list</label><br>
     <form style="padding-left:20px">
       <mat-form-field class="example-full-width">

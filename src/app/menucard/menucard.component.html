@@ -7,21 +7,23 @@
   </span>
 </mat-toolbar>
 
-<div class="container" style="margin-top:20px">
+<div class="container" style="margin-top:20px" *ngIf="shoppingListItems">
   <div class="row">
     <div class="col-md-3">
-      <div class="list-group" *ngFor="let shoppinglist of shoppingListItems">
+      <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
         <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;"
           (click)="scrollToSection(shoppinglist.dishType)">{{shoppinglist.dishType}}</a>
       </div>
     </div>
     <div class="col-md-9">
       <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems;let j = index;">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
           <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px">
             {{shoppinglist.dishType}}
           </h4>
-          <img src="{{shoppinglist.banner}}" alt="category banner" />
+         <div *ngFor="let imgData of shoppingListItems.imgData">
+          <div *ngIf="shoppinglist.banner == imgData.fileName"> <img [src]="'data:image/jpg;base64,' + imgData.data" alt="category banner" /> </div>
+         </div>
           <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
             <li (click)="expandItem(items, items.itemNo)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">

@@ -20,7 +20,7 @@ export class MenucardComponent implements OnInit {
 
   isChecked: boolean;
 
-  shoppingListItems: ShopListTypes[] = shoppingList;
+  shoppingListItems: any;
   listindex: any;
   eachItem: any;
   PizzaSizeAmount: number;
@@ -69,6 +69,11 @@ export class MenucardComponent implements OnInit {
         this.openSnackBar('1 item was added successfully', 'View cart');
       }
     });
+
+    this.cartservice.getShoppingList().then(response => {
+      this.shoppingListItems = response;
+      console.log(this.shoppingListItems);
+    });
   }
 
   UncheckAll() {
@@ -87,7 +92,7 @@ export class MenucardComponent implements OnInit {
     this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
     this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
     this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
-    this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount + this.eachItem.itemExtraOptionPrice.prices[0].amount;
+    this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
     this.shared.updatedAmount(this.totalAmount);
   }
 
