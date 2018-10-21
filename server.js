@@ -5,7 +5,7 @@ var cors = require('cors');
 var router = express.Router();
 var multer = require('multer');
 var fs = require('fs');
-
+var path = require('path');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
