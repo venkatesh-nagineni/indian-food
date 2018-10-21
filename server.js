@@ -46,7 +46,6 @@ router.post('/postShoppingListdish', shoppingList.postShoppingListdish);
 router.get('/getShoppingList', shoppingList.getShoppingList);
 
 router.post('/postnewCategoryData', upload.single('image'), async (req, res) => {
-  console.log(req.headers['name']);
   if (!req.file) {
       res.json({ success: false });
   } else {
