@@ -17,12 +17,6 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
- /*  postShoppingList (list): Observable<any> {
-    return this.http.post<any>(shoppinglistposturl, JSON.stringify({data: list}), httpOptions).pipe(
-      catchError(error => of(`Bad Promise: ${error}`))
-    );
-  } */
-
   postShoppingListdish (list, id) {
     const shoppinglistposturl = 'http://localhost:8000/api/postShoppingListdish/';
     return new Promise((resolve, reject) => {
