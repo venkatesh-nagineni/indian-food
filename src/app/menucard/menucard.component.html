@@ -25,7 +25,7 @@
           <div *ngIf="shoppinglist.banner == imgData.fileName"> <img [src]="'data:image/jpg;base64,' + imgData.data" alt="category banner" /> </div>
          </div>
           <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
-            <li (click)="expandItem(items, items.itemNo)" [class.disabledlistItem]="listindex == items.itemNo">
+            <li (click)="expandItem(items, items.itemNo, shoppinglist.dishType)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">
                 <h2 class="title">{{items.itemName}}
                   <span class="badge badge-info badge-pill" style="float:right;margin-top: 7px;margin-right: 7px">

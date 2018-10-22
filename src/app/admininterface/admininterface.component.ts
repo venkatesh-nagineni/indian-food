@@ -169,26 +169,39 @@ export class AdmininterfaceComponent implements OnInit {
       this.validateAllFormFields(this.adminForm);
       this.openSnackBar('Please fill required fields', '');
     } else {
-      const dishItem = {
-        itemNo: new Date().valueOf(),
-        itemName: this.adminForm.value.itemName,
-        itemShortDescription: this.adminForm.value.itemShortDescription,
-        itemPrice: Number(this.adminForm.value.itemPrice),
-        chooseExtraInfo: this.adminForm.value.chooseExtraInfo,
-        itemExtraOptionsizes: {
-          itemPlaceholderName: this.adminForm.value.itemName,
-          sizes: this.extraSizes
-        },
-        itemExtraOptionPrice: {
-          itemPlaceholderName: 'Ihre Extras',
-          prices: this.extraPrices
-        }
-      };
-      this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
-        console.log(response);
-      }, (error) => {
-        console.log(error);
-      });
+      if (this. selectedfromlist === 'Pizza') {
+        const dishItem = {
+          itemNo: new Date().valueOf(),
+          itemName: this.adminForm.value.itemName,
+          itemShortDescription: this.adminForm.value.itemShortDescription,
+          itemPrice: Number(this.adminForm.value.itemPrice),
+          itemExtraOptionsizes: {
+            itemPlaceholderName: this.adminForm.value.itemName,
+            sizes: this.extraSizes
+          },
+          itemExtraOptionPrice: {
+            itemPlaceholderName: 'Ihre Extras',
+            prices: this.extraPrices
+          }
+        };
+        this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
+      } else {
+        const dishItem = {
+          itemNo: new Date().valueOf(),
+          itemName: this.adminForm.value.itemName,
+          itemShortDescription: this.adminForm.value.itemShortDescription,
+          itemPrice: Number(this.adminForm.value.itemPrice),
+        };
+        this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
+      }
     }
   }
 

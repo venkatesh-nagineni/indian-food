@@ -85,15 +85,23 @@ export class MenucardComponent implements OnInit {
     }
 }
 
-  expandItem(item, itemNo) {
-    this.quantity = 1;
-    this.eachItem = item;
-    this.listindex = itemNo;
-    this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
-    this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
-    this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
-    this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
-    this.shared.updatedAmount(this.totalAmount);
+  expandItem(item, itemNo, category) {
+    if (category === 'Pizza') {
+      this.quantity = 1;
+      this.eachItem = item;
+      this.listindex = itemNo;
+      this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
+      this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
+      this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
+      this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
+      this.shared.updatedAmount(this.totalAmount);
+    } else {
+      this.quantity = 1;
+      this.eachItem = item;
+      this.totalAmount = item.itemPrice;
+      this.shared.updatedAmount(this.totalAmount);
+      this.addToCart();
+    }
   }
 
   checkExtraOptions(checkeditem, checked) {
