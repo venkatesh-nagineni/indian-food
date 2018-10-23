@@ -56,4 +56,30 @@ export class CartService {
     });
   }
 
+  getAngebote () {
+    const shoppinglistposturl = '/api/getAngebote/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.get(shoppinglistposturl, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  getAngeboteHome () {
+    const shoppinglistposturl = '/api/getAngeboteHome/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.get(shoppinglistposturl, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

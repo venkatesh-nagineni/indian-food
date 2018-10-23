@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabChanged($event)">
   <mat-tab label="Gerichte Ändern">
     <div class="container-fluid">
 
@@ -166,7 +166,15 @@
 
   <mat-tab label="Angebote Ändern">
     <!--  providing angebote information -->
-    <div style="padding:30px">
+    <mat-form-field style="padding:30px">
+      <mat-select placeholder="Select Angebote" [(ngModel)]="angebote" (selectionChange)="angeboteselect(angebote)">
+        <mat-option *ngFor="let angebote of angeboteItems" [value]="angebote.AngeboteNo">
+          {{angebote.AngeboteNo}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div style="padding-left:30px;" *ngIf="angebote">
       <input style="display: none" type="file" (change)="onofferFileChanged($event)" #offerinput>
       <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select
         Angebote image</button>
@@ -201,7 +209,7 @@
         </div>
       </div>
     </div>
-    <div style="margin-bottom:20px;margin-left: 30px;margin-top: 20px">
+    <div style="margin-bottom:20px;margin-left: 30px;margin-top: 20px" *ngIf="angebote">
       <button mat-raised-button color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"
         (click)="preview()">PREVIEW</button>&nbsp;&nbsp;&nbsp;&nbsp;
       <button mat-raised-button color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"

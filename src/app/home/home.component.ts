@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from '../shared.service';
-import {angeboteList} from '../../assets/data/cartList';
 import {Angebotetypes} from '../../assets/data/cartList';
+import {CartService} from '../cart.service';
+
+export class AngeboteResponseTypes {
+  data: Array<Object>;
+  imgData: Array<Object>;
+}
 
 @Component({
   selector: 'app-home',
@@ -10,13 +15,16 @@ import {Angebotetypes} from '../../assets/data/cartList';
 })
 export class HomeComponent implements OnInit {
 
-  private data: any;
-  angeboteList: Angebotetypes[] = angeboteList;
+  angeboteList: any;
+  angeboteImg: any;
 
-  constructor(private shared: SharedService) { }
+  constructor(private shared: SharedService, private service: CartService) { }
 
   ngOnInit() {
-
+    this.service.getAngeboteHome().then((res: AngeboteResponseTypes) => {
+      this.angeboteList = res.data;
+      this.angeboteImg = res.imgData;
+    });
   }
 
   angeboteToCart(item: Angebotetypes) {

@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
+var mongodb = require('mongodb');
+var ObjectId = mongodb.ObjectID;
 
 const MongoClient = require("mongodb").MongoClient;
 
@@ -42,8 +44,20 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
+var angebotestorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'images/angeboteImages')
+  },
+  filename: (req, file, cb) => {
+      cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+var angeboteUpload = multer({ storage: angebotestorage });
+
 router.post('/postShoppingListdish', shoppingList.postShoppingListdish);
 router.get('/getShoppingList', shoppingList.getShoppingList);
+router.get('/getAngebote', shoppingList.getAngebote);
+router.get('/getAngeboteHome', shoppingList.getAngeboteHome);
 
 router.post('/postnewCategoryData', upload.single('image'), async (req, res) => {
   if (!req.file) {
@@ -58,6 +72,24 @@ router.post('/postnewCategoryData', upload.single('image'), async (req, res) => 
       const client = await MongoClient.connect(uri, { useNewUrlParser: true });
       const collection = client.db("shoppingCart").collection("shoppingList");
       const insertData = await collection.insert(categoryData);
+      if (insertData) {
+          res.status(200).json({ success: true, message: 'Inserted successfully' });
+      }
+  }
+});
+
+router.post('/postAngeboteData', angeboteUpload.single('image'), async (req, res) =>{
+
+  if (!req.file) {
+      res.json({ success: false, message: 'image insertion failed' });
+  } else {
+      const angebotePrice =  Number(req.headers['price']);
+      const extraInfo =  req.headers['data'];
+      const angeboteId = req.headers['id'];
+
+      const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+      const collection = client.db("shoppingCart").collection("Angebote");
+      const insertData = await collection.update({_id: new ObjectId(angeboteId)}, {$set: {AngeboteImg: req.file.filename, AngebotePrice: angebotePrice, AngeboteDesc: extraInfo}}, {upsert: true});
       if (insertData) {
           res.status(200).json({ success: true, message: 'Inserted successfully' });
       }

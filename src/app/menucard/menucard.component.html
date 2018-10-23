@@ -39,6 +39,7 @@
             <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
+                <div *ngIf="shoppinglist.dishType == 'Pizza'">
                 <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
                 <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
                   <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
@@ -53,6 +54,7 @@
                     </label>
                   </div>
                 </div>
+              </div>
                 <div class="input-group input-number-group" style="padding-top:10px">
                   <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
                     <span class="input-number-decrement">-</span>

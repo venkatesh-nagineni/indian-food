@@ -58,10 +58,10 @@ export class MenucardComponent implements OnInit {
     this.shared.angeboteitem.subscribe((data: Angebotetypes) => {
       if (Object.keys(data).length !== 0) {
         const angeboteData = {
-          itemName: data.name,
-          itemNo: data.id,
+          itemName: data.AngeboteName,
+          itemNo: data._id,
           quantity: 1,
-          itemtotalamount: data.price,
+          itemtotalamount: data.AngebotePrice,
         };
         this.addCartList.push(angeboteData);
         this.itemQuantity += 1;
@@ -72,7 +72,6 @@ export class MenucardComponent implements OnInit {
 
     this.cartservice.getShoppingList().then(response => {
       this.shoppingListItems = response;
-      console.log(this.shoppingListItems);
     });
   }
 
@@ -86,8 +85,8 @@ export class MenucardComponent implements OnInit {
 }
 
   expandItem(item, itemNo, category) {
+    this.quantity = 1;
     if (category === 'Pizza') {
-      this.quantity = 1;
       this.eachItem = item;
       this.listindex = itemNo;
       this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
@@ -96,11 +95,10 @@ export class MenucardComponent implements OnInit {
       this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
       this.shared.updatedAmount(this.totalAmount);
     } else {
-      this.quantity = 1;
       this.eachItem = item;
-      this.totalAmount = item.itemPrice;
+      this.listindex = itemNo;
+      this.totalAmount = this.eachItem.itemPrice;
       this.shared.updatedAmount(this.totalAmount);
-      this.addToCart();
     }
   }
 
@@ -113,7 +111,6 @@ export class MenucardComponent implements OnInit {
     if (checkeditem === 'notupdate') {
       this.eachItem.itemExtraOptionsizes.sizes.forEach(item => {
         if (item.name === this.selectedPizzaSize) {
-          console.log(item);
           this.totalAmount = item.amount;
           this.shared.updatedAmount(item.amount);
           this.UncheckAll();
@@ -209,7 +206,6 @@ export class MenucardComponent implements OnInit {
   }
 
   cartIncrement(actionitem, index) {
-    console.log(actionitem, index);
     this.addCartList.forEach(item => {
       if (item.itemNo === actionitem.itemNo) {
         const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;

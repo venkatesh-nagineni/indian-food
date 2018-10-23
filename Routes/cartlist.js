@@ -48,5 +48,35 @@ module.exports = {
         } catch (error) {
             res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
         }
+    },
+
+    getAngebote: async (req, res) => {
+        try {
+            const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+            const collection = client.db("shoppingCart").collection("Angebote");
+            const insertData = await collection.find().toArray();
+            if (insertData) {
+                res.status(200).json({ success: true, data: insertData});
+            }
+        } catch (error) {
+            res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
+        }
+    },
+
+    getAngeboteHome: async (req, res) => {
+        try {
+            const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+            const collection = client.db("shoppingCart").collection("Angebote");
+            const insertData = await collection.find().toArray();
+            var imgData = [];
+            fs.readdirSync('./images/angeboteImages').forEach(file => {
+                var base64String = './images/angeboteImages/'+file+'';
+                var body = fs.readFileSync(base64String);
+                imgData.push({data: body.toString('base64'), fileName: file});
+              })
+              res.status(200).json({ success: true, data: insertData, imgData: imgData});
+        } catch (error) {
+            res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
+        }
     }
 };

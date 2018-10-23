@@ -6,14 +6,16 @@
     <div class="col-md-2" *ngFor="let item of angeboteList">
       <div class="card">
         <div style="position:relative">
-          <img class="card-img-top" src="{{item.imgSrc}}" alt="Card image cap">
+          <div *ngFor="let imgData of angeboteImg">
+          <img *ngIf="item.AngeboteImg == imgData.fileName" class="card-img-top" [src]="'data:image/jpg;base64,' + imgData.data" alt="Card image cap">
+        </div>
           <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px" (click)="angeboteToCart(item)"> toCart
             <mat-icon>shopping_cart</mat-icon> </button>
-            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> {{item.price}} €</span>
+            <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0"> {{item.AngebotePrice}} €</span>
         </div>
         <div class="card-body">
-          <h5 class="card-title border-bottom pb-3">{{item.name}} </h5>
-          <p class="card-text">{{item.extraInfo}}</p>
+          <h5 class="card-title border-bottom pb-3">{{item.AngeboteName}} </h5>
+          <p class="card-text">{{item.AngeboteDesc}}</p>
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { shoppingList } from '../../assets/data/cartList';
-import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { CartService } from '../cart.service';
+import { MatTabChangeEvent } from '@angular/material';
 
 @Component({
   selector: 'app-admininterface',
@@ -30,6 +31,9 @@ export class AdmininterfaceComponent implements OnInit {
   selectedCategoryFile: File;
   categorydishforRemove: any;
   selectedfromlist: string;
+  angeboteItems: any;
+  selectedAngebote: any;
+  angebote: any;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
@@ -65,12 +69,11 @@ export class AdmininterfaceComponent implements OnInit {
     } else {
       const uploadData = new FormData();
       uploadData.append('image', this.selectedCategoryFile, this.selectedCategoryFile.name);
-      uploadData.append('extraData', this.newCategoryData.name);
 
       let httpHeaders = new HttpHeaders();
       httpHeaders = httpHeaders.append('name', this.newCategoryData.name);
 
-      this.http.post('http://localhost:3000/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
+      this.http.post('/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
         } else if (event.type === HttpEventType.Response) {
@@ -91,10 +94,6 @@ export class AdmininterfaceComponent implements OnInit {
     });
   }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
-
   adddishform() {
     this.openformtoadd = true;
   }
@@ -111,18 +110,6 @@ export class AdmininterfaceComponent implements OnInit {
     }
   }
 
-  /* onUpload() {
-    const uploadData = new FormData();
-    uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-    this.http.post('my-backend.com/file-upload', uploadData, { reportProgress: true, observe: 'events' }).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
-      } else if (event.type === HttpEventType.Response) {
-        console.log(event);
-      }
-    });
-  } */
-
   ngOnInit() {
     this.adminForm = this.formBuilder.group({
       itemName: ['', Validators.required],
@@ -134,6 +121,54 @@ export class AdmininterfaceComponent implements OnInit {
       console.log(response);
       this.mainshoppinglistitems = response['data'];
     });
+  }
+
+  tabChanged(event: MatTabChangeEvent) {
+    if (event.index === 1) {
+      this.cartservice.getAngebote().then((response: any) => {
+        this.angeboteItems = response.data;
+        this.angebote = 'Angebote 1';
+        this.selectedAngebote = response.data[0]._id;
+      });
+    }
+  }
+
+  angeboteselect(angebote) {
+    this.angeboteItems.forEach(element => {
+      if (element.AngeboteNo === angebote) {
+        this.selectedAngebote = element._id;
+      }
+    });
+  }
+
+  submitAngebote() {
+    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
+      this.previewShow = false;
+      const uploadData = new FormData();
+      uploadData.append('image', this.selectedFile, this.selectedFile.name);
+
+        let headers = new HttpHeaders();
+        headers  = headers.append('data', this.previewAngebote.extraInfo);
+        headers  = headers.append('price', this.previewAngebote.price);
+        headers  = headers.append('id', this.selectedAngebote);
+
+        this.http.post('/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
+         if (event.type === HttpEventType.Response) {
+           if (event.body['success'] === true) {
+            this.previewAngebote = { name: '', extraInfo: '', price: '' };
+            this.url = '';
+            this.cartservice.getAngebote().then((response: any) => {
+              this.angeboteItems = response.data;
+              this.angebote = 'Angebote 1';
+              this.selectedAngebote = response.data[0]._id;
+            });
+            this.openSnackBar('Angebote updated successfully', '');
+           }
+        }
+      });
+    } else {
+      this.openSnackBar('Please fill out all fields', '');
+    }
   }
 
   addpizzasizes() {
@@ -220,7 +255,7 @@ export class AdmininterfaceComponent implements OnInit {
   onofferFileChanged(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-
+      this.selectedFile = event.target.files[0];
       reader.readAsDataURL(event.target.files[0]);
 
       reader.onload = (eve: any) => {
@@ -254,16 +289,6 @@ export class AdmininterfaceComponent implements OnInit {
 
   removeDishchanged(dish) {
     console.log(dish);
-  }
-
-  submitAngebote() {
-    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
-      this.previewShow = false;
-      this.previewAngebote = { name: '', extraInfo: '', price: '' };
-      this.url = '';
-    } else {
-      this.openSnackBar('Please fill out all fields', '');
-    }
   }
 
   angeboteUpload() {
