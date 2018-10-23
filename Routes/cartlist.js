@@ -78,5 +78,20 @@ module.exports = {
         } catch (error) {
             res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
         }
-    }
+    },
+
+    removeDishItem: async (req, res) => {
+        try {
+            const data = req.body.data;
+            const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+            const collection = client.db("shoppingCart").collection("shoppingList");
+            const status = collection.update({_id: new ObjectId(data.catId)}, { $pull: { dishItems : { itemNo: data.itemId } } } );
+            res.status(200).json({ success: true, message: 'Item Removed successfully' })
+
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({ success: false, message: 'something went wrong. Insertion failed!', error: error })
+        }
+    },
+
 };

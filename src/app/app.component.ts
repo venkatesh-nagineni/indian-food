@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
 import {SharedService} from './shared.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -31,22 +30,11 @@ export class AppComponent implements OnInit {
     this.innerwidth = window.innerWidth;
 }
 
-  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService, private spinner: NgxSpinnerService) {
+  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
 
   }
 
   ngOnInit() {
-    this.spinner.show();
-    this.sharedService.loaderstatus.subscribe(status => {
-      if (status === true) {
-        this.spinner.hide();
-      }
-    });
-
-    setTimeout(() => {
-      this.spinner.hide();
-  }, 10000);
-
     const mainNav = document.getElementById('js-menu');
     const navBarToggle = document.getElementById('js-navbar-toggle');
     navBarToggle.addEventListener('click', () => {

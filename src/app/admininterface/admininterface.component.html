@@ -7,7 +7,7 @@
         <mat-radio-group [(ngModel)]="radiogroup">
           <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Add
             dish </mat-radio-button>
-          <mat-radio-button value="removedish" color="primary" style="margin-left:50px; font-family: 'Helvetica Neue', sans-serif;">
+          <mat-radio-button (change)="radioChange()" value="removedish" color="primary" style="margin-left:50px; font-family: 'Helvetica Neue', sans-serif;">
             Remove dish </mat-radio-button>
         </mat-radio-group><br>
       </div>
@@ -143,23 +143,25 @@
     </div>
 
     <!-- view appear only when user click on remove dish -->
-    <!-- <div *ngIf="radiogroup == 'removedish'">
+    <div *ngIf="radiogroup == 'removedish'">
       <mat-form-field>
         <mat-select placeholder="Select category" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
-          <mat-option *ngFor="let category of shoppingListItems;" [value]="category.dishType">
+          <mat-option *ngFor="let category of mainshoppinglistitems;" [value]="category.dishType">
             {{category.dishType}}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
-      <mat-form-field *ngIf="categorydishforRemove">
+      <mat-form-field *ngIf="dishItemsToRemove">
         <mat-select placeholder="Select category" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
-          <mat-option *ngFor="let category of categorydishforRemove" [value]="category.itenName">
-            {{category.itemName}}
+          <mat-option *ngFor="let dish of dishItemsToRemove" [value]="dish.itemName">
+            {{dish.itemName}}
           </mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field><br><br>
+      <button *ngIf="categorydishName" mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+        (click)="onSubmitRemoveDish()"> REMOVE DISH </button>
       <div style="margin-bottom: 230px;"></div>
-    </div> -->
+    </div>
 
     </div>
   </mat-tab>

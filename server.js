@@ -58,6 +58,7 @@ router.post('/postShoppingListdish', shoppingList.postShoppingListdish);
 router.get('/getShoppingList', shoppingList.getShoppingList);
 router.get('/getAngebote', shoppingList.getAngebote);
 router.get('/getAngeboteHome', shoppingList.getAngeboteHome);
+router.post('/removeDishItem', shoppingList.removeDishItem);
 
 router.post('/postnewCategoryData', upload.single('image'), async (req, res) => {
   if (!req.file) {

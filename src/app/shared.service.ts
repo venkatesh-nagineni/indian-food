@@ -12,14 +12,9 @@ export class SharedService {
   cartQuantity: BehaviorSubject<number> = new BehaviorSubject(0);
   cartTotalAmount: BehaviorSubject<number> = new BehaviorSubject(0);
   angeboteitem: BehaviorSubject<Object> = new BehaviorSubject({});
-  loaderstatus: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor() {
 
-  }
-
-  loading(status: boolean) {
-    this.loaderstatus.next(status);
   }
 
   angeboteupdate(item: Object) {

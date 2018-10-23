@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SharedService} from '../shared.service';
 import {Angebotetypes} from '../../assets/data/cartList';
 import {CartService} from '../cart.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export class AngeboteResponseTypes {
   data: Array<Object>;
@@ -18,11 +19,12 @@ export class HomeComponent implements OnInit {
   angeboteList: any;
   angeboteImg: any;
 
-  constructor(private shared: SharedService, private service: CartService) { }
+  constructor(private shared: SharedService, private service: CartService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.service.getAngeboteHome().then((res: AngeboteResponseTypes) => {
-      this.shared.loading(true);
+      this.spinner.hide();
       this.angeboteList = res.data;
       this.angeboteImg = res.imgData;
     });

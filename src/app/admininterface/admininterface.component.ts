@@ -32,6 +32,12 @@ export class AdmininterfaceComponent implements OnInit {
   angeboteItems: any;
   selectedAngebote: any;
   angebote: any;
+  categoryForRemove: any;
+  dishItemsToRemove: any;
+  removeCategoryId: any;
+  removeDishId: any;
+  removeCategory: any;
+  categorydishName: any;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
@@ -53,6 +59,46 @@ export class AdmininterfaceComponent implements OnInit {
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService) {
     this.radiogroup = 'adddish';
+  }
+
+  removecategoryChanged(item) {
+    this.mainshoppinglistitems.forEach(element => {
+      if (item === element.dishType) {
+        this.dishItemsToRemove = element.dishItems;
+        this.removeCategoryId = element._id;
+      }
+    });
+  }
+
+  removeDishchanged(dish) {
+    this.dishItemsToRemove.forEach(item => {
+      this.removeDishId = item.itemNo;
+    });
+  }
+
+  onSubmitRemoveDish() {
+    const removeData = {
+      catId: this.removeCategoryId,
+      itemId: this.removeDishId
+    };
+    this.cartservice.removeDishItem(removeData).then(res => {
+      if (res['success'] === true) {
+        this.openSnackBar(res['message'], '');
+      } else {
+        this.openSnackBar(res['message'], '');
+      }
+    });
+    this.cartservice.getShoppingList().then(response => {
+      this.mainshoppinglistitems = response['data'];
+      this.removeCategory = '';
+      this.categorydishName = '';
+    });
+  }
+
+  radioChange() {
+    this.cartservice.getShoppingList().then(response => {
+      this.mainshoppinglistitems = response['data'];
+    });
   }
 
   addNewCategory() {
@@ -90,6 +136,10 @@ export class AdmininterfaceComponent implements OnInit {
         this.selectedfromlist = items.dishType;
       }
     });
+  }
+
+  categorychangedForRemove(id) {
+    console.log(id);
   }
 
   adddishform() {
@@ -145,14 +195,15 @@ export class AdmininterfaceComponent implements OnInit {
       const uploadData = new FormData();
       uploadData.append('image', this.selectedFile, this.selectedFile.name);
 
-        let headers = new HttpHeaders();
-        headers  = headers.append('data', this.previewAngebote.extraInfo);
-        headers  = headers.append('price', this.previewAngebote.price);
-        headers  = headers.append('id', this.selectedAngebote);
+      let headers = new HttpHeaders();
+      headers = headers.append('data', this.previewAngebote.extraInfo);
+      headers = headers.append('price', this.previewAngebote.price);
+      headers = headers.append('id', this.selectedAngebote);
+      headers = headers.append('name', this.previewAngebote.name);
 
-        this.http.post('/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
-         if (event.type === HttpEventType.Response) {
-           if (event.body['success'] === true) {
+      this.http.post('/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
+        if (event.type === HttpEventType.Response) {
+          if (event.body['success'] === true) {
             this.previewAngebote = { name: '', extraInfo: '', price: '' };
             this.url = '';
             this.cartservice.getAngebote().then((response: any) => {
@@ -161,7 +212,7 @@ export class AdmininterfaceComponent implements OnInit {
               this.selectedAngebote = response.data[0]._id;
             });
             this.openSnackBar('Angebote updated successfully', '');
-           }
+          }
         }
       });
     } else {
@@ -202,7 +253,7 @@ export class AdmininterfaceComponent implements OnInit {
       this.validateAllFormFields(this.adminForm);
       this.openSnackBar('Please fill required fields', '');
     } else {
-      if (this. selectedfromlist === 'Pizza') {
+      if (this.selectedfromlist === 'Pizza') {
         const dishItem = {
           itemNo: new Date().valueOf(),
           itemName: this.adminForm.value.itemName,
@@ -230,9 +281,13 @@ export class AdmininterfaceComponent implements OnInit {
           itemPrice: Number(this.adminForm.value.itemPrice),
         };
         this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
-          console.log(response);
-        }, (error) => {
-          console.log(error);
+          if (response['success'] === true) {
+            this.categoryid = '';
+            this.openformtoadd = false;
+            this.openSnackBar(response['message'], '');
+          } else {
+            this.openSnackBar(response['message'], '');
+          }
         });
       }
     }
@@ -274,10 +329,6 @@ export class AdmininterfaceComponent implements OnInit {
     this.previewShow = false;
     this.previewAngebote = { name: '', extraInfo: '', price: '' };
     this.url = '';
-  }
-
-  removeDishchanged(dish) {
-    console.log(dish);
   }
 
   angeboteUpload() {
