@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ContactComponent} from './contact/contact.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
-import { ShopitemsComponent } from './shopitems/shopitems.component';
 import { routingModule} from './routing.module';
 import { HomeComponent} from './home/home.component';
 import { InfoTextComponent } from './info-text/info-text.component';
@@ -29,7 +28,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppComponent,
     ContactComponent,
     AdminloginComponent,
-    ShopitemsComponent,
     HomeComponent,
     InfoTextComponent,
     CheckoutAddressComponent,
