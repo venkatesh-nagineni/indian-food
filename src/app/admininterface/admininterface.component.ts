@@ -117,7 +117,7 @@ export class AdmininterfaceComponent implements OnInit {
       let httpHeaders = new HttpHeaders();
       httpHeaders = httpHeaders.append('name', this.newCategoryData.name);
 
-      this.http.post('/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
+      this.http.post('http://localhost:8010/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
         } else if (event.type === HttpEventType.Response) {
@@ -161,7 +161,7 @@ export class AdmininterfaceComponent implements OnInit {
   ngOnInit() {
     this.adminForm = this.formBuilder.group({
       itemName: ['', Validators.required],
-      itemShortDescription: ['', [Validators.required]],
+      itemShortDescription: [''],
       itemPrice: ['', [Validators.required]],
       // chooseExtraInfo: ['']
     });
@@ -201,7 +201,7 @@ export class AdmininterfaceComponent implements OnInit {
       headers = headers.append('id', this.selectedAngebote);
       headers = headers.append('name', this.previewAngebote.name);
 
-      this.http.post('/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
+      this.http.post('http://localhost:8010/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
         if (event.type === HttpEventType.Response) {
           if (event.body['success'] === true) {
             this.previewAngebote = { name: '', extraInfo: '', price: '' };

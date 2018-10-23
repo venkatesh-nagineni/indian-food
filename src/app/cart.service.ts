@@ -18,7 +18,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   postShoppingListdish (list, id) {
-    const shoppinglistposturl = '/api/postShoppingListdish/';
+    const shoppinglistposturl = 'http://localhost:8010/api/postShoppingListdish/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({ data: list, id: id}), { headers: headers })
@@ -31,7 +31,7 @@ export class CartService {
   }
 
   postnewcategory (data) {
-    const shoppinglistposturl = '/api/postnewCategoryData/';
+    const shoppinglistposturl = 'http://localhost:8010/api/postnewCategoryData/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
@@ -44,7 +44,7 @@ export class CartService {
   }
 
   getShoppingList () {
-    const shoppinglistposturl = '/api/getShoppingList/';
+    const shoppinglistposturl = 'http://localhost:8010/api/getShoppingList/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -57,7 +57,7 @@ export class CartService {
   }
 
   getAngebote () {
-    const shoppinglistposturl = '/api/getAngebote/';
+    const shoppinglistposturl = 'http://localhost:8010/api/getAngebote/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -70,7 +70,7 @@ export class CartService {
   }
 
   getAngeboteHome () {
-    const shoppinglistposturl = '/api/getAngeboteHome/';
+    const shoppinglistposturl = 'http://localhost:8010/api/getAngeboteHome/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -83,7 +83,7 @@ export class CartService {
   }
 
   removeDishItem (data) {
-    const shoppinglistposturl = '/api/removeDishItem/';
+    const shoppinglistposturl = 'http://localhost:8010/api/removeDishItem/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
