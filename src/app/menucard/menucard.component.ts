@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef, ViewEncapsulation  } from '@angular/core';
-import { shoppingList } from '../../assets/data/cartList';
-import { ShopListTypes } from '../../assets/data/cartList';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';

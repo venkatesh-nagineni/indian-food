@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { shoppingList } from '../../assets/data/cartList';
 import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
@@ -14,7 +13,6 @@ import { MatTabChangeEvent } from '@angular/material';
 })
 export class AdmininterfaceComponent implements OnInit {
 
-  shoppingListItems: any[] = shoppingList;
   mainshoppinglistitems: any;
   radiogroup: any;
   selectedFile: File;
@@ -276,15 +274,6 @@ export class AdmininterfaceComponent implements OnInit {
     this.previewShow = false;
     this.previewAngebote = { name: '', extraInfo: '', price: '' };
     this.url = '';
-  }
-
-  removecategoryChanged(category) {
-    this.categorydishforRemove = this.shoppingListItems;
-    this.shoppingListItems.forEach(items => {
-      if (items.dishType === category) {
-        this.categorydishforRemove = items.dishItems;
-      }
-    });
   }
 
   removeDishchanged(dish) {

@@ -22,6 +22,7 @@ import { MenucardComponent } from './menucard/menucard.component';
 import { AdmininterfaceComponent } from './admininterface/admininterface.component';
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     ModalModule.forRoot(),
   ],
   entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],

@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, HostListener, TemplateRef } from '@angular/core';
 import { InfoTextComponent } from '../info-text/info-text.component';
 import { MatDialog } from '@angular/material';
-import { shoppingList } from '../../assets/data/cartList';
 import { ShopListTypes } from '../../assets/data/cartList';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -15,7 +14,6 @@ import {SharedService} from '../shared.service';
 })
 export class ShopitemsComponent implements OnInit {
 
-  shoppingListItems: ShopListTypes[] = shoppingList;
   itemAmount = [];
   totalAmount = 0;
   numberOfItems = 0;

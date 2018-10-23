@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAngeboteHome().then((res: AngeboteResponseTypes) => {
+      this.shared.loading(true);
       this.angeboteList = res.data;
       this.angeboteImg = res.imgData;
     });

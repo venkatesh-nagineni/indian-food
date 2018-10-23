@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
 import {AdminloginComponent} from './adminlogin/adminlogin.component';
@@ -6,11 +6,12 @@ import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
 import {SharedService} from './shared.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
 
@@ -23,16 +24,35 @@ export class AppComponent implements OnInit {
   onlineSection = true;
   adminSection = false;
   disableHeader = true;
+  innerwidth: any;
 
-  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerwidth = window.innerWidth;
+}
+
+  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService, private spinner: NgxSpinnerService) {
+
   }
 
   ngOnInit() {
+    this.spinner.show();
+    this.sharedService.loaderstatus.subscribe(status => {
+      if (status === true) {
+        this.spinner.hide();
+      }
+    });
+
+    setTimeout(() => {
+      this.spinner.hide();
+  }, 10000);
+
     const mainNav = document.getElementById('js-menu');
     const navBarToggle = document.getElementById('js-navbar-toggle');
     navBarToggle.addEventListener('click', () => {
       mainNav.classList.toggle('active');
     });
+    this.innerwidth = window.innerWidth;
 
   }
 
@@ -53,9 +73,13 @@ export class AppComponent implements OnInit {
   } */
 
   openUserLogin() {
-    const dialogRef = this.dialog.open(UserloginComponent, {hasBackdrop: false});
+    const dialogRef = this.dialog.open(UserloginComponent, { hasBackdrop: false });
     this.disablePointer = true;
     this.disableMenu = true;
+    const mainNav = document.getElementById('js-menu');
+    if (this.innerwidth < 728) {
+      mainNav.classList.toggle('active');
+    }
     dialogRef.afterClosed().subscribe(result => {
       this.isLoginVisible = false;
       this.disablePointer = false;
@@ -77,6 +101,10 @@ export class AppComponent implements OnInit {
     if (page === 'online') {
         this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'auto', block: 'start' });
         this.disableHeader = true;
+        const mainNav = document.getElementById('js-menu');
+        if (this.innerwidth < 728) {
+          mainNav.classList.toggle('active');
+        }
     }
   }
 
@@ -86,6 +114,7 @@ export class AppComponent implements OnInit {
     this.onlineSection = true;
     this.disablePointer = false;
     this.disableHeader = true;
+    const mainNav = document.getElementById('js-menu');
   }
 
 }
