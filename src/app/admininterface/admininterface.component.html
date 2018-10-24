@@ -50,8 +50,8 @@
           </button><br>
         </div>
 
-        <div [class.addpadding]="!openformtoadd"></div>
-
+<!--         <div [class.addpadding]="!openformtoadd"></div>
+ -->
         <!-- enable form only after click on add dish item -->
         <div *ngIf="openformtoadd">
           <form [formGroup]="adminForm">
@@ -160,7 +160,6 @@
       </mat-form-field><br><br>
       <button *ngIf="categorydishName" mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
         (click)="onSubmitRemoveDish()"> REMOVE DISH </button>
-      <div style="margin-bottom: 230px;"></div>
     </div>
 
     </div>
