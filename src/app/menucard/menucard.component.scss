@@ -317,3 +317,128 @@
     color: white !important;
     letter-spacing: 1px !important;
   }
+
+  .footersection {
+    display: block;
+
+    .customcontainer {
+      padding-top: 30px;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    ul, ol {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .btn, .form-control {
+      border-radius: 2px;
+      box-shadow: none !important;
+    }
+
+    .footer2 a {
+      color: #DDD;
+    }
+
+    .footer2 a:hover,
+    .footer2 a:focus,
+    .footer2 a:active {
+      color: #FFF;
+    }
+
+    .footer2 .footer {
+      background-color: #2E3436;
+      padding: 10px 0;
+    }
+
+    .footer2 .footer nav h3 {
+      font-size: 18px;
+      color: #FFF;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 1em 0;
+    }
+
+    .footer2 .footer nav h3 span {
+      font-weight: 300;
+      text-transform: capitalize;
+    }
+
+    .footer2 .footer nav ul li a {
+      text-decoration: none;
+      display: block;
+      padding: 4px 0;
+      font-size: 13px;
+    }
+
+    .footer2 .footer nav {
+      padding-bottom: 10px;
+    }
+
+    .footer2 .footer .input-group {
+      margin: 15px 0;
+    }
+
+    .footer2 .footer .form-control {
+      border-radius: 2px 0 0 2px;
+      background-color: #585C5D;
+      border-color: #585C5D;
+      color: #DDD;
+    }
+
+    .footer2 .footer .form-control:hover,
+    .footer2 .footer .form-control:focus {
+      border: 1px solid #222728;
+      background-color: #222728;
+    }
+
+    .footer2 .footer .input-group-addon {
+      border-radius: 0 2px 2px 0;
+      background-color: #F7931D;
+      color: #FFF;
+      border-color: #F7931D;
+    }
+
+    .footer2 .footer .social {
+      margin: 0 auto;
+      display: table;
+    }
+
+    .footer2 .footer .social li {
+      float: left;
+    }
+
+    .footer2 .footer .social li a {
+      display: block;
+      font-size: 1em;
+      color: #DDD;
+      width: 30px;
+      height: 30px;
+      line-height: 32px;
+      padding: 0;
+      text-align: center;
+      border-radius: 2px;
+      margin: 5px 4px
+    }
+
+    .footer2 .footer .social li a:hover {
+      background-color: #3A4144;
+    }
+
+    .footer-bottom {
+      padding: 5px 0 5px;
+      background: #1e1e1e;
+  }
+  .copyright-text p {
+      color: #ccc;
+      margin-top: 5px;
+      margin-bottom: 0;
+      text-align: center;
+  }
+
+  }

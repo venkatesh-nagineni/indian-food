@@ -5,7 +5,6 @@ import {AdminloginComponent} from './adminlogin/adminlogin.component';
 import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
-import {SharedService} from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -24,14 +23,14 @@ export class AppComponent implements OnInit {
   adminSection = false;
   disableHeader = true;
   innerwidth: any;
+  hidefooter: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerwidth = window.innerWidth;
 }
 
-  constructor(private dialog: MatDialog, private router: Router, private sharedService: SharedService) {
-
+  constructor(private dialog: MatDialog, private router: Router) {
   }
 
   ngOnInit() {
@@ -41,7 +40,6 @@ export class AppComponent implements OnInit {
       mainNav.classList.toggle('active');
     });
     this.innerwidth = window.innerWidth;
-
   }
 
   openModal() {

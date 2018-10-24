@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
       this.angeboteList = res.data;
       this.angeboteImg = res.imgData;
     });
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 10000);
+
   }
 
   angeboteToCart(item: Angebotetypes) {

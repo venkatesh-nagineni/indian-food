@@ -79,7 +79,7 @@ router.post('/postnewCategoryData', upload.single('image'), async (req, res) => 
   }
 });
 
-router.post('/postAngeboteData', angeboteUpload.single('image'), async (req, res) =>{
+router.post('/postAngeboteData', angeboteUpload.single('image'), async (req, res) => {
 
   if (!req.file) {
       res.json({ success: false, message: 'image insertion failed' });
@@ -87,10 +87,11 @@ router.post('/postAngeboteData', angeboteUpload.single('image'), async (req, res
       const angebotePrice =  Number(req.headers['price']);
       const extraInfo =  req.headers['data'];
       const angeboteId = req.headers['id'];
+      const name = req.headers['name'];
 
       const client = await MongoClient.connect(uri, { useNewUrlParser: true });
       const collection = client.db("shoppingCart").collection("Angebote");
-      const insertData = await collection.update({_id: new ObjectId(angeboteId)}, {$set: {AngeboteImg: req.file.filename, AngebotePrice: angebotePrice, AngeboteDesc: extraInfo}}, {upsert: true});
+      const insertData = await collection.update({_id: new ObjectId(angeboteId)}, {$set: { AngeboteName: name, AngeboteImg: req.file.filename, AngebotePrice: angebotePrice, AngeboteDesc: extraInfo}}, {upsert: true});
       if (insertData) {
           res.status(200).json({ success: true, message: 'Inserted successfully' });
       }
