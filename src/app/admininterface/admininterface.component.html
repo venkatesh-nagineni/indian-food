@@ -5,23 +5,23 @@
       <!-- Add dish and remove dish radio group to switch between two views -->
       <div class="radio-group">
         <mat-radio-group [(ngModel)]="radiogroup">
-          <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Add
-            dish </mat-radio-button>
+          <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Neue Gericht
+            hinzufügen </mat-radio-button>
           <mat-radio-button (change)="radioChange()" value="removedish" color="primary" style="margin-left:50px; font-family: 'Helvetica Neue', sans-serif;">
-            Remove dish </mat-radio-button>
+            Gericht entfernen </mat-radio-button>
         </mat-radio-group><br>
       </div>
 
       <!-- view enable only when user click on add dish -->
       <div *ngIf="radiogroup == 'adddish'">
         <mat-form-field>
-          <mat-select placeholder="Select category" [(ngModel)]="categoryid" (selectionChange)="categorychanged(categoryid)">
+          <mat-select placeholder="Kategorie auswählen" [(ngModel)]="categoryid" (selectionChange)="categorychanged(categoryid)">
             <mat-option *ngFor="let category of mainshoppinglistitems" [value]="category._id">
               {{category.dishType}}
             </mat-option>
           </mat-select>
-        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Add new
-          category</label>&nbsp;&nbsp;
+        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Neue Kategorie
+          hinzufügen</label>&nbsp;&nbsp;
         <button mat-mini-fab color="primary" (click)="addNewCategory()">
           <mat-icon>add</mat-icon>
         </button><br>
@@ -32,19 +32,19 @@
             <input [(ngModel)]="newCategoryData.name" type="text" matInput placeholder="New category name">
           </mat-form-field> <br>
           <input style="display: none" type="file" (change)="oncategoryFileChanged($event)" #fileInput>
-          <button mat-raised-button (click)="fileInput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select
-            category banner</button>
+          <button mat-raised-button (click)="fileInput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Kategorie
+            Bild Auswählen</button>
           <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-            (click)="oncategoryUpload()">UPLOAD</button><br><br>
+            (click)="oncategoryUpload()">Hochladen</button><br><br>
           <button mat-raised-button color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"
-            (click)="submitCategoryData()">SUBMIT
-            CATEGORY</button>
+            (click)="submitCategoryData()">Absenden
+            Kategorie</button>
         </div>
 
         <!-- enable only after user select category from list -->
         <div *ngIf="categoryid">
-          <p>Add dish item in category <strong>{{selectedfromlist}}</strong></p>
-          <label style="font-family: 'Helvetica Neue', sans-serif;">Add dish</label>&nbsp;&nbsp;
+          <p>Neues Gericht wird in die Kategorie <strong>{{selectedfromlist}}</strong> aufgenommen </p>
+          <label style="font-family: 'Helvetica Neue', sans-serif;">Gericht hinzufügen</label>&nbsp;&nbsp;
           <button mat-mini-fab color="primary" (click)="adddishform()">
             <mat-icon>add</mat-icon>
           </button><br>
@@ -58,17 +58,17 @@
             <div class="flexrow">
               <div class="flexcol">
                 <mat-form-field>
-                  <input formControlName="itemName" type="text" matInput placeholder="item name you wish to add">
+                  <input formControlName="itemName" type="text" matInput placeholder="Name des Gerichts">
                 </mat-form-field>
               </div>
               <div class="flexcol">
                 <mat-form-field>
-                  <input formControlName="itemPrice" type="text" matInput placeholder="item price">
+                  <input formControlName="itemPrice" type="text" matInput placeholder="Preis in Euro. z.B. '5.5'">
                 </mat-form-field>
               </div>
             </div>
             <mat-form-field class="example-full-width">
-              <textarea matInput formControlName="itemShortDescription" type="text" placeholder="provide description about item"></textarea>
+              <textarea matInput formControlName="itemShortDescription" type="text" placeholder="Beschreibung des Gerichts"></textarea>
               <mat-icon matSuffix>message</mat-icon>
             </mat-form-field><br>
            <!--  <mat-form-field class="example-full-width" *ngIf="selectedfromlist == 'Pizza'">
@@ -138,28 +138,28 @@
           </div><br>
         </div>
         <button mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-          (click)="onSubmitData()"> SUBMIT DATA </button><br><br>
+          (click)="onSubmitData()"> Daten Speichern </button><br><br>
       </div>
     </div>
 
     <!-- view appear only when user click on remove dish -->
     <div *ngIf="radiogroup == 'removedish'">
       <mat-form-field>
-        <mat-select placeholder="Select category" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
+        <mat-select placeholder="Kategorie auswählen" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
           <mat-option *ngFor="let category of mainshoppinglistitems;" [value]="category.dishType">
             {{category.dishType}}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
       <mat-form-field *ngIf="dishItemsToRemove">
-        <mat-select placeholder="Select category" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
+        <mat-select placeholder="Gericht auswählen" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
           <mat-option *ngFor="let dish of dishItemsToRemove" [value]="dish.itemName">
             {{dish.itemName}}
           </mat-option>
         </mat-select>
       </mat-form-field><br><br>
       <button *ngIf="categorydishName" mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-        (click)="onSubmitRemoveDish()"> REMOVE DISH </button>
+        (click)="onSubmitRemoveDish()"> Gericht entfernen </button>
     </div>
 
     </div>
@@ -168,7 +168,7 @@
   <mat-tab label="Angebote Ändern">
     <!--  providing angebote information -->
     <mat-form-field style="padding:30px">
-      <mat-select placeholder="Select Angebote" [(ngModel)]="angebote" (selectionChange)="angeboteselect(angebote)">
+      <mat-select placeholder="Angebot auswählen" [(ngModel)]="angebote" (selectionChange)="angeboteselect(angebote)">
         <mat-option *ngFor="let angebote of angeboteItems" [value]="angebote.AngeboteNo">
           {{angebote.AngeboteNo}}
         </mat-option>
@@ -177,18 +177,18 @@
 
     <div style="padding-left:30px;" *ngIf="angebote">
       <input style="display: none" type="file" (change)="onofferFileChanged($event)" #offerinput>
-      <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Select
-        Angebote image</button>
+      <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Angebot
+        Bild auswählen</button>
       <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-        (click)="angeboteUpload()">UPLOAD</button><br><br>
+        (click)="angeboteUpload()">Bild Hochladen</button><br><br>
       <mat-form-field>
-        <input type="text" matInput placeholder="Angebote name" [(ngModel)]="previewAngebote.name">
+        <input type="text" matInput placeholder="Name des Angebots" [(ngModel)]="previewAngebote.name">
       </mat-form-field><br>
       <mat-form-field>
-        <input type="number" matInput placeholder="Angebote price" [(ngModel)]="previewAngebote.price">
+        <input type="number" matInput placeholder="Preis des Angebots in Euro" [(ngModel)]="previewAngebote.price">
       </mat-form-field><br>
       <mat-form-field class="example-full-width">
-        <textarea matInput type="text" placeholder="Angebote description" [(ngModel)]="previewAngebote.extraInfo"></textarea>
+        <textarea matInput type="text" placeholder="Beschreibung des Angebots" [(ngModel)]="previewAngebote.extraInfo"></textarea>
         <mat-icon matSuffix>message</mat-icon>
       </mat-form-field><br>
     </div>
@@ -199,7 +199,7 @@
           <div style="position:relative">
             <img class="card-img-top" [src]="url" alt="Card image cap">
             <button mat-raised-button color="primary" style="position:absolute;top:0;left:0;letter-spacing: 1px"
-              (click)="removepreview()"> REMOVE </button>
+              (click)="removepreview()"> Angebot Weg </button>
             <span class="badge badge-info badge-pill" style="position:absolute;top:0;right: 0">
               {{previewAngebote.price}} €</span>
           </div>
@@ -212,10 +212,10 @@
     </div>
     <div style="margin-bottom:20px;margin-left: 30px;margin-top: 20px" *ngIf="angebote">
       <button mat-raised-button color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"
-        (click)="preview()">PREVIEW</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        (click)="preview()">Vorschau</button>&nbsp;&nbsp;&nbsp;&nbsp;
       <button mat-raised-button color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"
-        (click)="submitAngebote()">SUBMIT
-        ANGEBOTE</button>
+        (click)="submitAngebote()">Angebot
+        Ändern</button>
     </div>
   </mat-tab>
 

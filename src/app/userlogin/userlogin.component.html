@@ -1,5 +1,5 @@
 <div class="userlogin">
-  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Login</span>
+  <h3 style="text-align:center;font-family:sans-serif;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Anmelden</span>
     <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
       <mat-icon>cancel</mat-icon>
     </button>
@@ -8,18 +8,18 @@
           <div *ngIf="ErrorMessage">
             <div class="error-notice">
                   <div class="oaerror danger">
-                    <strong>Error</strong> - Wrong username/password
+                    <strong>Error</strong> - Das eingegebene Benutzer-ID/Passwort ist nicht korrekt
                   </div>
                 </div>
           </div>
 
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>email</mat-icon>
-      <input type="email" matInput placeholder="Email or username" [(ngModel)]="username" (keyup.enter)="login(username, password)">
+      <input type="email" matInput placeholder="E-Mail oder Benutzer-ID" [(ngModel)]="username" (keyup.enter)="login(username, password)">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" [(ngModel)]="password" (keyup.enter)="login(username, password)">
+      <input type="password" matInput placeholder="Kennwort" [(ngModel)]="password" (keyup.enter)="login(username, password)">
       <mat-icon matSuffix>visibility_off</mat-icon>
     </mat-form-field>
 
@@ -28,12 +28,12 @@
     </button> -->
 
     <button mat-raised-button color="primary" class="loginbutton" (click)="login(username, password)">
-      <span style="font-size:17px;letter-spacing: 1px;">Login</span>
+      <span style="font-size:17px;letter-spacing: 1px;">Anmelden</span>
       <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>
     <div style="margin-top:10px">
-      <button style="font-size:13px;letter-spacing: 1px;" mat-button (click)="register()"> Register</button>
-      <button style="font-size:13px;letter-spacing: 1px;float: right;" mat-button (click)="forgotpwd()"> Forgot password?</button>
+      <button style="font-size:13px;letter-spacing: 1px;" mat-button (click)="register()"> Noch kein Kunde? Jetzt Kunde werden</button>
+      <button style="font-size:13px;letter-spacing: 1px;float: right;" mat-button (click)="forgotpwd()"> Kennwort vergessen?</button>
     </div>
 
   </div>

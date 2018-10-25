@@ -11,8 +11,8 @@
     </div>
     <ul class="main-nav" id="js-menu">
       <li>
-        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> ONLINE
-          BESTELLEN </button>
+        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
+          Bestellen! </button>
       </li>
       <li>
         <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
@@ -33,28 +33,24 @@
   <div class="container h-100">
     <div class="d-flex text-center h-100">
       <div class="my-auto w-100 text-white">
-        <h2> Täglich neue Angebote! </h2>
+        <h2> Täglich neue Angebote! Jetzt 15% Rabatt auf alle Online-Bestellungen! </h2>
       </div>
     </div>
   </div>
 </header>
 
 <div *ngIf="homeSection">
-    <app-home></app-home>
+  <app-home></app-home>
 </div>
 
 <div *ngIf="adminSection">
-    <app-admininterface></app-admininterface>
+  <app-admininterface></app-admininterface>
 </div>
 
 <div #onlinebestellen *ngIf="onlineSection">
-    <app-menucard></app-menucard>
+  <app-menucard></app-menucard>
 </div>
 
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-clip-rotate-multiple">
- <p style="font-size: 20px; color: white">Bitte Warte...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple">
+  <p style="font-size: 20px; color: white">Bitte Warte...</p>
 </ngx-spinner>

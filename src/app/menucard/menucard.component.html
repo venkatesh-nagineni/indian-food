@@ -21,9 +21,10 @@
           <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px">
             {{shoppinglist.dishType}}
           </h4>
-         <div *ngFor="let imgData of shoppingListItems.imgData">
-          <div *ngIf="shoppinglist.banner == imgData.fileName"> <img [src]="'data:image/jpg;base64,' + imgData.data" alt="category banner" /> </div>
-         </div>
+          <div *ngFor="let imgData of shoppingListItems.imgData">
+            <div *ngIf="shoppinglist.banner == imgData.fileName"> <img [src]="'data:image/jpg;base64,' + imgData.data"
+                alt="category banner" /> </div>
+          </div>
           <ul class="event-list" *ngFor="let items of shoppinglist.dishItems;let i=index;">
             <li (click)="expandItem(items, items.itemNo, shoppinglist.dishType)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">
@@ -40,21 +41,21 @@
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <div *ngIf="shoppinglist.dishType == 'Pizza'">
-                <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
-                <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
-                  <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
-                </select>
-                <label for="sel1" style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
+                  <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
+                  <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
+                    <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
+                  </select>
+                  <label for="sel1" style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
 
-                <div class="col md-6">
-                  <div class="checkbox checkbox-success" *ngFor="let extraprice of items.itemExtraOptionPrice.prices">
-                    <input id="checkbox1" type="checkbox" (change)="checkExtraOptions(extraprice, $event)" />&nbsp;&nbsp;
-                    <label for="checkbox6">
-                      {{extraprice.name}}
-                    </label>
+                  <div class="col md-6">
+                    <div class="checkbox checkbox-success" *ngFor="let extraprice of items.itemExtraOptionPrice.prices">
+                      <input id="checkbox1" type="checkbox" (change)="checkExtraOptions(extraprice, $event)" />&nbsp;&nbsp;
+                      <label for="checkbox6">
+                        {{extraprice.name}}
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
                 <div class="input-group input-number-group" style="padding-top:10px">
                   <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
                     <span class="input-number-decrement">-</span>
@@ -82,43 +83,47 @@
   <div class="modal-body gray modal-lg">
     <div>
       <table id="cart" class="table table-hover table-condensed">
-          <thead>
-            <tr>
-              <th style="width:40%">Item</th>
-              <th style="width:10%">Quantity</th>
-              <th style="width:25%" class="aligntex">Subtotal</th>
-              <th style="width:10%"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of addCartList;let i = index;">
-              <td data-th="Product" style="padding-top:10px !important">
-                <div class="row">
-                  <div class="col-sm-10">
-                    <p style="margin-top:5px">{{item.quantity}} x {{item.itemName}} <i class="fa fa-info-circle" fa-4x style="padding-left:7px;cursor: pointer" (click)="openInfoText(templateNested, item.extras)"></i></p>
-                  </div>
+        <thead>
+          <tr>
+            <th style="width:40%">Item</th>
+            <th style="width:10%">Quantity</th>
+            <th style="width:25%" class="aligntex">Subtotal</th>
+            <th style="width:10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of addCartList;let i = index;">
+            <td data-th="Product" style="padding-top:10px !important">
+              <div class="row">
+                <div class="col-sm-10">
+                  <p style="margin-top:5px">{{item.quantity}} x {{item.itemName}} <i class="fa fa-info-circle" fa-4x
+                      style="padding-left:7px;cursor: pointer" (click)="openInfoText(templateNested, item.extras)"></i></p>
                 </div>
-              </td>
-              <td data-th="Quantity">
-                <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="item.quantity == 1">remove</mat-icon>&nbsp;&nbsp;
-                <mat-icon class="iconadd" (click)="cartIncrement(item, i)">add</mat-icon>
-              </td>
-              <td data-th="Subtotal" class="aligntex">€ {{item.itemtotalamount | currencyEuro}}</td>
-              <td class="actions" data-th="">
-                  <mat-icon color="warn" class="icondelete" (click)="cartDelete(item, i)">cancel</mat-icon>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-          <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px"> Total: {{totalAmountOnHeader | currencyEuro}} € </strong>
-              <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left">
-                  <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
-                </button>
-              <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)" [class.disabledDecriment]="itemQuantity == 0">
-                  <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span> <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
-                </button>
-          </p>
-        </div>
+              </div>
+            </td>
+            <td data-th="Quantity">
+              <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="item.quantity == 1">remove</mat-icon>&nbsp;&nbsp;
+              <mat-icon class="iconadd" (click)="cartIncrement(item, i)">add</mat-icon>
+            </td>
+            <td data-th="Subtotal" class="aligntex">€ {{item.itemtotalamount | currencyEuro}}</td>
+            <td class="actions" data-th="">
+              <mat-icon color="warn" class="icondelete" (click)="cartDelete(item, i)">cancel</mat-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px">
+          Total: {{totalAmountOnHeader | currencyEuro}} € </strong>
+        <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left">
+          <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
+        </button>
+        <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)"
+          [class.disabledDecriment]="itemQuantity == 0">
+          <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span>
+          <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
+        </button>
+      </p>
+    </div>
   </div>
 </ng-template>
 
@@ -140,76 +145,72 @@
 
 <!-- checkout address -->
 <ng-template #confirmselection>
-    <div class="modal-body gray modal-lg">
-        <app-checkout-address></app-checkout-address>
-    </div>
-  </ng-template>
+  <div class="modal-body gray modal-lg">
+    <app-checkout-address></app-checkout-address>
+  </div>
+</ng-template>
 
-  <div class="footersection">
-    <footer class="footer2">
-      <div class="footer">
-        <div class="customcontainer">
-          <div class="row">
-            <nav class="col-md-3 col-sm-6 col-xs-12">
-              <h3>Öffnungszeiten</h3>
-              <ul>
-                <li>
-                  <a href="#">Wir sind täglich 11:30 - 14:30 und 17:30 - 23:00 Uhr </a>
-                </li>
-                <li>
-                  <a href="#">Mittags (außer Feiertagen) von 11:30 bis 14.30 Uhr </a>
-                </li>
-                <li>
-                  <a href="#">Lieferzeiten: tägl. 11:30 - 14:30 & 17:30 - 22:00 Uhr</a>
-                </li>
-                <li>
-                  <a href="#">und Samstag 17:30 bis 22.00 Uhr</a>
-                </li>
-              </ul>
-            </nav>
+<div class="footersection">
+  <footer class="footer2">
+    <div class="footer">
+      <div class="customcontainer">
+        <div class="row">
+          <nav class="col-md-3 col-sm-6 col-xs-12">
+            <h3>Öffnungszeiten</h3>
+            <ul>
+              <li>
+                <a href="#"> Montag - Freitag: 16:00 Uhr - 23:00 Uhr </a>
+              </li>
+              <li>
+                <a href="#"> Samstag : 12:00 Uhr - 23:00 Uhr </a>
+              </li>
+              <li>
+                <a href="#"> Sonntag und Feiertage: 12:00 Uhr - 23:00 Uhr </a>
+              </li>
+            </ul>
+          </nav>
 
-            <nav class="col-md-3 col-sm-6 col-xs-12">
-              <h3>Kontakt</h3>
-              <form>
-                <address style="color:#DDD">
-                  <strong>Indian street food</strong><br>
-                  Mainzer Str. 50<br>
-                  D-63456 Hanau<br><br>
-                  Fax: +49 (0) 61 81 / 3 64 50 73<br>
-                  Mobil: +49 (0) 1 60 / 7 66 77 88<br>
-                  Ph: (123) 456-7890 <br>
-                  <a href="mailto:#">first.last@example.com</a>
-                </address>
-              </form>
-            </nav>
+          <nav class="col-md-3 col-sm-6 col-xs-12">
+            <h3>Kontakt</h3>
+            <form>
+              <address style="color:#DDD">
+                <strong>Pizzeria Express Rodgau</strong><br>
+                Alter Weg 28<br>
+                D-63110 Rodgau<br><br>
+                Telefon: 06106 4075<br>
+                Handy: (123) 456-7890 <br>
+                <a href="mailto:#">pizzaexpressrodgau@beispiel.de</a>
+              </address>
+            </form>
+          </nav>
 
-            <nav class="col-md-3 col-sm-6 col-xs-12">
-              <div class="input-group input-group-md">
-                <input type="text" class="form-control" placeholder="Email Address">
-                <span class="input-group-addon" style="padding-right:10px;padding-left:10px;padding-top:5px">Subscribe</span>
-              </div>
-              <ul class="social">
-                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube fa-lg"></i></a></li>
-              </ul>
-            </nav>
-          </div>
+          <nav class="col-md-3 col-sm-6 col-xs-12">
+            <div class="input-group input-group-md">
+              <input type="text" class="form-control" placeholder="E-mail Adresse">
+              <span class="input-group-addon" style="padding-right:10px;padding-left:10px;padding-top:5px">Abonnieren Sie Sonderangebote</span>
+            </div>
+            <ul class="social">
+              <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
+              <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube fa-lg"></i></a></li>
+            </ul>
+          </nav>
         </div>
       </div>
+    </div>
 
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 ">
-              <div class="copyright-text">
-                <p>CopyRight © 2018 indian foodie All Rights Reserved</p>
-              </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 ">
+            <div class="copyright-text">
+              <p>Copyright © MishnMash 2018</p>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
+</div>
