@@ -1,5 +1,6 @@
 <div class="userlogin">
-  <h3 style="text-align:center;font-family:sans-serif;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Anmelden</span>
+<!--     <mat-progress-bar *ngIf="response" mode="intermediate" color="primary"></mat-progress-bar>
+ -->  <h3 style="text-align:center;font-family:sans-serif;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Anmelden</span>
     <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
       <mat-icon>cancel</mat-icon>
     </button>
@@ -15,19 +16,19 @@
 
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>email</mat-icon>
-      <input type="email" matInput placeholder="E-Mail oder Benutzer-ID" [(ngModel)]="username" (keyup.enter)="login(username, password)">
+      <input type="email" [pattern]="emailPattern" required matInput placeholder="E-Mail oder Benutzer-ID" [(ngModel)]="email" (keyup.enter)="login(email, password)">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Kennwort" [(ngModel)]="password" (keyup.enter)="login(username, password)">
-      <mat-icon matSuffix>visibility_off</mat-icon>
+      <input [type]="show ? 'text' : 'password'" matInput placeholder="Kennwort" required [(ngModel)]="password" (keyup.enter)="login(email, password)">
+      <mat-icon matSuffix (mouseenter) = "showHidePassword()" (mouseleave) = "showHidePassword()" style="cursor:pointer">visibility_off</mat-icon>
     </mat-form-field>
 
     <!-- <button mat-raised-button (click)="onNoClick()" style="margin-right:10px;border: none">
       <span style="font-size:14px;letter-spacing: 1px">Forgot your password?</span>
     </button> -->
 
-    <button mat-raised-button color="primary" class="loginbutton" (click)="login(username, password)">
+    <button mat-raised-button color="primary" class="loginbutton" (click)="login(email, password)" [disabled]="response">
       <span style="font-size:17px;letter-spacing: 1px;">Anmelden</span>
       <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>

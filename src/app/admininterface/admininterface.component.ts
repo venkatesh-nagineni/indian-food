@@ -1,17 +1,17 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy, ElementRef } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { CartService } from '../cart.service';
 import { MatTabChangeEvent } from '@angular/material';
+import {SharedService} from '../shared.service';
 
 @Component({
   selector: 'app-admininterface',
   templateUrl: './admininterface.component.html',
   styleUrls: ['./admininterface.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
-export class AdmininterfaceComponent implements OnInit {
+export class AdmininterfaceComponent implements OnInit, OnDestroy {
 
   mainshoppinglistitems: any;
   radiogroup: any;
@@ -38,6 +38,8 @@ export class AdmininterfaceComponent implements OnInit {
   removeDishId: any;
   removeCategory: any;
   categorydishName: any;
+  isContainCategoryFile: any;
+  isContainOfferFile: any;
 
   extraoptionsizes = {
     itemPlaceholderName: '',
@@ -57,7 +59,9 @@ export class AdmininterfaceComponent implements OnInit {
 
   newCategoryData = { name: '' };
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService) {
+  blockingUser = {email: '', phone: ''};
+
+  constructor(private elementRef: ElementRef, private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService, public shared: SharedService) {
     this.radiogroup = 'adddish';
   }
 
@@ -88,7 +92,7 @@ export class AdmininterfaceComponent implements OnInit {
         this.openSnackBar(res['message'], '');
       }
     });
-    this.cartservice.getShoppingList().then(response => {
+    this.cartservice.getShoppingListOnly().then(response => {
       this.mainshoppinglistitems = response['data'];
       this.removeCategory = '';
       this.categorydishName = '';
@@ -96,7 +100,7 @@ export class AdmininterfaceComponent implements OnInit {
   }
 
   radioChange() {
-    this.cartservice.getShoppingList().then(response => {
+    this.cartservice.getShoppingListOnly().then(response => {
       this.mainshoppinglistitems = response['data'];
     });
   }
@@ -105,10 +109,13 @@ export class AdmininterfaceComponent implements OnInit {
     this.displaynewcategory = true;
     this.categoryid = '';
     this.openformtoadd = false;
+    this.cartservice.getShoppingListOnly().then(response => {
+      this.mainshoppinglistitems = response['data'];
+    });
   }
 
   submitCategoryData() {
-    if (this.newCategoryData.name === '' && !this.selectedCategoryFile) {
+    if (!this.newCategoryData.name || !this.isContainCategoryFile) {
       this.openSnackBar('Please fill all fields', '');
     } else {
       const uploadData = new FormData();
@@ -117,14 +124,19 @@ export class AdmininterfaceComponent implements OnInit {
       let httpHeaders = new HttpHeaders();
       httpHeaders = httpHeaders.append('name', this.newCategoryData.name);
 
-      this.http.post('/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
+      this.http.post('https://mishnmash.de/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
         } else if (event.type === HttpEventType.Response) {
-          console.log(event);
+          this.cartservice.getShoppingListOnly().then(response => {
+            this.mainshoppinglistitems = response['data'];
+            console.log(this.mainshoppinglistitems);
+          });
         }
       });
       this.openSnackBar('Category submitted successfully', '');
+      this.newCategoryData.name = '';
+      this.isContainCategoryFile = '';
     }
   }
 
@@ -148,6 +160,7 @@ export class AdmininterfaceComponent implements OnInit {
 
   oncategoryFileChanged(event) {
     this.selectedCategoryFile = event.target.files[0];
+    this.isContainCategoryFile = event.target.files[0].name;
   }
 
   oncategoryUpload() {
@@ -165,10 +178,11 @@ export class AdmininterfaceComponent implements OnInit {
       itemPrice: ['', [Validators.required]],
       // chooseExtraInfo: ['']
     });
-    this.cartservice.getShoppingList().then(response => {
+    this.cartservice.getShoppingListOnly().then(response => {
       console.log(response);
       this.mainshoppinglistitems = response['data'];
     });
+      this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f9f5f1';
   }
 
   tabChanged(event: MatTabChangeEvent) {
@@ -190,7 +204,7 @@ export class AdmininterfaceComponent implements OnInit {
   }
 
   submitAngebote() {
-    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.url !== '') {
+    if (this.previewAngebote.price && this.previewAngebote.name && this.previewAngebote.extraInfo && this.isContainOfferFile) {
       this.previewShow = false;
       const uploadData = new FormData();
       uploadData.append('image', this.selectedFile, this.selectedFile.name);
@@ -201,11 +215,12 @@ export class AdmininterfaceComponent implements OnInit {
       headers = headers.append('id', this.selectedAngebote);
       headers = headers.append('name', this.previewAngebote.name);
 
-      this.http.post('/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
+      this.http.post('https://mishnmash.de/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
         if (event.type === HttpEventType.Response) {
           if (event.body['success'] === true) {
             this.previewAngebote = { name: '', extraInfo: '', price: '' };
             this.url = '';
+            this.isContainOfferFile = '';
             this.cartservice.getAngebote().then((response: any) => {
               this.angeboteItems = response.data;
               this.angebote = 'Angebote 1';
@@ -268,8 +283,19 @@ export class AdmininterfaceComponent implements OnInit {
             prices: this.extraPrices
           }
         };
-        this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
-          console.log(response);
+        this.cartservice.postShoppingListdish(dishItem, this.categoryid).then((response: any) => {
+          if (response.success === true) {
+            this.openSnackBar('Dish Item saved successfully into Pizza section', '');
+           /*  this.categoryid = '',
+            this.openformtoadd = false; */
+            this.adminForm.reset();
+            this.extraSizes = [];
+            this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), name: '', amount: '' };
+            this.extraoptionprices.prices[0] = { id: new Date().valueOf(), name: '', amount: '' };
+            this.extraPrices = [];
+          } else {
+            this.openSnackBar('Failed to save Dish Item', '');
+          }
         }, (error) => {
           console.log(error);
         });
@@ -282,8 +308,9 @@ export class AdmininterfaceComponent implements OnInit {
         };
         this.cartservice.postShoppingListdish(dishItem, this.categoryid).then(response => {
           if (response['success'] === true) {
-            this.categoryid = '';
-            this.openformtoadd = false;
+           /*  this.categoryid = '';
+            this.openformtoadd = false; */
+            this.adminForm.reset();
             this.openSnackBar(response['message'], '');
           } else {
             this.openSnackBar(response['message'], '');
@@ -309,6 +336,7 @@ export class AdmininterfaceComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       this.selectedFile = event.target.files[0];
+      this.isContainOfferFile = event.target.files[0].name;
       reader.readAsDataURL(event.target.files[0]);
 
       reader.onload = (eve: any) => {
@@ -344,6 +372,31 @@ export class AdmininterfaceComponent implements OnInit {
       duration: 2000,
       panelClass: ['red-snackbar']
     });
+  }
+
+  submitBlockList() {
+    if (this.blockingUser.email || this.blockingUser.phone) {
+      const data = {
+        email: this.blockingUser.email,
+        phone: this.blockingUser.phone
+      };
+      this.cartservice.blockUser(data).then((res: any) => {
+        if (res.success === true) {
+          this.openSnackBar(res.message, '');
+        } else {
+          this.openSnackBar('User not found', '');
+        }
+      }, (err) => {
+        this.openSnackBar('User not found', '');
+      });
+    } else {
+      this.openSnackBar('Please fill atleast one field', '');
+    }
+  }
+
+  ngOnDestroy() {
+    this.shared.angeboteitem.next({});
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(190, 20, 20)';
   }
 
 }

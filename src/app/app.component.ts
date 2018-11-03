@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ContactComponent} from './contact/contact.component';
-import {AdminloginComponent} from './adminlogin/adminlogin.component';
 import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
+import {SharedService} from './shared.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -24,13 +25,22 @@ export class AppComponent implements OnInit {
   disableHeader = true;
   innerwidth: any;
   hidefooter: boolean;
+  isTokenValid: string;
+  isLoggedIn: boolean;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerwidth = window.innerWidth;
 }
 
-  constructor(private dialog: MatDialog, private router: Router) {
+  constructor(private dialog: MatDialog, private router: Router, public sharedService: SharedService, private snackBar: MatSnackBar) {
+    this.sharedService.isLogin.subscribe(val => {
+      if (val) {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
+    });
   }
 
   ngOnInit() {
@@ -40,6 +50,23 @@ export class AppComponent implements OnInit {
       mainNav.classList.toggle('active');
     });
     this.innerwidth = window.innerWidth;
+    this.isTokenValid = localStorage.getItem('token');
+    if (this.isTokenValid) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    this.sharedService.checkLogin('');
+    const mainNav = document.getElementById('js-menu');
+    if (this.innerwidth < 728) {
+      mainNav.classList.toggle('active');
+    }
+    this.openSnackBar('Logout successfully', '');
+
   }
 
   openModal() {
@@ -85,12 +112,12 @@ export class AppComponent implements OnInit {
 
   navigation(page) {
     if (page === 'online') {
-        this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'auto', block: 'start' });
-        this.disableHeader = true;
-        const mainNav = document.getElementById('js-menu');
-        if (this.innerwidth < 728) {
-          mainNav.classList.toggle('active');
-        }
+      this.onlinebestellen.nativeElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+      this.disableHeader = true;
+      const mainNav = document.getElementById('js-menu');
+      if (this.innerwidth < 728) {
+        mainNav.classList.toggle('active');
+      }
     }
   }
 
@@ -100,7 +127,13 @@ export class AppComponent implements OnInit {
     this.onlineSection = true;
     this.disablePointer = false;
     this.disableHeader = true;
-    const mainNav = document.getElementById('js-menu');
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      panelClass: ['red-snackbar'],
+    });
   }
 
 }

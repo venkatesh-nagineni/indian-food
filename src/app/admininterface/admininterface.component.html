@@ -34,8 +34,7 @@
           <input style="display: none" type="file" (change)="oncategoryFileChanged($event)" #fileInput>
           <button mat-raised-button (click)="fileInput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Kategorie
             Bild Auswählen</button>
-          <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-            (click)="oncategoryUpload()">Hochladen</button><br><br>
+          <span *ngIf="isContainCategoryFile">{{ isContainCategoryFile }}</span><br><br>
           <button mat-raised-button color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;letter-spacing: 1px"
             (click)="submitCategoryData()">Absenden
             Kategorie</button>
@@ -93,12 +92,12 @@
           <div class="flexrow">
             <div class="flexcol">
               <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].name" matInput placeholder="item name you wish to add">
+                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].name" matInput placeholder="add size">
               </mat-form-field>
             </div>
             <div class="flexcol">
               <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].amount" matInput placeholder="item price">
+                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].amount" matInput placeholder="add price">
               </mat-form-field>
             </div>
             <div class="flexcol" style="margin-top:10px">
@@ -122,12 +121,12 @@
           <div class="flexrow">
             <div class="flexcol">
               <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionprices.prices[0].name" matInput placeholder="item name you wish to add">
+                <input type="text" [(ngModel)]="extraoptionprices.prices[0].name" matInput placeholder="add extra option name">
               </mat-form-field>
             </div>
             <div class="flexcol">
               <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionprices.prices[0].amount" matInput placeholder="item price">
+                <input type="text" [(ngModel)]="extraoptionprices.prices[0].amount" matInput placeholder="add price">
               </mat-form-field>
             </div>
             <div class="flexbox" style="margin-top:10px">
@@ -179,8 +178,7 @@
       <input style="display: none" type="file" (change)="onofferFileChanged($event)" #offerinput>
       <button mat-raised-button (click)="offerinput.click()" style="margin-right:30px;font-family: 'Helvetica Neue', sans-serif;">Angebot
         Bild auswählen</button>
-      <button mat-raised-button color="primary" style="letter-spacing:1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-        (click)="angeboteUpload()">Bild Hochladen</button><br><br>
+      <span *ngIf="isContainOfferFile"> {{ isContainOfferFile }}</span><br><br>
       <mat-form-field>
         <input type="text" matInput placeholder="Name des Angebots" [(ngModel)]="previewAngebote.name">
       </mat-form-field><br>
@@ -224,15 +222,15 @@
     <label style="padding-top:20px;padding-left:20px">Enter Email or Phone to keep it in Block list</label><br>
     <form style="padding-left:20px">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email">
+        <input matInput placeholder="Email" name="email" [(ngModel)]="blockingUser.email" type="email">
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field> <br>
       <mat-form-field class="example-full-width">
         <span matPrefix>+49 &nbsp;</span>
-        <input type="tel" matInput placeholder="Telephone">
+        <input type="tel" matInput name="phone" placeholder="Telephone" [(ngModel)]="blockingUser.phone">
         <mat-icon matSuffix>mode_edit</mat-icon>
       </mat-form-field><br>
-      <button mat-raised-button color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 20px;margin-bottom: 135px;letter-spacing: 1px">SAVE
+      <button mat-raised-button (click)="submitBlockList()" color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 20px;margin-bottom: 135px;letter-spacing: 1px">SAVE
         AS BLOCK LIST</button>
     </form>
   </mat-tab>

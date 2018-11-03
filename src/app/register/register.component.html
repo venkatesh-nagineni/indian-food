@@ -5,34 +5,39 @@
       <mat-icon>cancel</mat-icon>
     </button>
   </h3>
-  <div class="example-form">
+  <div class="example-form" [formGroup]="userDetailForm">
 
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>account_circle</mat-icon>
-      <input matInput placeholder="Full Name">
+      <input matInput placeholder="Full Name" formControlName="fullname">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-icon matSuffix>email</mat-icon>
-      <input type="email" matInput placeholder="Email">
+      <input type="email" matInput placeholder="Email" formControlName="email" [pattern]="emailPattern">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password">
+      <span matPrefix>+49 &nbsp;</span>
+      <input type="tel" matInput formControlName="phone" placeholder="Telephone">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input type="password" matInput placeholder="Password" formControlName="password">
       <mat-icon matSuffix>visibility_off</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Confirm password">
+      <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword">
       <mat-icon matSuffix>visibility_off</mat-icon>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" class="registerbutton">
+    <button mat-raised-button color="primary" class="registerbutton" (click)="senduserData()">
       <span style="font-size:17px;letter-spacing: 1px;">ABSENDEN</span>
       <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>
     <div style="margin-top:10px">
-      <button style="font-size:13px;letter-spacing: 1px;" mat-button> Back</button>
+      <button style="font-size:13px;letter-spacing: 1px;" mat-button (click)="back()"> Back</button>
       <button style="font-size:13px;letter-spacing: 1px;float: right;" mat-button> Forgot password?</button>
     </div>
 

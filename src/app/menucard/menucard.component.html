@@ -2,7 +2,7 @@
 <mat-toolbar class="fixed-header" id="matBar">
   <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     {{totalAmountOnHeader | currencyEuro}} €</span>
-  <span style="cursor:pointer" (click)="openCart(template)">
+  <span style="cursor:pointer" (click)="openCart(template)" [class.disableCart]="disableCart">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
 </mat-toolbar>
@@ -18,7 +18,7 @@
     <div class="col-md-9">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
-          <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px">
+          <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: white">
             {{shoppinglist.dishType}}
           </h4>
           <div *ngFor="let imgData of shoppingListItems.imgData">
@@ -42,11 +42,13 @@
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <div *ngIf="shoppinglist.dishType == 'Pizza'">
                   <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
-                  <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
-                    <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
-                  </select>
-                  <label for="sel1" style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
-
+                  <div *ngIf="items.itemExtraOptionsizes.sizes.length != 0">
+                    <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
+                      <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
+                    </select>
+                  </div>
+                <div *ngIf="items.itemExtraOptionPrice.prices.length != 0">
+                  <label style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
                   <div class="col md-6">
                     <div class="checkbox checkbox-success" *ngFor="let extraprice of items.itemExtraOptionPrice.prices">
                       <input id="checkbox1" type="checkbox" (change)="checkExtraOptions(extraprice, $event)" />&nbsp;&nbsp;
@@ -56,27 +58,28 @@
                     </div>
                   </div>
                 </div>
-                <div class="input-group input-number-group" style="padding-top:10px">
-                  <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
-                    <span class="input-number-decrement">-</span>
-                  </div>
-                  <input class="input-number" type="text" value="{{quantity}}" disabled>
-                  <div class="input-group-button" (click)="incrementItem()">
-                    <span class="input-number-increment">+</span>
-                  </div>
-                  <button mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
-                    <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
-                      currencyEuro}} €</span>
-                    <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
-                  </button>
+              </div>
+              <div class="input-group input-number-group" style="padding-top:10px">
+                <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
+                  <span class="input-number-decrement">-</span>
                 </div>
+                <input class="input-number" type="text" value="{{quantity}}" disabled>
+                <div class="input-group-button" (click)="incrementItem()">
+                  <span class="input-number-increment">+</span>
+                </div>
+                <button mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
+                  <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
+                    currencyEuro}} €</span>
+                  <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
+                </button>
               </div>
             </div>
-          </ul>
         </div>
+        </ul>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <ng-template #template>
@@ -118,7 +121,7 @@
           <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
         </button>
         <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)"
-          [class.disabledDecriment]="itemQuantity == 0">
+          [disabled]="disableConfirmBestellen" [class.disabledDecriment]="itemQuantity == 0">
           <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span>
           <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
         </button>
@@ -165,8 +168,8 @@
                 <a href="#"> Freitag : 16:00 Uhr - 23:00 Uhr </a>
               </li>
               <li>
-                  <a href="#"> Samstag : 12:00 Uhr - 23:00 Uhr </a>
-                </li>
+                <a href="#"> Samstag : 12:00 Uhr - 23:00 Uhr </a>
+              </li>
               <li>
                 <a href="#"> Sonntag und Feiertage: 12:00 Uhr - 23:00 Uhr </a>
               </li>
@@ -190,7 +193,8 @@
           <nav class="col-md-3 col-sm-6 col-xs-12">
             <div class="input-group input-group-md">
               <input type="text" class="form-control" placeholder="E-mail Adresse">
-              <span class="input-group-addon" style="padding-right:10px;padding-left:10px;padding-top:5px">Abonnieren Sie Sonderangebote</span>
+              <span class="input-group-addon" style="padding-right:10px;padding-left:10px;padding-top:5px">Abonnieren
+                Sie Sonderangebote</span>
             </div>
             <ul class="social">
               <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -217,3 +221,12 @@
     </div>
   </footer>
 </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate-multiple">
+ <p style="font-size: 20px; color: white">Bitte Warte...</p>
+</ngx-spinner>
+

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ContactComponent} from './contact/contact.component';
-import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { routingModule} from './routing.module';
 import { HomeComponent} from './home/home.component';
 import { InfoTextComponent } from './info-text/info-text.component';
@@ -22,12 +21,12 @@ import { AdmininterfaceComponent } from './admininterface/admininterface.compone
 import { CurrencyEuroPipe } from './currency-euro.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-    AdminloginComponent,
     HomeComponent,
     InfoTextComponent,
     CheckoutAddressComponent,
@@ -49,8 +48,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     NgxSpinnerModule,
     ModalModule.forRoot(),
+    NgxMaterialTimepickerModule.forRoot(),
   ],
-  entryComponents: [ContactComponent, AdminloginComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
+  entryComponents: [ContactComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
   providers: [SharedService],
   bootstrap: [AppComponent]
 })

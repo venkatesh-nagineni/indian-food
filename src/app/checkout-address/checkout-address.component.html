@@ -1,57 +1,61 @@
 <mat-vertical-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup" [optional]="isOptional">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18x">Wohin soll Deine Bestellung geliefert werden? </span></ng-template>
+      <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18x">Wohin
+          soll Deine Bestellung geliefert werden? </span></ng-template>
       <mat-form-field>
-        <input matInput placeholder="Adresse" required>
+        <input matInput placeholder="Adresse" formControlName="adresse">
       </mat-form-field>&nbsp;&nbsp;&nbsp;
       <mat-form-field>
-        <input matInput placeholder="Postleitzahl" required>
+        <input matInput placeholder="Postleitzahl" formControlName="zip">
       </mat-form-field>&nbsp;&nbsp;&nbsp;
       <mat-form-field>
-        <input matInput placeholder="Stadt" required>
+        <input matInput placeholder="Stadt" formControlName="stadt">
       </mat-form-field>&nbsp;&nbsp;&nbsp;
       <mat-form-field>
-        <input matInput placeholder="Etage">
+        <input matInput placeholder="Etage" formControlName="etage">
       </mat-form-field>
       <div>
-        <button mat-raised-button matStepperNext color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Next</button>
+        <button mat-raised-button matStepperNext (click)="addressnext()" color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel><span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px"> können wir Dich erreichen? </span></ng-template>
+      <ng-template matStepLabel><span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px">
+          können wir Dich erreichen? </span></ng-template>
       <mat-form-field>
-          <input matInput placeholder="Name" required>
-        </mat-form-field>&nbsp;&nbsp;&nbsp;
-        <mat-form-field>
-          <input matInput placeholder="E-Mail" required>
-        </mat-form-field>&nbsp;&nbsp;&nbsp;
-        <mat-form-field>
-          <input matInput placeholder="Telefonnummer" required>
-        </mat-form-field>&nbsp;&nbsp;&nbsp;
-        <mat-form-field>
-          <input matInput placeholder="Firmenname">
-        </mat-form-field>
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput placeholder="E-Mail" formControlName="email" type="email" [pattern]="emailPattern">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput placeholder="Telefonnummer" formControlName="phNo">
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput placeholder="Firmenname" formControlName="firmaName">
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious color="warn" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Back</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button mat-raised-button matStepperNext color="primary" style="margin-left: 3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px"> Wann möchtest Du Deine Bestellung erhalten? </span> </ng-template>
-      <mat-form-field>
-          <mat-select placeholder="Gewünschte Lieferzeit">
-            <mat-option> So schnell wie mönglich</mat-option>
-          </mat-select>
-        </mat-form-field><br>
-        <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Anmerkungen für das Restaurant"></textarea>
-            <mat-icon matSuffix>message</mat-icon>
-          </mat-form-field>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px">
+          Wann möchtest Du Deine Bestellung erhalten? </span> </ng-template>
+      <div class="minutes-gap-example">
+        <mat-checkbox (change)="deliverytime($event)" [checked]="isChecked">So schnell wie mönglich</mat-checkbox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input placeholder="Select time to delivery" [ngxTimepicker]="with5Gap" readonly #timeInput>
+        <ngx-material-timepicker #with5Gap [minutesGap]="5" (timeSet)="timeevent(with5Gap)"></ngx-material-timepicker>
+      </div>
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Anmerkungen für das Restaurant" [(ngModel)]="extraDesc" name="extraDesc"></textarea>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field>
       <div>
         <button mat-raised-button matStepperPrevious color="warn" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Back</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button mat-raised-button matStepperNext color="primary" style="margin-left:3%" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Next</button>
@@ -61,17 +65,26 @@
   <mat-step>
     <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px"> Wie möchtest Du bezahlen? </span></ng-template>
 
-    <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"> Please choose one option (you can pay with machine or cash)</p>
+    <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"> Please choose one option (you can
+      pay with machine or cash)</p>
     <div class="cc-selector-2">
-        <input id="visa2" type="radio" name="creditcard" value="visa" />
-        <label class="drinkcard-cc visa" for="visa2"></label>
-        <input  checked="checked" id="mastercard2" type="radio" name="creditcard" value="mastercard" />
-        <label class="drinkcard-cc mastercard"for="mastercard2"></label>
+      <input checked="checked" id="visa2" type="radio" name="creditcard" value="Machine" (change)="paymentMethod($event)"/>
+      <label class="drinkcard-cc visa" for="visa2"></label>
+      <input id="mastercard2" type="radio" name="creditcard" value="Cash" (change)="paymentMethod($event)"/>
+      <label class="drinkcard-cc mastercard" for="mastercard2"></label>
     </div><br>
+    <div *ngIf="paymentmethod == 'Cash'">
+      <label for="sel1"> Du zahlst (mit) </label>
+      <select class="form-control" [(ngModel)]="paymentchange" (change)="paymentvaluechange(paymentchange)" style="width:200px">
+        <option *ngFor="let payment of paymentsvalues" [value]="payment.amount">{{payment.amount}}</option>
+      </select><br>
+    </div>
 
     <div>
-      <button mat-raised-button color="warn" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" matStepperPrevious>BACK</button>
-      <button mat-raised-button (click)="stepper.reset()" style="width:70%;margin-left: 5%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" color="primary">ZAHLUNGSPFLICHTIG BESTELLEN</button>
+      <button mat-raised-button color="warn" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+        matStepperPrevious>BACK</button>
+      <button mat-raised-button (click)="confirmOrder()" [disabled]="aftersubmit" style="width:70%;margin-left: 5%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+        color="primary">ZAHLUNGSPFLICHTIG BESTELLEN</button>
     </div>
   </mat-step>
 

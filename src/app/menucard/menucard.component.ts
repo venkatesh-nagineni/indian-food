@@ -1,12 +1,15 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef, ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef, ViewEncapsulation, Inject, forwardRef, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { MatDialog } from '@angular/material';
-import {Angebotetypes} from '../../assets/data/cartList';
-import {MatSnackBar} from '@angular/material';
-import {CartService} from '../cart.service';
+import { Angebotetypes } from '../../assets/data/cartList';
+import { MatSnackBar } from '@angular/material';
+import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-menucard',
@@ -15,6 +18,8 @@ import {CartService} from '../cart.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MenucardComponent implements OnInit {
+
+  @ViewChild(AppComponent) app: AppComponent;
 
   isChecked: boolean;
 
@@ -35,6 +40,8 @@ export class MenucardComponent implements OnInit {
   extras = [];
   data: any;
   decrementdisable = 1;
+  disableCart = false;
+  disableConfirmBestellen: boolean;
 
   selectionConfig = {
     ignoreBackdropClick: false,
@@ -48,28 +55,44 @@ export class MenucardComponent implements OnInit {
 
   @ViewChildren('linkRef') linkRefs;
 
-  constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService, private dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService,
+    private dialog: MatDialog, private snackBar: MatSnackBar, public router: Router, @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent,
+    private spinner: NgxSpinnerService) {
 
   }
 
   ngOnInit() {
+    this.spinner.show();
+    this.cartservice.getShoppingList().then(response => {
+      this.shoppingListItems = response;
+      this.spinner.hide();
+    });
+
+    this.shared.userDialogCheck.subscribe(val => {
+      if (val === true) {
+        this.disableCart = false;
+      } else {
+        this.disableCart = false;
+      }
+    });
+
+    this.addToCartAngebote();
+  }
+
+  addToCartAngebote() {
     this.shared.angeboteitem.subscribe((data: Angebotetypes) => {
       if (Object.keys(data).length !== 0) {
         const angeboteData = {
-          itemName: data.AngeboteName,
-          itemNo: data._id,
+          itemName: data['AngeboteName'],
+          itemNo: data['_id'],
           quantity: 1,
-          itemtotalamount: data.AngebotePrice,
+          itemtotalamount: data['AngebotePrice'],
         };
         this.addCartList.push(angeboteData);
         this.itemQuantity += 1;
         this.totalAmountOnHeader += angeboteData.itemtotalamount;
         this.openSnackBar('1 item was added successfully', 'View cart');
       }
-    });
-
-    this.cartservice.getShoppingList().then(response => {
-      this.shoppingListItems = response;
     });
   }
 
@@ -80,17 +103,24 @@ export class MenucardComponent implements OnInit {
         w[i].checked = false;
       }
     }
-}
+  }
 
   expandItem(item, itemNo, category) {
     this.quantity = 1;
     if (category === 'Pizza') {
       this.eachItem = item;
       this.listindex = itemNo;
-      this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
-      this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
-      this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
-      this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
+      this.totalAmount = this.eachItem.itemPrice;
+      if (this.eachItem.itemExtraOptionsizes.sizes.length !== 0) {
+        this.selectedPizzaSize = this.eachItem.itemExtraOptionsizes.sizes[0].name;
+        this.totalAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
+      }
+
+      if (this.eachItem.itemExtraOptionPrice.prices.length !== 0) {
+        this.selectedExtraPrice = this.eachItem.itemExtraOptionPrice.prices[0].name;
+        // this.PizzaSizeAmount = this.eachItem.itemExtraOptionsizes.sizes[0].amount;
+      }
+
       this.shared.updatedAmount(this.totalAmount);
     } else {
       this.eachItem = item;
@@ -234,8 +264,29 @@ export class MenucardComponent implements OnInit {
   }
 
   confirmBestellen(template: TemplateRef<any>) {
-    this.checkoutaddressRef = this.modalService.show(template, this.selectionConfig);
-    this.selectionModalRef.hide();
+    this.disableConfirmBestellen = true;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.selectionModalRef.hide();
+      this._parent.openUserLogin();
+      this.disableCart = true;
+    } else {
+      this.cartservice.checkTrustedUser(token).then((res: any) => {
+        if (res.userdata[0].trusted === true) {
+          this.disableCart = false;
+          this.shared.cartListMethod(this.addCartList);
+          this.shared.totalAmountinCart(this.totalAmountOnHeader);
+          this.checkoutaddressRef = this.modalService.show(template, this.selectionConfig);
+          this.selectionModalRef.hide();
+          this.disableConfirmBestellen = false;
+        } else {
+          this.openSnackBar('user blocked! Please contact admin', '');
+          this.selectionModalRef.hide();
+        }
+      }, (err) => {
+        console.log(err);
+      });
+    }
   }
 
   openSnackBar(message: string, action: string) {
@@ -248,5 +299,9 @@ export class MenucardComponent implements OnInit {
       el.scrollIntoView({ behavior: 'instant', block: 'start' });
     });
   }
+
+/*   ngOnDestroy() {
+    this.shared.angeboteitem.unsubscribe();
+  } */
 
 }
