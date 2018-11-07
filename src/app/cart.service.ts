@@ -174,4 +174,17 @@ export class CartService {
     });
   }
 
+  forgotPwd (email) {
+    const shoppinglistposturl = 'https://mishnmash.de/api/forgotPwd/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.post(shoppinglistposturl, JSON.stringify({email: email}), { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

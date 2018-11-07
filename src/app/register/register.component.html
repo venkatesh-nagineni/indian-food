@@ -1,7 +1,7 @@
 <div class="userregister">
   <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Registrieren
     </span>
-    <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
+    <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()" class="notranslate">
       <mat-icon>cancel</mat-icon>
     </button>
   </h3>
@@ -34,7 +34,7 @@
 
     <button mat-raised-button color="primary" class="registerbutton" (click)="senduserData()">
       <span style="font-size:17px;letter-spacing: 1px;">ABSENDEN</span>
-      <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
+      <mat-icon class="notranslate" style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>
     <div style="margin-top:10px">
       <button style="font-size:13px;letter-spacing: 1px;" mat-button (click)="back()"> Back</button>

@@ -22,6 +22,8 @@ import { CurrencyEuroPipe } from './currency-euro.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { LogoutConfirmComponent } from './logout-confirm/logout-confirm.component';
+import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizza-angebote-selection.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ExtraOptionsComponent,
     MenucardComponent,
     AdmininterfaceComponent,
-    CurrencyEuroPipe
+    CurrencyEuroPipe,
+    LogoutConfirmComponent,
+    PizzaAngeboteSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ModalModule.forRoot(),
     NgxMaterialTimepickerModule.forRoot(),
   ],
-  entryComponents: [ContactComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent],
+  entryComponents: [ContactComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent, LogoutConfirmComponent, PizzaAngeboteSelectionComponent],
   providers: [SharedService],
   bootstrap: [AppComponent]
 })

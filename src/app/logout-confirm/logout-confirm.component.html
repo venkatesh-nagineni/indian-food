@@ -1,0 +1,13 @@
+<div>
+  <h2 mat-dialog-title>Abmelden?</h2>
+  <hr>
+  <mat-dialog-content>
+    <h6 style="font-family:Georgia, 'Times New Roman', Times, serif"> Currently logged in as <b> {{email}} </b> </h6>
+    <h4 style="font-family:Georgia, 'Times New Roman', Times, serif"> Möchten Sie sich wirklich Abmelden? </h4>
+  </mat-dialog-content>
+  <hr>
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="onCloseConfirm()" color="primary">CONFIRM</button>
+    <button mat-raised-button (click)="onCloseCancel()" color="warn">CANCEL</button>
+  </mat-dialog-actions>
+</div>

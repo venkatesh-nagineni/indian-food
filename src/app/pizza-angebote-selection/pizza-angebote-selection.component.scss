@@ -1,0 +1,35 @@
+.example-form {
+  min-width: 150px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.error-notice {
+  margin: 5px 5px; /* Making sure to keep some distance from all side */
+}
+
+.oaerror {
+  width: 100%; /* Configure it fit in your design  */
+  margin: 0 auto; /* Centering Stuff */
+  background-color: #FFFFFF; /* Default background */
+  padding: 5px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.danger {
+  border-left-color: #d9534f; /* Left side border color */
+  background-color: rgba(217, 83, 79, 0.1); /* Same color as the left border with reduced alpha to 0.1 */
+}
+
+.danger strong {
+  color:  #d9534f;
+}

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, TemplateRef, ViewEncapsulation, Inject, forwardRef, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChildren, TemplateRef, ViewEncapsulation, Inject, forwardRef } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -18,8 +18,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
   encapsulation: ViewEncapsulation.None
 })
 export class MenucardComponent implements OnInit {
-
-  @ViewChild(AppComponent) app: AppComponent;
 
   isChecked: boolean;
 
@@ -41,7 +39,7 @@ export class MenucardComponent implements OnInit {
   data: any;
   decrementdisable = 1;
   disableCart = false;
-  disableConfirmBestellen: boolean;
+  disableConfirmBestellen = false;
 
   selectionConfig = {
     ignoreBackdropClick: false,
@@ -270,6 +268,7 @@ export class MenucardComponent implements OnInit {
       this.selectionModalRef.hide();
       this._parent.openUserLogin();
       this.disableCart = true;
+      this.disableConfirmBestellen = false;
     } else {
       this.cartservice.checkTrustedUser(token).then((res: any) => {
         if (res.userdata[0].trusted === true) {
@@ -282,6 +281,7 @@ export class MenucardComponent implements OnInit {
         } else {
           this.openSnackBar('user blocked! Please contact admin', '');
           this.selectionModalRef.hide();
+          this.disableConfirmBestellen = false;
         }
       }, (err) => {
         console.log(err);
@@ -300,8 +300,8 @@ export class MenucardComponent implements OnInit {
     });
   }
 
-/*   ngOnDestroy() {
-    this.shared.angeboteitem.unsubscribe();
-  } */
+  hideModal() {
+    this.checkoutaddressRef.hide();
+ }
 
 }

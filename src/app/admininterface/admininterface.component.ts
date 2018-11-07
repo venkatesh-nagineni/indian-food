@@ -130,7 +130,6 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
         } else if (event.type === HttpEventType.Response) {
           this.cartservice.getShoppingListOnly().then(response => {
             this.mainshoppinglistitems = response['data'];
-            console.log(this.mainshoppinglistitems);
           });
         }
       });
@@ -182,7 +181,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
       console.log(response);
       this.mainshoppinglistitems = response['data'];
     });
-      this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f9f5f1';
+      this.elementRef.nativeElement.ownerDocument.body.style.background = '#f9f5f1';
   }
 
   tabChanged(event: MatTabChangeEvent) {
@@ -396,7 +395,9 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.shared.angeboteitem.next({});
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(190, 20, 20)';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundImage = 'url("../../assets/images/pizza.jpg")';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundSize = 'contain';
+
   }
 
 }

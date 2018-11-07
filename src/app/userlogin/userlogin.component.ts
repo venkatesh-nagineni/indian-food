@@ -62,6 +62,7 @@ export class UserloginComponent implements OnInit {
           if (response.result[0].role === 'user') {
             this.openSnackBar('Logged in successfully', '');
             localStorage.setItem('token', response.token);
+            localStorage.setItem('email', response.result[0].email);
             this.dialogRef.close();
             this.ErrorMessage = false;
             this.sharedService.checkLogin(response.token);

@@ -3,7 +3,9 @@ import {SharedService} from '../shared.service';
 import {Angebotetypes} from '../../assets/data/cartList';
 import {CartService} from '../cart.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-export class AngeboteResponseTypes {
+import { MatDialog } from '@angular/material';
+import {PizzaAngeboteSelectionComponent} from '../pizza-angebote-selection/pizza-angebote-selection.component';
+interface AngeboteResponseTypes {
   data: Array<Object>;
   imgData: Array<Object>;
 }
@@ -17,8 +19,9 @@ export class HomeComponent implements OnInit {
 
   angeboteList: any;
   angeboteImg: any;
+  experience:  number;
 
-  constructor(private shared: SharedService, private service: CartService, private spinner: NgxSpinnerService) { }
+  constructor(public dialog: MatDialog, private shared: SharedService, private service: CartService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     // this.spinner.show();
@@ -30,10 +33,23 @@ export class HomeComponent implements OnInit {
     /* setTimeout(() => {
       this.spinner.hide();
     }, 10000); */
+    this.experience = (new Date()).getFullYear() - 1992;
+
   }
 
   angeboteToCart(item: Angebotetypes) {
-    this.shared.angeboteupdate(item);
+    if (item.AngeboteNo === 'Angebote 1') {
+      const dialogRef = this.dialog.open(PizzaAngeboteSelectionComponent, {
+        width: '300px',
+        data: item
+      });
+      dialogRef.afterClosed().subscribe(data => {
+        // this.shared.angeboteupdate(data);
+        console.log(data);
+      });
+    } else {
+      this.shared.angeboteupdate(item);
+    }
   }
 
 }

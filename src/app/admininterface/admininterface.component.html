@@ -22,7 +22,7 @@
           </mat-select>
         </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Neue Kategorie
           hinzufügen</label>&nbsp;&nbsp;
-        <button mat-mini-fab color="primary" (click)="addNewCategory()">
+        <button mat-mini-fab color="primary" (click)="addNewCategory()" class="notranslate">
           <mat-icon>add</mat-icon>
         </button><br>
 
@@ -44,7 +44,7 @@
         <div *ngIf="categoryid">
           <p>Neues Gericht wird in die Kategorie <strong>{{selectedfromlist}}</strong> aufgenommen </p>
           <label style="font-family: 'Helvetica Neue', sans-serif;">Gericht hinzufügen</label>&nbsp;&nbsp;
-          <button mat-mini-fab color="primary" (click)="adddishform()">
+          <button mat-mini-fab color="primary" (click)="adddishform()" class="notranslate">
             <mat-icon>add</mat-icon>
           </button><br>
         </div>
@@ -101,7 +101,7 @@
               </mat-form-field>
             </div>
             <div class="flexcol" style="margin-top:10px">
-              <button mat-mini-fab color="primary" (click)="addpizzasizes()">
+              <button mat-mini-fab color="primary" (click)="addpizzasizes()" class="notranslate">
                 <mat-icon>add</mat-icon>
               </button><br>
             </div>
@@ -130,7 +130,7 @@
               </mat-form-field>
             </div>
             <div class="flexbox" style="margin-top:10px">
-              <button mat-mini-fab color="primary" (click)="addextraoptionprices()">
+              <button mat-mini-fab color="primary" (click)="addextraoptionprices()" class="notranslate">
                 <mat-icon>add</mat-icon>
               </button><br>
             </div>

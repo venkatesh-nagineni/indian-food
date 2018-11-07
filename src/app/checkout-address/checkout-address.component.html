@@ -63,14 +63,15 @@
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px"> Wie möchtest Du bezahlen? </span></ng-template>
+    <ng-template matStepLabel> <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px">
+        Wie möchtest Du bezahlen? </span></ng-template>
 
     <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"> Please choose one option (you can
       pay with machine or cash)</p>
     <div class="cc-selector-2">
-      <input checked="checked" id="visa2" type="radio" name="creditcard" value="Machine" (change)="paymentMethod($event)"/>
+      <input checked="checked" id="visa2" type="radio" name="creditcard" value="Machine" (change)="paymentMethod($event)" />
       <label class="drinkcard-cc visa" for="visa2"></label>
-      <input id="mastercard2" type="radio" name="creditcard" value="Cash" (change)="paymentMethod($event)"/>
+      <input id="mastercard2" type="radio" name="creditcard" value="Cash" (change)="paymentMethod($event)" />
       <label class="drinkcard-cc mastercard" for="mastercard2"></label>
     </div><br>
     <div *ngIf="paymentmethod == 'Cash'">
@@ -89,3 +90,17 @@
   </mat-step>
 
 </mat-vertical-stepper>
+<ng-template #deliverySuccess>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="thank-you-pop">
+                <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+                <h1>Thank You!</h1>
+                <p>Your order placed successfully</p>
+                <button mat-raised-button color="primary" (click)="goToHome()" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" >Home</button>
+              </div>
+        </div>
+      </div>
+  </div>
+</ng-template>

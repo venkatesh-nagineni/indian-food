@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
 import {SharedService} from './shared.service';
-import {MatSnackBar} from '@angular/material';
+import {LogoutConfirmComponent} from './logout-confirm/logout-confirm.component';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.innerwidth = window.innerWidth;
 }
 
-  constructor(private dialog: MatDialog, private router: Router, public sharedService: SharedService, private snackBar: MatSnackBar) {
+  constructor(private dialog: MatDialog, private router: Router, public sharedService: SharedService) {
     this.sharedService.isLogin.subscribe(val => {
       if (val) {
         this.isLoggedIn = true;
@@ -59,13 +59,13 @@ export class AppComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.removeItem('token');
-    this.sharedService.checkLogin('');
+    const dialogRef = this.dialog.open(LogoutConfirmComponent, {
+      width: '600px',
+    });
     const mainNav = document.getElementById('js-menu');
     if (this.innerwidth < 728) {
       mainNav.classList.toggle('active');
     }
-    this.openSnackBar('Logout successfully', '');
 
   }
 
@@ -127,13 +127,6 @@ export class AppComponent implements OnInit {
     this.onlineSection = true;
     this.disablePointer = false;
     this.disableHeader = true;
-  }
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000,
-      panelClass: ['red-snackbar'],
-    });
   }
 
 }

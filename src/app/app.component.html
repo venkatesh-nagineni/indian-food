@@ -14,13 +14,13 @@
         <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
           Bestellen! </button>
       </li>&nbsp;&nbsp;&nbsp;
-      <li *ngIf="!isLoggedIn">
+      <li *ngIf="!isLoggedIn" class="notranslate">
         <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
           <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
         </button>
       </li>
-      <li (click)="logOut()" *ngIf="isLoggedIn">
-          <i class="fa fa-sign-out" style="font-size:25px;color:white; cursor: pointer;margin-top: 10px"></i>
+      <li  *ngIf="isLoggedIn" class="notranslate">
+        <button mat-button style="color:white;font-size: 17px" (click)="logOut()" > Abmelden  <i class="fa fa-sign-out" style="color:white;"></i> </button>
       </li>
     </ul>
   </nav>

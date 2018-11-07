@@ -1,7 +1,7 @@
 <div class="userlogin">
 <!--     <mat-progress-bar *ngIf="response" mode="intermediate" color="primary"></mat-progress-bar>
  -->  <h3 style="text-align:center;font-family:sans-serif;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Anmelden</span>
-    <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
+    <button class="notranslate" mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()">
       <mat-icon>cancel</mat-icon>
     </button>
   </h3>
@@ -30,11 +30,11 @@
 
     <button mat-raised-button color="primary" class="loginbutton" (click)="login(email, password)" [disabled]="response">
       <span style="font-size:17px;letter-spacing: 1px;">Anmelden</span>
-      <mat-icon style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
+      <mat-icon class="notranslate" style="margin-left:20px" matSuffix>arrow_forward_ios</mat-icon>
     </button>
     <div style="margin-top:10px">
       <button style="font-size:13px;letter-spacing: 1px;" mat-button (click)="register()"> Noch kein Kunde? Jetzt Kunde werden</button>
-      <button style="font-size:13px;letter-spacing: 1px;float: right;" mat-button (click)="forgotpwd()"> Kennwort vergessen?</button>
+      <button style="font-size:13px;letter-spacing: 1px;float: left;" mat-button (click)="forgotpwd()"> Kennwort vergessen?</button>
     </div>
 
   </div>

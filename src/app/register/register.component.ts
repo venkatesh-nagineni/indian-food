@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 import {CartService} from '../cart.service';
+import { ForgotpwdComponent } from '../forgotpwd/forgotpwd.component';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +15,7 @@ export class RegisterComponent implements OnInit {
   userDetailForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
-  constructor(public dialogRef: MatDialogRef<RegisterComponent>, public _formBuilder: FormBuilder, public snackBar: MatSnackBar, public cartService: CartService) { }
+  constructor(public dialogRef: MatDialogRef<RegisterComponent>, public dialog: MatDialog, public _formBuilder: FormBuilder, public snackBar: MatSnackBar, public cartService: CartService) { }
 
   ngOnInit() {
     this.userDetailForm = this._formBuilder.group({
@@ -65,10 +67,15 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  forgotpwd() {
+    const dialogRef = this.dialog.open(ForgotpwdComponent, { hasBackdrop: false });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   back() {
     this.dialogRef.close();
   }
-
 
   onNoClick() {
     this.dialogRef.close();

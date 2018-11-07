@@ -1,10 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, Inject, forwardRef, Output, EventEmitter } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {SharedService} from '../shared.service';
 import { CartService } from '../cart.service';
 import {MatSnackBar} from '@angular/material';
 import {AppComponent} from '../app.component';
 import {Router} from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {MenucardComponent} from '../menucard/menucard.component';
 
 declare var google;
 declare var spherical;
@@ -12,6 +15,7 @@ declare var spherical;
   selector: 'app-checkout-address',
   templateUrl: './checkout-address.component.html',
   styleUrls: ['./checkout-address.component.scss'],
+  providers: [MenucardComponent],
   encapsulation: ViewEncapsulation.None
 })
 export class CheckoutAddressComponent implements OnInit {
@@ -31,12 +35,23 @@ export class CheckoutAddressComponent implements OnInit {
   distance: any;
   amountinCart: any;
   aftersubmit: boolean;
+  deliverySuccessRef: BsModalRef;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
+  extraConfig = {
+    ignoreBackdropClick: true,
+    class: 'modal-lg'
+  };
+  @ViewChild('deliverySuccess') private deliverySuccess;
 
   @ViewChild('timeInput') timeInput: ElementRef;
 
+  @Output() saveDone: EventEmitter<any> = new EventEmitter<any>();
+  hideModal() {
+    this.saveDone.emit();
+  }
+
   constructor(private _formBuilder: FormBuilder, private shared: SharedService, private cartService: CartService, private snackBar: MatSnackBar,
-    @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent, public router: Router) {
+    @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent, public router: Router, private modalService: BsModalService, public menu: MenucardComponent) {
   }
 
   ngOnInit() {
@@ -153,8 +168,8 @@ export class CheckoutAddressComponent implements OnInit {
       });
       this.cartService.sendmail(this.finalCartList, userdata).then(res => {
         this.aftersubmit = true;
-        this.openSnackBar('Order placed successfully', '');
-        location.reload();
+        this.hideModal();
+        this.deliverySuccessRef = this.modalService.show(this.deliverySuccess, this.extraConfig);
       });
     }
   }
@@ -164,6 +179,10 @@ export class CheckoutAddressComponent implements OnInit {
       duration: 3000,
       panelClass: ['red-snackbar'],
     });
+  }
+
+  goToHome() {
+    location.reload();
   }
 
 }

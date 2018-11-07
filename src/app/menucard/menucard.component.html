@@ -1,21 +1,21 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header" id="matBar">
   <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
-    {{totalAmountOnHeader | currencyEuro}} €</span>
-  <span style="cursor:pointer" (click)="openCart(template)" [class.disableCart]="disableCart">
+   <span class="notranslate"> {{totalAmountOnHeader | currencyEuro}} € </span> </span>
+  <span style="cursor:pointer" (click)="openCart(template)" [class.disableCart]="disableCart" class="notranslate">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
 </mat-toolbar>
 
 <div class="container" style="margin-top:20px" *ngIf="shoppingListItems">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
         <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;"
           (click)="scrollToSection(shoppinglist.dishType)">{{shoppinglist.dishType}}</a>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
           <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: white">
@@ -67,7 +67,7 @@
                 <div class="input-group-button" (click)="incrementItem()">
                   <span class="input-number-increment">+</span>
                 </div>
-                <button mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
+                <button class="notranslate" mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
                   <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
                     currencyEuro}} €</span>
                   <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
@@ -117,13 +117,13 @@
       </table>
       <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px">
           Total: {{totalAmountOnHeader | currencyEuro}} € </strong>
-        <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left">
+        <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left" class="notranslate">
           <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
         </button>
         <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)"
           [disabled]="disableConfirmBestellen" [class.disabledDecriment]="itemQuantity == 0">
           <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span>
-          <mat-icon matSuffix style="margin-left:5px">navigate_next</mat-icon>
+          <mat-icon class="notranslate" matSuffix style="margin-left:5px">navigate_next</mat-icon>
         </button>
       </p>
     </div>
@@ -149,7 +149,7 @@
 <!-- checkout address -->
 <ng-template #confirmselection>
   <div class="modal-body gray modal-lg">
-    <app-checkout-address></app-checkout-address>
+    <app-checkout-address (saveDone)="hideModal()"></app-checkout-address>
   </div>
 </ng-template>
 

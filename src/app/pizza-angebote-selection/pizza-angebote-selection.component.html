@@ -1,0 +1,41 @@
+<div class="example-form">
+  <h2 mat-dialog-title> Angebote </h2>
+
+  <div *ngIf="ErrorMessage">
+    <div class="error-notice">
+      <div class="oaerror danger">
+        <strong>Error</strong> - Please select all fields
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Pizza 1 auswählen" [(ngModel)]="angebote.angebote1" (selectionChange)="angeboteChange()">
+      <mat-option *ngFor="let pizza of pizzas;" [value]="pizza">
+        {{pizza}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Pizza 2 auswählen" [(ngModel)]="angebote.angebote2" (selectionChange)="angeboteChange()">
+      <mat-option *ngFor="let pizza of pizzas;" [value]="pizza">
+        {{pizza}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Pizza 3 auswählen" [(ngModel)]="angebote.angebote3" (selectionChange)="angeboteChange()">
+      <mat-option *ngFor="let pizza of pizzas;" [value]="pizza">
+        {{pizza}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" style="font-family:Arial, Helvetica, sans-serif" (click)="angeboteToCart()">
+      10 € <mat-icon>shopping_cart</mat-icon> </button>
+    <button mat-raised-button (click)="onCloseCancel()" color="warn">CANCEL</button>
+  </mat-dialog-actions>
+</div>
