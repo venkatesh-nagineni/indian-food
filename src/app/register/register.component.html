@@ -1,5 +1,5 @@
 <div class="userregister">
-  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: rgb(148, 7, 25)"> <span> Registrieren
+  <h3 style="text-align:center;font-family:cursive;margin-bottom:20px;color: #dc3545"> <span> Registrieren
     </span>
     <button mat-icon-button color="primary" style="float: right;border:none" (click)="onNoClick()" class="notranslate">
       <mat-icon>cancel</mat-icon>
@@ -23,13 +23,13 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" formControlName="password">
-      <mat-icon matSuffix>visibility_off</mat-icon>
+      <input [type]="show ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+      <mat-icon matSuffix (mouseenter) = "showHidePassword()" (mouseleave) = "showHidePassword()" style="cursor:pointer">visibility_off</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword">
-      <mat-icon matSuffix>visibility_off</mat-icon>
+      <input [type]="show ? 'text' : 'password'" matInput placeholder="Confirm password" formControlName="confirmPassword">
+      <mat-icon matSuffix (mouseenter) = "showHidePassword()" (mouseleave) = "showHidePassword()" style="cursor:pointer">visibility_off</mat-icon>
     </mat-form-field>
 
     <button mat-raised-button color="primary" class="registerbutton" (click)="senduserData()">

@@ -48,7 +48,8 @@
     position: relative;
     top:0;
     width:100%;
-    background: linear-gradient(90deg, rgba(4,3,24,1) 0%, rgba(39,83,91,0.9472163865546218) 60%, rgba(4,3,24,1) 100%);
+   // background: linear-gradient(90deg, rgba(4,3,24,1) 0%, rgba(39,83,91,0.9472163865546218) 60%, rgba(4,3,24,1) 100%);
+   background: linear-gradient(90deg, rgb(167, 155, 155) 0%, rgba(39,83,91,0.9472163865546218) 60%);
   }
 
   .main-nav {
@@ -93,7 +94,6 @@
   .logo {
     display: inline-block;
     font-size: 20px;
-    padding-bottom: 10px;
   }
 
   .navbar-toggle {
@@ -117,12 +117,17 @@
     display: none;
   }
 
+ .logoimg {
+    width: 120px !important;
+    height: 85px !important;
+  }
+
   @media screen and (min-width: 728px) {
     .navbar {
       display: flex;
       justify-content: space-between;
       padding-bottom: 0;
-      height: 60px;
+      height: 90px;
       align-items: center;
     }
 
@@ -155,9 +160,6 @@
     }
   }
 }
-
-
-
 
 header {
   position: relative;

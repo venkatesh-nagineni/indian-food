@@ -1,4 +1,5 @@
 .todaySection {
+
   margin-bottom: 20px;
   margin-left: 25px;
   margin-right: 25px;
@@ -16,7 +17,7 @@
 }
 
 .bg-overlay {
-  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../../assets/video/background_video.jpg");
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../assets/video/background_video.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -26,8 +27,21 @@
 }
 
 .fixedimage {
+
+  @media screen and (min-width: 728px) {
+    .callno {
+      pointer-events: none;
+    }
+  }
+
+  .callno {
+    color: white;
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold
+  }
   .date {
-    background: #8d271f;
+    background: #dc3545;
     float: right;
     height: 105px;
     position: relative;
@@ -35,12 +49,13 @@
     margin-top: 10px;
 }
 .date p {
-    color: #bbb5b5;
+    color: white;
     font: 18px/30px Georgia, sans-serif;
     position: relative;
     text-align: center;
     text-shadow: 0 -1px 1px hsla(0,0%,0%,.1);
 }
+
 
 .date .day {
     display: block;
@@ -51,7 +66,7 @@
 /* Traditional Ribbon */
 
 .traditional:after, .traditional:before {
-    border-top: 15px solid #8d271f;
+    border-top: 15px solid #dc3545;
     bottom: -15px;
     content: '';
     height: 0;
@@ -70,16 +85,16 @@
 /* Cut-off Ribbon */
 
 .cut-off:after {
-    background-image: -webkit-linear-gradient(45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f),
-                      -webkit-linear-gradient(-45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f);
-    background-image:    -moz-linear-gradient(45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f),
-                         -moz-linear-gradient(-45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f);
-    background-image:     -ms-linear-gradient(45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f),
-                          -ms-linear-gradient(-45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f);
-    background-image:      -o-linear-gradient(45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f),
-                           -o-linear-gradient(-45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f);
-    background-image:         linear-gradient(45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f),
-                              linear-gradient(-45deg, #8d271f 25%, transparent 25%, transparent 75%, #8d271f 75%, #8d271f);
+    background-image: -webkit-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
+                      -webkit-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
+    background-image:    -moz-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
+                         -moz-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
+    background-image:     -ms-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
+                          -ms-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
+    background-image:      -o-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
+                           -o-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
+    background-image:         linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
+                              linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
     background-repeat: repeat-x;
     background-position: 50% 0;
     background-size: 10px 10px;
@@ -94,7 +109,7 @@
 /* Rounded Ribbon */
 
 .rounded:before {
-    background-image: -webkit-radial-gradient(#8d271f 50%, transparent 50%);
+    background-image: -webkit-radial-gradient(#dc3545 50%, transparent 50%);
     background-position: 0% 100%;
     background-repeat: repeat;
     background-size: 10px 10px;

@@ -45,9 +45,20 @@ export class CheckoutAddressComponent implements OnInit {
 
   @ViewChild('timeInput') timeInput: ElementRef;
 
+  logos = ['payment_0', 'payment_1', 'payment_2', 'payment_4', 'payment_6', 'payment_7'];
+
   @Output() saveDone: EventEmitter<any> = new EventEmitter<any>();
+  @Output() progressBar: EventEmitter<any> = new EventEmitter<any>();
+  rating: number;
+  starCount = 5;
+  starColor = 'warn';
+
   hideModal() {
     this.saveDone.emit();
+  }
+
+  showProgress(val) {
+    this.progressBar.emit(val);
   }
 
   constructor(private _formBuilder: FormBuilder, private shared: SharedService, private cartService: CartService, private snackBar: MatSnackBar,
@@ -141,6 +152,7 @@ export class CheckoutAddressComponent implements OnInit {
     if (this.firstFormGroup.invalid || this.secondFormGroup.invalid) {
       this.openSnackBar('Please fill required fields', '');
     } else {
+      this.showProgress(true);
       this.amountinCart = this.shared.total.getValue();
       const userdata = {
         address: this.firstFormGroup.value,
@@ -150,7 +162,7 @@ export class CheckoutAddressComponent implements OnInit {
         deliveryTime: this.with5Gap || 'ASAP',
         extraInfo: this.extraDesc || '',
         distance: this.distance,
-        totalamount: this.amountinCart
+        totalamount: this.amountinCart,
       };
       this.finalCartList = this.shared.cartList.getValue();
       this.finalCartList.forEach((element, index) => {
@@ -169,6 +181,7 @@ export class CheckoutAddressComponent implements OnInit {
       this.cartService.sendmail(this.finalCartList, userdata).then(res => {
         this.aftersubmit = true;
         this.hideModal();
+        this.showProgress(false);
         this.deliverySuccessRef = this.modalService.show(this.deliverySuccess, this.extraConfig);
       });
     }
@@ -183,6 +196,10 @@ export class CheckoutAddressComponent implements OnInit {
 
   goToHome() {
     location.reload();
+  }
+
+  onRatingChanged(rating) {
+    this.rating = rating;
   }
 
 }

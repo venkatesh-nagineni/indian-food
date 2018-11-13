@@ -1,7 +1,7 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header" id="matBar">
   <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
-   <span class="notranslate"> {{totalAmountOnHeader | currencyEuro}} € </span> </span>
+    <span class="notranslate"> {{totalAmountOnHeader | currencyEuro}} € </span> </span>
   <span style="cursor:pointer" (click)="openCart(template)" [class.disableCart]="disableCart" class="notranslate">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>
   </span>
@@ -9,16 +9,20 @@
 
 <div class="container" style="margin-top:20px" *ngIf="shoppingListItems">
   <div class="row">
-    <div class="col-md-2">
-      <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
-        <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;"
-          (click)="scrollToSection(shoppinglist.dishType)">{{shoppinglist.dishType}}</a>
+    <div class="col-md-3">
+      <div class="affix">
+        <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
+          <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;color: #dc3545"
+            (click)="scrollToSection(shoppinglist.dishType)">
+            <h5>{{shoppinglist.dishType}}</h5>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
-          <h4 class="mt-1 pb-2 mb-4 font-italic border-bottom" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: white">
+          <h4 class="mt-1 mb-0 font-italic p-2" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: #dc3545;background: rgb(245, 245, 245); border-radius: 4px">
             {{shoppinglist.dishType}}
           </h4>
           <div *ngFor="let imgData of shoppingListItems.imgData">
@@ -29,15 +33,15 @@
             <li (click)="expandItem(items, items.itemNo, shoppinglist.dishType)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">
                 <h2 class="title">{{items.itemName}}
-                  <span class="badge badge-info badge-pill" style="float:right;margin-top: 7px;margin-right: 7px">
-                    {{items.itemPrice}} €</span>
+                  <span class="badge badge-danger" style="float:right;margin-top: 7px;margin-right: 5px">
+                    {{items.itemPrice | currencyEuro}} €</span>
                 </h2>
                 <p class="desc">{{items.itemShortDescription}}</p>
                 <p class="desc">{{items.chooseExtraInfo}}</p>
               </div>
             </li>
 
-            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid orange">
+            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid #dc3545">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <div *ngIf="shoppinglist.dishType == 'Pizza'">
@@ -47,66 +51,62 @@
                       <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
                     </select>
                   </div>
-                <div *ngIf="items.itemExtraOptionPrice.prices.length != 0">
-                  <label style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
-                  <div class="col md-6">
-                    <div class="checkbox checkbox-success" *ngFor="let extraprice of items.itemExtraOptionPrice.prices">
-                      <input id="checkbox1" type="checkbox" (change)="checkExtraOptions(extraprice, $event)" />&nbsp;&nbsp;
-                      <label for="checkbox6">
-                        {{extraprice.name}}
-                      </label>
+                  <div *ngIf="items.itemExtraOptionPrice.prices.length != 0">
+                    <label style="margin-top:20px;margin-right:20px">{{items.itemExtraOptionPrice.itemPlaceholderName}}</label><br>
+                    <div class="col md-6">
+                      <div class="checkbox checkbox-success" *ngFor="let extraprice of items.itemExtraOptionPrice.prices">
+                        <input id="checkbox1" type="checkbox" (change)="checkExtraOptions(extraprice, $event)" />&nbsp;&nbsp;
+                        <label for="checkbox6">
+                          {{extraprice.name}}
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="input-group input-number-group" style="padding-top:10px">
-                <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
-                  <span class="input-number-decrement">-</span>
+                <div class="input-group input-number-group" style="padding-top:10px">
+                  <div class="input-group-button" (click)="decrementItem()" [class.disabledDecriment]="quantity == 1">
+                    <span class="input-number-decrement">-</span>
+                  </div>
+                  <input class="input-number" type="text" value="{{quantity}}" disabled>
+                  <div class="input-group-button" (click)="incrementItem()">
+                    <span class="input-number-increment">+</span>
+                  </div>
+                  <button class="notranslate" mat-raised-button style="margin-left:auto;background: #dc3545" (click)="addToCart()">
+                    <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
+                      currencyEuro}} €</span>
+                    <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
+                  </button>
                 </div>
-                <input class="input-number" type="text" value="{{quantity}}" disabled>
-                <div class="input-group-button" (click)="incrementItem()">
-                  <span class="input-number-increment">+</span>
-                </div>
-                <button class="notranslate" mat-raised-button style="margin-left:auto;background: #17a2b8" (click)="addToCart()">
-                  <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
-                    currencyEuro}} €</span>
-                  <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
-                </button>
               </div>
             </div>
+          </ul>
         </div>
-        </ul>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <ng-template #template>
   <div class="modal-body gray modal-lg">
     <div>
       <table id="cart" class="table table-hover table-condensed">
-        <thead>
-          <tr>
-            <th style="width:40%">Item</th>
-            <th style="width:10%">Quantity</th>
-            <th style="width:25%" class="aligntex">Subtotal</th>
-            <th style="width:10%"></th>
-          </tr>
-        </thead>
         <tbody>
           <tr *ngFor="let item of addCartList;let i = index;">
             <td data-th="Product" style="padding-top:10px !important">
               <div class="row">
                 <div class="col-sm-10">
-                  <p style="margin-top:5px">{{item.quantity}} x {{item.itemName}} <i class="fa fa-info-circle" fa-4x
-                      style="padding-left:7px;cursor: pointer" (click)="openInfoText(templateNested, item.extras)"></i></p>
+                  <p style="margin-top:5px">{{item.quantity}} x {{item.itemName}}
+                    <i *ngIf="item.extras && item.extras.length != 0" class="fa fa-info-circle" fa-4x style="padding-left:7px;cursor: pointer"
+                      (click)="openInfoText(templateNested, item.extras)">
+                    </i>
+                  </p>
                 </div>
               </div>
             </td>
             <td data-th="Quantity">
-              <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="item.quantity == 1">remove</mat-icon>&nbsp;&nbsp;
-              <mat-icon class="iconadd" (click)="cartIncrement(item, i)">add</mat-icon>
+              <mat-icon class="iconremove" (click)="cartDecrement(item, i)" [class.disabledDecriment]="item.quantity == 1">
+                remove </mat-icon>&nbsp;&nbsp;
+              <mat-icon class="iconadd" (click)="cartIncrement(item, i)"> add </mat-icon>
             </td>
             <td data-th="Subtotal" class="aligntex">€ {{item.itemtotalamount | currencyEuro}}</td>
             <td class="actions" data-th="">
@@ -148,8 +148,11 @@
 
 <!-- checkout address -->
 <ng-template #confirmselection>
-  <div class="modal-body gray modal-lg">
-    <app-checkout-address (saveDone)="hideModal()"></app-checkout-address>
+  <div class="checkout">
+    <div class="modal-body gray modal-lg">
+      <mat-progress-bar *ngIf="progressStatus" mode="indeterminate" color="warn"></mat-progress-bar>
+      <app-checkout-address (saveDone)="hideModal()" (progressBar)="progressEvent($event)"></app-checkout-address>
+    </div>
   </div>
 </ng-template>
 
@@ -180,29 +183,30 @@
             <h3>Kontakt</h3>
             <form>
               <address style="color:#DDD">
-                <strong>Pizzeria Express Rodgau</strong><br>
+                <strong>Pizza Express Rodgau</strong><br>
                 Alter Weg 28<br>
                 D-63110 Rodgau<br><br>
                 Telefon: 06106 4075<br>
                 Handy: (123) 456-7890 <br>
-                <a href="mailto:#">pizzaexpressrodgau@beispiel.de</a>
+                <a href="mailto:pizzaexpressrodgau@beispiel.de">pizzaexpressrodgau@beispiel.de</a>
               </address>
             </form>
           </nav>
 
           <nav class="col-md-3 col-sm-6 col-xs-12">
-            <div class="input-group input-group-md">
-              <input type="text" class="form-control" placeholder="E-mail Adresse">
-              <span class="input-group-addon" style="padding-right:10px;padding-left:10px;padding-top:5px">Abonnieren
-                Sie Sonderangebote</span>
+            <h3>Bezahlen mit</h3>
+            <div class="row">
+              <div *ngFor="let logo of logos">
+                <img src="../../assets/images/logos/{{logo}}.png" style="height: 50px; width: 70px" />
+              </div>
             </div>
-            <ul class="social">
+            <!-- <ul class="social">
               <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
               <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
               <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
               <li><a href="#"><i class="fa fa-youtube fa-lg"></i></a></li>
-            </ul>
+            </ul> -->
           </nav>
         </div>
       </div>
@@ -222,11 +226,6 @@
   </footer>
 </div>
 
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-clip-rotate-multiple">
- <p style="font-size: 20px; color: white">Bitte Warte...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple">
+  <p style="font-size: 20px; color: white">Bitte Warte...</p>
 </ngx-spinner>
-

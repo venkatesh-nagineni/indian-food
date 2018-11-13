@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
   } */
 
   openUserLogin() {
-    const dialogRef = this.dialog.open(UserloginComponent, { hasBackdrop: false });
+    const dialogRef = this.dialog.open(UserloginComponent, { hasBackdrop: false, panelClass: 'dialogclass' });
     this.disablePointer = true;
     this.disableMenu = true;
     const mainNav = document.getElementById('js-menu');

@@ -24,6 +24,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { LogoutConfirmComponent } from './logout-confirm/logout-confirm.component';
 import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizza-angebote-selection.component';
+import { StartRatingComponent } from './start-rating/start-rating.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizz
     CurrencyEuroPipe,
     LogoutConfirmComponent,
     PizzaAngeboteSelectionComponent,
+    StartRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizz
     NgxSpinnerModule,
     ModalModule.forRoot(),
     NgxMaterialTimepickerModule.forRoot(),
+    LayoutModule,
   ],
   entryComponents: [ContactComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent, LogoutConfirmComponent, PizzaAngeboteSelectionComponent],
   providers: [SharedService],

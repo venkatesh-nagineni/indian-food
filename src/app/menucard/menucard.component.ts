@@ -40,6 +40,7 @@ export class MenucardComponent implements OnInit {
   decrementdisable = 1;
   disableCart = false;
   disableConfirmBestellen = false;
+  progressStatus: boolean;
 
   selectionConfig = {
     ignoreBackdropClick: false,
@@ -52,6 +53,8 @@ export class MenucardComponent implements OnInit {
   };
 
   @ViewChildren('linkRef') linkRefs;
+
+  logos = ['payment_0', 'payment_1', 'payment_2', 'payment_4', 'payment_6', 'payment_7'];
 
   constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService,
     private dialog: MatDialog, private snackBar: MatSnackBar, public router: Router, @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent,
@@ -79,17 +82,33 @@ export class MenucardComponent implements OnInit {
 
   addToCartAngebote() {
     this.shared.angeboteitem.subscribe((data: Angebotetypes) => {
-      if (Object.keys(data).length !== 0) {
-        const angeboteData = {
-          itemName: data['AngeboteName'],
-          itemNo: data['_id'],
-          quantity: 1,
-          itemtotalamount: data['AngebotePrice'],
-        };
-        this.addCartList.push(angeboteData);
-        this.itemQuantity += 1;
-        this.totalAmountOnHeader += angeboteData.itemtotalamount;
-        this.openSnackBar('1 item was added successfully', 'View cart');
+      if (data.AngeboteNo === 'Angebote 1') {
+        if (Object.keys(data).length !== 0) {
+          const angeboteData = {
+            itemName: data.AngeboteName + ' ( ' + data.SelectedAngebote + ' ) ',
+            itemNo: data._id,
+            quantity: 3,
+            itemtotalamount: data.AngebotePrice,
+            angeboteNo: data.AngeboteNo
+          };
+          this.addCartList.push(angeboteData);
+          this.itemQuantity += 3;
+          this.totalAmountOnHeader += angeboteData.itemtotalamount;
+          this.openSnackBar('3 items was added successfully', 'View cart');
+        }
+      } else {
+        if (Object.keys(data).length !== 0) {
+          const angeboteData = {
+            itemName: data.AngeboteName,
+            itemNo: data._id,
+            quantity: 1,
+            itemtotalamount: data.AngebotePrice,
+          };
+          this.addCartList.push(angeboteData);
+          this.itemQuantity += 1;
+          this.totalAmountOnHeader += angeboteData.itemtotalamount;
+          this.openSnackBar('1 item was added successfully', 'View cart');
+        }
       }
     });
   }
@@ -195,16 +214,16 @@ export class MenucardComponent implements OnInit {
       extras: this.extras,
       pizzaSize: this.selectedPizzaSize
     };
-
     this.itemQuantity += this.quantity;
-
     this.addCartList.push(data);
-
     this.totalAmountOnHeader += this.totalAmount;
-
     this.extras = [];
     this.closeExpand();
-
+    if (this.quantity > 1) {
+      this.openSnackBar('' + this.quantity + ' items was added successfully', '');
+    } else {
+      this.openSnackBar('' + this.quantity + ' item was added successfully', '');
+    }
   }
 
   scrollToSection(scrollSection) {
@@ -220,13 +239,17 @@ export class MenucardComponent implements OnInit {
   cartDecrement(actionitem, index) {
     this.addCartList.forEach(item => {
       if (item.itemNo === actionitem.itemNo) {
-        const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
-        this.addCartList[index].itemtotalamount -= eachitemprice;
-        this.addCartList[index].quantity -= 1;
-        this.totalAmount -= eachitemprice;
-        this.totalAmountOnHeader -= eachitemprice;
-        this.itemQuantity -= 1;
-        this.decrementdisable = actionitem.quantity;
+        if (item.angeboteNo) {
+          this.openSnackBar('Please add it from Angebote section', '');
+        } else {
+          const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
+          this.addCartList[index].itemtotalamount -= eachitemprice;
+          this.addCartList[index].quantity -= 1;
+          this.totalAmount -= eachitemprice;
+          this.totalAmountOnHeader -= eachitemprice;
+          this.itemQuantity -= 1;
+          this.decrementdisable = actionitem.quantity;
+        }
       }
     });
   }
@@ -234,13 +257,17 @@ export class MenucardComponent implements OnInit {
   cartIncrement(actionitem, index) {
     this.addCartList.forEach(item => {
       if (item.itemNo === actionitem.itemNo) {
-        const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
-        this.addCartList[index].itemtotalamount += eachitemprice;
-        this.addCartList[index].quantity += 1;
-        this.totalAmount += eachitemprice;
-        this.totalAmountOnHeader += eachitemprice;
-        this.itemQuantity += 1;
-        this.decrementdisable = actionitem.quantity;
+        if (item.angeboteNo) {
+          this.openSnackBar('Please add it from Angebote section', '');
+        } else {
+          const eachitemprice = this.addCartList[index].itemtotalamount / actionitem.quantity;
+          this.addCartList[index].itemtotalamount += eachitemprice;
+          this.addCartList[index].quantity += 1;
+          this.totalAmount += eachitemprice;
+          this.totalAmountOnHeader += eachitemprice;
+          this.itemQuantity += 1;
+          this.decrementdisable = actionitem.quantity;
+        }
       }
     });
   }
@@ -302,6 +329,10 @@ export class MenucardComponent implements OnInit {
 
   hideModal() {
     this.checkoutaddressRef.hide();
+ }
+
+ progressEvent(progress: boolean) {
+   this.progressStatus = progress;
  }
 
 }

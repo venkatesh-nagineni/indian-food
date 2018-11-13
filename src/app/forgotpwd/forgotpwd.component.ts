@@ -22,16 +22,19 @@ export class ForgotpwdComponent implements OnInit {
   }
 
   forgotPwd(email) {
-    this.cartService.forgotPwd(email).then((res: any) => {
-      console.log(res);
-      if (res.success === true) {
-        this.openSnackBar(res.message, '');
-      } else {
-        this.openSnackBar('email not found!', '');
-      }
-    }, (err) => {
-      this.openSnackBar('Server error!', '');
-    });
+    if (!email) {
+      this.openSnackBar('Plese fill required field', '');
+    } else {
+      this.cartService.forgotPwd(email).then((res: any) => {
+        if (res.success === true) {
+          this.openSnackBar(res.message, '');
+        } else {
+          this.openSnackBar('email not found!', '');
+        }
+      }, (err) => {
+        this.openSnackBar('Server error!', '');
+      });
+    }
   }
 
   openSnackBar(message: string, action: string) {

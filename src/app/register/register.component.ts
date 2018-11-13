@@ -14,8 +14,13 @@ export class RegisterComponent implements OnInit {
 
   userDetailForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
+  show: boolean;
 
   constructor(public dialogRef: MatDialogRef<RegisterComponent>, public dialog: MatDialog, public _formBuilder: FormBuilder, public snackBar: MatSnackBar, public cartService: CartService) { }
+
+  showHidePassword() {
+    this.show = !this.show;
+  }
 
   ngOnInit() {
     this.userDetailForm = this._formBuilder.group({

@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
     }, 10000); */
     this.experience = (new Date()).getFullYear() - 1992;
-
   }
 
   angeboteToCart(item: Angebotetypes) {
@@ -43,9 +42,8 @@ export class HomeComponent implements OnInit {
         width: '300px',
         data: item
       });
-      dialogRef.afterClosed().subscribe(data => {
-        // this.shared.angeboteupdate(data);
-        console.log(data);
+      dialogRef.afterClosed().subscribe((data) => {
+        this.shared.angeboteupdate(data.selectedPizzas);
       });
     } else {
       this.shared.angeboteupdate(item);

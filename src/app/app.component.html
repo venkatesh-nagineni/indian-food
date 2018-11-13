@@ -3,12 +3,10 @@
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="material-icons"> menu </i>
     </span>
-    <div>
       <a (click)="home()" class="logo" style="font-family:sans-serif; cursor: pointer;" [class.disabled]="disableMenu">
-        <i class="material-icons" style="color:orange">restaurant_menu</i>
-        Pizzeria Express Rodgau
+        <img src="../assets/images/logo_465x320.png" class="logoimg"/>
+        Pizza Express Rodgau
       </a>
-    </div>
     <ul class="main-nav" id="js-menu">
       <li>
         <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
@@ -19,8 +17,9 @@
           <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
         </button>
       </li>
-      <li  *ngIf="isLoggedIn" class="notranslate">
-        <button mat-button style="color:white;font-size: 17px" (click)="logOut()" > Abmelden  <i class="fa fa-sign-out" style="color:white;"></i> </button>
+      <li *ngIf="isLoggedIn" class="notranslate">
+        <button mat-button style="color:white;font-size: 17px" (click)="logOut()"> Abmelden <i class="fa fa-sign-out"
+            style="color:white;"></i> </button>
       </li>
     </ul>
   </nav>

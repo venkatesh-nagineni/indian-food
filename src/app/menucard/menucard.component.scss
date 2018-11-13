@@ -193,8 +193,9 @@
   }
 
   mat-toolbar {
-   background: linear-gradient(90deg, rgba(39,83,91,0.9472163865546218) 50%, rgba(39,83,91,0.9472163865546218) 60%, rgba(39,83,91,0.9472163865546218) 60%) !important;
-    span {
+   background: linear-gradient(90deg, rgb(167, 155, 155) 0%, rgba(39,83,91,0.9472163865546218) 60%) !important;
+  // background: linear-gradient(90deg, rgb(94, 15, 15) 0%, rgba(39,83,91,0.9472163865546218) 60%);
+   span {
       color: white !important;
     }
   }
@@ -316,6 +317,9 @@
     background: #06203b !important;
     color: white !important;
     letter-spacing: 1px !important;
+    .mat-simple-snackbar-action {
+      color: white !important;
+  }
   }
 
   .footersection {
@@ -352,7 +356,7 @@
     }
 
     .footer2 .footer {
-      background-color: #2E3436;
+      background-color: #dc3545;
       padding: 10px 0;
     }
 
@@ -432,7 +436,7 @@
 
     .footer-bottom {
       padding: 5px 0 5px;
-      background: #1e1e1e;
+      background: #dc3545;
   }
   .copyright-text p {
       color: #ccc;
@@ -445,4 +449,22 @@
 
   .disableCart {
     pointer-events: none;
+  }
+
+  .checkout {
+    .modal-body {
+      padding-left: 1rem !important;
+      padding-bottom: 1rem !important;
+      padding-right: 1rem !important;
+      padding-top: 0px !important;
+    }
+  }
+
+  table td {
+    border-top: none !important;
+  }
+
+  .affix {
+    position: sticky;
+    top: 4rem;
   }

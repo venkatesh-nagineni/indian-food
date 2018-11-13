@@ -8,7 +8,7 @@ import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-userlogin',
   templateUrl: './userlogin.component.html',
-  styleUrls: ['./userlogin.component.scss']
+  styleUrls: ['./userlogin.component.scss'],
 })
 export class UserloginComponent implements OnInit {
 
@@ -37,23 +37,22 @@ export class UserloginComponent implements OnInit {
 
   register() {
     const dialogRef = this.dialog.open(RegisterComponent, { hasBackdrop: false });
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    /* dialogRef.afterClosed().subscribe(result => {
+    }); */
   }
 
   forgotpwd() {
     const dialogRef = this.dialog.open(ForgotpwdComponent, { hasBackdrop: false });
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    /* dialogRef.afterClosed().subscribe(result => {
+    }); */
   }
 
   login(email, password) {
     this.response = true;
     let valid = false;
     if (!email || !password) {
-      this.ErrorMessage = true;
       this.response = false;
-      this.openSnackBar('Das eingegebene Benutzer-ID/Passwort ist nicht korrekt', '');
+      this.openSnackBar('Please fill required fields', '');
     } else {
       const data = { email: email, password: password };
       this.cartService.loginUser(data).then((response: any) => {

@@ -31,7 +31,7 @@ export class PizzaAngeboteSelectionComponent {
   angeboteToCart() {
     if (this.selectedAll === true) {
       const result = Object.values(this.angebote).join(',');
-      this.data.AngeboteName = result;
+      this.data.SelectedAngebote = result;
       this.dialogRef.close({ closed: true, selectedPizzas: this.data });
     } else {
       this.ErrorMessage = true;
