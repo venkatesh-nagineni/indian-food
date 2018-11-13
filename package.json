@@ -35,7 +35,7 @@
     "mongodb": "^3.1.8",
     "multer": "^1.4.1",
     "ngx-bootstrap": "^3.0.1",
-    "ngx-material-timepicker": "^2.8.1",
+    "ngx-material-timepicker": "^2.8.3",
     "ngx-spinner": "^6.1.2",
     "random-id": "^1.0.3",
     "rxjs": "^6.3.3",
