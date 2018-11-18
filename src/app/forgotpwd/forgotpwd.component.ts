@@ -28,6 +28,7 @@ export class ForgotpwdComponent implements OnInit {
       this.cartService.forgotPwd(email).then((res: any) => {
         if (res.success === true) {
           this.openSnackBar(res.message, '');
+          this.dialogRef.close();
         } else {
           this.openSnackBar('email not found!', '');
         }

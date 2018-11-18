@@ -1,33 +1,33 @@
-<div class="example-form">
+<div class="example-form" [formGroup]="firstFormGroup">
   <mat-form-field class="example-full-width">
     <mat-icon matSuffix>account_circle</mat-icon>
-    <input matInput placeholder="Full Name">
+    <input matInput placeholder="Full Name" formControlName="name" name="name">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Email">
+    <input matInput placeholder="Email" formControlName="email" name="email">
     <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Your Phone">
+    <input matInput placeholder="Your Phone" formControlName="phone" name="phone">
     <mat-icon matSuffix>phone</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Your Message"></textarea>
+    <textarea matInput placeholder="Your Message" formControlName="message" name="message"></textarea>
     <mat-icon matSuffix>message</mat-icon>
   </mat-form-field>
 
   <button mat-raised-button color="warn" (click)="onNoClick()">
-    <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Cancel</span>
+    <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
   </button>
 
-  <button mat-raised-button color="primary" style="float: right">
+  <button mat-raised-button color="primary" style="float: right" (click)="sendMail()">
     <mat-icon matSuffix style="margin-right:5px">send</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Send</span>
   </button>
 
-  <div style="margin-top:20px">
+ <!--  <div style="margin-top:20px">
     <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
     <address>
       <strong>MAS Taxi Hanau</strong><br>
@@ -38,6 +38,6 @@
       Ph: (123) 456-7890 <br>
       <a href="mailto:#">first.last@example.com</a>
     </address>
-  </div>
+  </div> -->
 
 </div>

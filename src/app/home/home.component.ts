@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   angeboteList: any;
   angeboteImg: any;
-  experience:  number;
+  slide1List: any;
+  slide2List: any;
 
   constructor(public dialog: MatDialog, private shared: SharedService, private service: CartService, private spinner: NgxSpinnerService) { }
 
@@ -29,11 +30,16 @@ export class HomeComponent implements OnInit {
       // this.spinner.hide();
       this.angeboteList = res.data;
       this.angeboteImg = res.imgData;
+      this.slide1List = this.angeboteList.slice(0, 3);
+      this.slide2List = this.angeboteList.slice(3, 6);
     });
     /* setTimeout(() => {
       this.spinner.hide();
     }, 10000); */
-    this.experience = (new Date()).getFullYear() - 1992;
+  }
+
+  afterChange(slide) {
+    console.log(slide);
   }
 
   angeboteToCart(item: Angebotetypes) {

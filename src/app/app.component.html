@@ -8,8 +8,11 @@
         Pizza Express Rodgau
       </a>
     <ul class="main-nav" id="js-menu">
+      <li style="margin-top:11px;margin-right: 20px" class="numberres">
+          <a href="tel:+496170961709" class="callno">Call us +496170961709 <i class="fa fa-whatsapp"></i> </a>
+      </li>
       <li>
-        <button mat-button style="color:white" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
+        <button mat-button style="color:white;" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
           Bestellen! </button>
       </li>&nbsp;&nbsp;&nbsp;
       <li *ngIf="!isLoggedIn" class="notranslate">

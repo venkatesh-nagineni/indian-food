@@ -11,15 +11,25 @@
   <div class="row">
     <div class="col-md-3">
       <div class="affix">
-        <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
+        <!-- <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
           <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;color: #dc3545"
             (click)="scrollToSection(shoppinglist.dishType)">
             <h5>{{shoppinglist.dishType}}</h5>
           </a>
+        </div> -->
+        <div class="side-menu">
+        <dl class="list nigiri">
+          <dt>MENU</dt>
+          <dd *ngFor="let shoppinglist of shoppingListItems.data;let i=index;">
+            <a (click)="scrollToSection(shoppinglist.dishType, i)">
+              {{shoppinglist.dishType}}
+            </a>
+          </dd>
+        </dl>
         </div>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 main-menu">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
           <h4 class="mt-1 mb-0 font-italic p-2" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: #dc3545;background: rgb(245, 245, 245); border-radius: 4px">
@@ -44,7 +54,7 @@
             <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid #dc3545">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
-                <div *ngIf="shoppinglist.dishType == 'Pizza'">
+                <div *ngIf="shoppinglist.dishType == 'Pizzen'">
                   <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
                   <div *ngIf="items.itemExtraOptionsizes.sizes.length != 0">
                     <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
@@ -71,7 +81,7 @@
                   <div class="input-group-button" (click)="incrementItem()">
                     <span class="input-number-increment">+</span>
                   </div>
-                  <button class="notranslate" mat-raised-button style="margin-left:auto;background: #dc3545" (click)="addToCart()">
+                  <button class="notranslate expandButCost" mat-raised-button style="background: #dc3545" (click)="addToCart()">
                     <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
                       currencyEuro}} €</span>
                     <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>
@@ -115,13 +125,14 @@
           </tr>
         </tbody>
       </table>
+      <!-- [disabled]="disableConfirmBestellen" -->
       <p style="text-align:center"> <strong style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;padding-top:10px;font-size: 17px">
           Total: {{totalAmountOnHeader | currencyEuro}} € </strong>
-        <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" style="float: left" class="notranslate">
+        <button mat-raised-button color="warn" (click)="selectionModalRef.hide()" class="notranslate closeBut">
           <mat-icon matSuffix style="margin-right:5px">cancel</mat-icon> <span style="font-size:17px;letter-spacing: 1px">Close</span>
         </button>
-        <button mat-raised-button color="primary" style="float: right" (click)="confirmBestellen(confirmselection)"
-          [disabled]="disableConfirmBestellen" [class.disabledDecriment]="itemQuantity == 0">
+        <button mat-raised-button color="primary" class="bestellenBut" (click)="confirmBestellen(confirmselection)"
+          [disabled]="itemQuantity == 0 || disableConfirmBestellen">
           <span style="font-size:17px;letter-spacing: 1px"> BESTELLEN </span>
           <mat-icon class="notranslate" matSuffix style="margin-left:5px">navigate_next</mat-icon>
         </button>
@@ -156,75 +167,7 @@
   </div>
 </ng-template>
 
-<div class="footersection">
-  <footer class="footer2">
-    <div class="footer">
-      <div class="customcontainer">
-        <div class="row">
-          <nav class="col-md-3 col-sm-6 col-xs-12">
-            <h3>Öffnungszeiten</h3>
-            <ul>
-              <li>
-                <a href="#"> Montag - Donnerstag: 16:00 Uhr - 23:00 Uhr </a>
-              </li>
-              <li>
-                <a href="#"> Freitag : 16:00 Uhr - 23:00 Uhr </a>
-              </li>
-              <li>
-                <a href="#"> Samstag : 12:00 Uhr - 23:00 Uhr </a>
-              </li>
-              <li>
-                <a href="#"> Sonntag und Feiertage: 12:00 Uhr - 23:00 Uhr </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav class="col-md-3 col-sm-6 col-xs-12">
-            <h3>Kontakt</h3>
-            <form>
-              <address style="color:#DDD">
-                <strong>Pizza Express Rodgau</strong><br>
-                Alter Weg 28<br>
-                D-63110 Rodgau<br><br>
-                Telefon: 06106 4075<br>
-                Handy: (123) 456-7890 <br>
-                <a href="mailto:pizzaexpressrodgau@beispiel.de">pizzaexpressrodgau@beispiel.de</a>
-              </address>
-            </form>
-          </nav>
-
-          <nav class="col-md-3 col-sm-6 col-xs-12">
-            <h3>Bezahlen mit</h3>
-            <div class="row">
-              <div *ngFor="let logo of logos">
-                <img src="../../assets/images/logos/{{logo}}.png" style="height: 50px; width: 70px" />
-              </div>
-            </div>
-            <!-- <ul class="social">
-              <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
-              <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube fa-lg"></i></a></li>
-            </ul> -->
-          </nav>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 ">
-            <div class="copyright-text">
-              <p>Copyright © MishnMash 2018</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+<app-footer></app-footer>
 
 <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple">
   <p style="font-size: 20px; color: white">Bitte Warte...</p>

@@ -102,6 +102,9 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
   radioChange() {
     this.cartservice.getShoppingListOnly().then(response => {
       this.mainshoppinglistitems = response['data'];
+      /* this.mainshoppinglistitems =  response['data'].filter(data => {
+        return data.dishItems.length >= 1;
+      }); */
     });
   }
 
@@ -267,7 +270,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
       this.validateAllFormFields(this.adminForm);
       this.openSnackBar('Please fill required fields', '');
     } else {
-      if (this.selectedfromlist === 'Pizza') {
+      if (this.selectedfromlist === 'Pizzen') {
         const dishItem = {
           itemNo: new Date().valueOf(),
           itemName: this.adminForm.value.itemName,

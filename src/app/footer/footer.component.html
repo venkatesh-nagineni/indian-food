@@ -1,0 +1,81 @@
+<div class="footersection">
+    <footer class="footer2">
+      <div class="footer">
+        <div class="customcontainer">
+          <div class="row">
+            <nav class="col-md-3 col-sm-6 col-xs-12">
+              <h3>Öffnungszeiten</h3>
+              <ul>
+                <li>
+                  <a href="#"> Montag - Donnerstag: 16:00 Uhr - 23:00 Uhr </a>
+                </li>
+                <li>
+                  <a href="#"> Freitag : 16:00 Uhr - 23:00 Uhr </a>
+                </li>
+                <li>
+                  <a href="#"> Samstag : 12:00 Uhr - 23:00 Uhr </a>
+                </li>
+                <li>
+                  <a href="#"> Sonntag und Feiertage: 12:00 Uhr - 23:00 Uhr </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav class="col-md-3 col-sm-6 col-xs-12">
+              <h3>Kontakt</h3>
+              <form>
+                <address style="color:#DDD">
+                  <strong>Pizza Express Rodgau</strong><br>
+                  Alter Weg 28<br>
+                  D-63110 Rodgau<br><br>
+                  <a href="tel:+496170961709" class="callno">Call us +496170961709 <i class="fa fa-whatsapp"></i> </a> <br>
+                  <a href="mailto:pizzaexpressrodgau@beispiel.de">pizzaexpressrodgau@beispiel.de</a>
+                </address>
+              </form>
+            </nav>
+
+            <nav class="col-md-3 col-sm-6 col-xs-12">
+              <h3>Bezahlen mit</h3>
+              <div class="row">
+                <div *ngFor="let logo of logos">
+                  <img src="../../assets/images/logos/{{logo}}.png" style="height: 50px; width: 70px" />
+                </div>
+              </div><br><br>
+              <button type="button" (click)="openContactModal()" (mouseover)="hover=true" (mouseleave)="hover=false" [disabled]="isClassVisible" [ngClass]="{'my-class': hover }" class="btn3d btn btn-white btn-lg text-uppercase animated infinite swing slow"><i
+                class="glyphicon glyphicon-pencil" style="padding-right: 10px"></i> Contact us</button>
+              <!-- <ul class="social">
+                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube fa-lg"></i></a></li>
+              </ul> -->
+            </nav>
+            <nav class="col-md-3 col-sm-6 col-xs-12">
+                <div class="experienceyeras">
+                    <div class="date traditional">
+                        <p>
+                          <span class="day">{{experience}}</span>
+                          <span class="month">JAHRE</span><br>
+                          <small>Seit 1992</small>
+                        </p>
+                      </div>
+                    </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 ">
+              <div class="copyright-text">
+                <p>Copyright © MishnMash 2018</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>

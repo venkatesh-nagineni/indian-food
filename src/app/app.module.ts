@@ -26,6 +26,7 @@ import { LogoutConfirmComponent } from './logout-confirm/logout-confirm.componen
 import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizza-angebote-selection.component';
 import { StartRatingComponent } from './start-rating/start-rating.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     LogoutConfirmComponent,
     PizzaAngeboteSelectionComponent,
     StartRatingComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

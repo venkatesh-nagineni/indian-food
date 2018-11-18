@@ -126,3 +126,18 @@
 .modal-content {
   border: none !important;
 }
+
+@media screen and (max-width: 600px) {
+  .finalBut {
+    margin-top: 5%;
+    width:100%
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .finalBut {
+    margin-left: 5%;
+    width: 70%;
+    letter-spacing: 1px;
+  }
+}

@@ -187,4 +187,17 @@ export class CartService {
     });
   }
 
+  contactMail (data) {
+    const shoppinglistposturl = 'https://mishnmash.de/api/contactMail/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

@@ -54,8 +54,6 @@ export class MenucardComponent implements OnInit {
 
   @ViewChildren('linkRef') linkRefs;
 
-  logos = ['payment_0', 'payment_1', 'payment_2', 'payment_4', 'payment_6', 'payment_7'];
-
   constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService,
     private dialog: MatDialog, private snackBar: MatSnackBar, public router: Router, @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent,
     private spinner: NgxSpinnerService) {
@@ -66,6 +64,7 @@ export class MenucardComponent implements OnInit {
     this.spinner.show();
     this.cartservice.getShoppingList().then(response => {
       this.shoppingListItems = response;
+      console.log(this.shoppingListItems);
       this.spinner.hide();
     });
 
@@ -124,7 +123,7 @@ export class MenucardComponent implements OnInit {
 
   expandItem(item, itemNo, category) {
     this.quantity = 1;
-    if (category === 'Pizza') {
+    if (category === 'Pizzen') {
       this.eachItem = item;
       this.listindex = itemNo;
       this.totalAmount = this.eachItem.itemPrice;
@@ -226,7 +225,7 @@ export class MenucardComponent implements OnInit {
     }
   }
 
-  scrollToSection(scrollSection) {
+  scrollToSection(scrollSection, index) {
     const el = document.getElementById(scrollSection);
     el.scrollIntoView({ behavior: 'instant', block: 'start' });
     window.scrollBy(0, -80);
@@ -294,6 +293,7 @@ export class MenucardComponent implements OnInit {
     if (!token) {
       this.selectionModalRef.hide();
       this._parent.openUserLogin();
+      this.openSnackBar('Please login to proceed', '');
       this.disableCart = true;
       this.disableConfirmBestellen = false;
     } else {
@@ -312,6 +312,7 @@ export class MenucardComponent implements OnInit {
         }
       }, (err) => {
         console.log(err);
+        this.openSnackBar('Server error!', '');
       });
     }
   }
