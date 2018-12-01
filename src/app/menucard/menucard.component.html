@@ -1,6 +1,7 @@
 <!-- header to show cart icon and anount to be selected itmes -->
 <mat-toolbar class="fixed-header" id="matBar">
-  <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
+    <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+  <span class="example-fill-remaining-space" style="text-align:right;padding-right: 20px;font-family: Galada, Cochin, Georgia, Times, 'Times New Roman', serif">Warenkorb:
     <span class="notranslate"> {{totalAmountOnHeader | currencyEuro}} € </span> </span>
   <span style="cursor:pointer" (click)="openCart(template)" [class.disableCart]="disableCart" class="notranslate">
     <mat-icon matBadge="{{itemQuantity || 0}}" matBadgeColor="warn" style="margin-right:20px;margin-top: 15px">shopping_cart</mat-icon>

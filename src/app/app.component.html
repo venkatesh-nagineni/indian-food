@@ -1,39 +1,42 @@
 <div>
-<div id="headnavbar">
-  <nav class="navbar" #navhead>
-    <span class="navbar-toggle" id="js-navbar-toggle">
-      <i class="material-icons"> menu </i>
-    </span>
-      <a (click)="home()" class="logo" style="font-family:sans-serif; cursor: pointer;" [class.disabled]="disableMenu">
-        <img src="../assets/images/logo_465x320.png" class="logoimg"/>
+  <div id="headnavbar">
+    <nav class="navbar" #navhead>
+      <span class="navbar-toggle" id="js-navbar-toggle">
+        <i class="material-icons"> menu </i>
+      </span>
+      <a (click)="home()" class="logo" style="font-family:Galada; color:#990000; font-size: 48px; cursor: pointer;"
+        [class.disabled]="disableMenu">
+        <img src="../assets/images/logo_465x320.png" class="logoimg" />
+        <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
         Pizza Express Rodgau
       </a>
-    <ul class="main-nav" id="js-menu">
-      <li style="margin-top:11px;margin-right: 20px" class="numberres">
-          <a href="tel:061064075" class="callno">0610 64075</a>
-      </li>
-      <li style="margin-top:11px;margin-right: 20px">
-        <a href="https://api.whatsapp.com/send?phone=+491755761387&text=Ich möchte Pizza bestellen" style="color: white">Whats app <i class="fa fa-whatsapp"></i> </a>
-    </li>
-      <li>
-        <button mat-button style="color:white;" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
-          Bestellen! </button>
-      </li>&nbsp;&nbsp;&nbsp;
-      <li *ngIf="!isLoggedIn" class="notranslate">
-        <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
-          <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
-        </button>
-      </li>
-      <li *ngIf="isLoggedIn" class="notranslate">
-        <button mat-button style="color:white;font-size: 17px" (click)="logOut()"> Abmelden <i class="fa fa-sign-out"
-            style="color:white;"></i> </button>
-      </li>
-    </ul>
-  </nav>
-</div>
-<!-- <app-admininterface></app-admininterface>
+      <ul class="main-nav" id="js-menu">
+        <li style="margin-top:11px;margin-right: 20px; font-family:Galada;" class="numberres">
+          <a href="tel:06106 4075" class="callno">06106 4075</a>
+        </li>
+        <li style="margin-top:11px; margin-right: 20px;font-family:Galada;">
+          <a href="https://api.whatsapp.com/send?phone=+491755761387&text=Ich möchte Pizza bestellen" style="color: white">Whatsapp
+            <i class="fa fa-whatsapp"></i> </a>
+        </li>
+        <li>
+          <button mat-button style="color:white; font-family:Galada;" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
+            Bestellen! </button>
+        </li>&nbsp;&nbsp;&nbsp;
+        <li *ngIf="!isLoggedIn" class="notranslate">
+          <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
+            <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px">account_circle</mat-icon>
+          </button>
+        </li>
+        <li *ngIf="isLoggedIn" class="notranslate">
+          <button mat-button style="color:white;font-size: 17px" (click)="logOut()"> Abmelden <i class="fa fa-sign-out"
+              style="color:white;"></i> </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- <app-admininterface></app-admininterface>
  -->
-<!-- <header>
+  <!-- <header>
   <div class="overlay"></div>
   <video autoplay muted loop onloadedmetadata="this.muted = true">
     <source src="../assets/video//background_video.jpg" />
@@ -47,15 +50,15 @@
   </div>
 </header> -->
 
-<div *ngIf="homeSection">
-  <app-home></app-home>
-</div>
+  <div *ngIf="homeSection">
+    <app-home></app-home>
+  </div>
 
-<div *ngIf="adminSection">
-  <app-admininterface></app-admininterface>
-</div>
+  <div *ngIf="adminSection">
+    <app-admininterface></app-admininterface>
+  </div>
 
-<div #onlinebestellen *ngIf="onlineSection">
-  <app-menucard></app-menucard>
-</div>
+  <div #onlinebestellen *ngIf="onlineSection">
+    <app-menucard></app-menucard>
+  </div>
 </div>
