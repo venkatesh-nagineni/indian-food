@@ -11,13 +11,13 @@
   <div class="row">
     <div class="col-md-3">
       <div class="affix">
-        <!-- <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
-          <a class="list-group-item list-group-item-action" style="background:rgb(245, 245, 245);cursor: pointer;color: #dc3545"
+        <div class="list-group" *ngFor="let shoppinglist of shoppingListItems.data">
+          <a class="list-group-item list-group-item-action backwood sidemenuItem"
             (click)="scrollToSection(shoppinglist.dishType)">
-            <h5>{{shoppinglist.dishType}}</h5>
+            <h5 style="text-align: center;color: white;">{{shoppinglist.dishType}}</h5>
           </a>
-        </div> -->
-        <div class="side-menu">
+        </div>
+        <!-- <div class="side-menu">
         <dl class="list nigiri">
           <dt>MENU</dt>
           <dd *ngFor="let shoppinglist of shoppingListItems.data;let i=index;">
@@ -26,13 +26,13 @@
             </a>
           </dd>
         </dl>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-md-9 main-menu">
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 col-md-12 ]" *ngFor="let shoppinglist of shoppingListItems.data;let j = index;">
-          <h4 class="mt-1 mb-0 font-italic p-2" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: #dc3545;background: rgb(245, 245, 245); border-radius: 4px">
+          <h4 class="mt-1 mb-0 font-italic p-2" id="{{shoppinglist.dishType}}" style="margin-top:-30px;color: #990000;background: rgb(245, 245, 245); border-radius: 4px">
             {{shoppinglist.dishType}}
           </h4>
           <div *ngFor="let imgData of shoppingListItems.imgData">
@@ -43,7 +43,7 @@
             <li (click)="expandItem(items, items.itemNo, shoppinglist.dishType)" [class.disabledlistItem]="listindex == items.itemNo">
               <div class="info">
                 <h2 class="title">{{items.itemName}}
-                  <span class="badge badge-danger" style="float:right;margin-top: 7px;margin-right: 5px">
+                  <span class="badge" style="float:right;margin-top: 7px;margin-right: 5px;background: #990000;color: white">
                     {{items.itemPrice | currencyEuro}} €</span>
                 </h2>
                 <p class="desc">{{items.itemShortDescription}}</p>
@@ -51,14 +51,14 @@
               </div>
             </li>
 
-            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid #dc3545">
+            <div *ngIf="listindex == items.itemNo" style="background:white;border: 1px solid lightgray;padding: 30px;margin-top: -8px;margin-bottom: 10px;border-bottom: 3px solid #990000">
               <div class="form-group">
                 <mat-icon style="float: right; border:none;cursor: pointer;font-size: 35px;color: black" (click)="closeExpand()">expand_less</mat-icon><br>
                 <div *ngIf="shoppinglist.dishType == 'Pizzen'">
                   <label for="sel1">{{items.itemExtraOptionsizes.itemPlaceholderName}}</label>
                   <div *ngIf="items.itemExtraOptionsizes.sizes.length != 0">
                     <select class="form-control" id="sel1" [(ngModel)]="selectedPizzaSize" (change)="checkExtraOptions('notupdate', 'noevent')">
-                      <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}</option>
+                      <option *ngFor="let sizes of items.itemExtraOptionsizes.sizes" [value]="sizes.name">{{sizes.name}}: {{sizes.amount | currencyEuro}} €</option>
                     </select>
                   </div>
                   <div *ngIf="items.itemExtraOptionPrice.prices.length != 0">
@@ -81,7 +81,7 @@
                   <div class="input-group-button" (click)="incrementItem()">
                     <span class="input-number-increment">+</span>
                   </div>
-                  <button class="notranslate expandButCost" mat-raised-button style="background: #dc3545" (click)="addToCart()">
+                  <button class="notranslate expandButCost" mat-raised-button style="background: #990000" (click)="addToCart()">
                     <span style="font-size:17px;letter-spacing: 1px;color: white;font-size: 20px">{{totalAmount |
                       currencyEuro}} €</span>
                     <mat-icon style="margin-left:20px;color: white" matSuffix>shopping_cart</mat-icon>

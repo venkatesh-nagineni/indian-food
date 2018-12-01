@@ -200,4 +200,46 @@ export class CartService {
     });
   }
 
+  // for change background color header
+  changeColor (colors) {
+    const shoppinglistposturl = 'https://mishnmash.de/api/changeColors/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.post(shoppinglistposturl, JSON.stringify({colors: colors}), { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  // get blocked list
+  getBlockedList () {
+    const shoppinglistposturl = 'https://mishnmash.de/api/getBlockedList/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.get(shoppinglistposturl, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  // unblock user
+  unBlockUser(id) {
+    const shoppinglistposturl = 'https://mishnmash.de/api/unBlockUser/';
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.http.post(shoppinglistposturl, JSON.stringify({id: id}), { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 }

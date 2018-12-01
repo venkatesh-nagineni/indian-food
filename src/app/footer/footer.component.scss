@@ -8,12 +8,6 @@
     padding-right: 5%;
   }
 
-  @media screen and (min-width: 728px) {
-    .callno {
-      pointer-events: none;
-    }
-  }
-
   ul, ol {
     padding: 0;
     margin: 0;
@@ -39,7 +33,7 @@
   }
 
   .footer2 .footer {
-    // background-color: #dc3545;
+    // background-color: #990000;
     padding: 10px 0;
   }
 
@@ -136,7 +130,7 @@
 
 .experienceyeras {
 .date {
-  background: #dc3545;
+  background: #990000;
   float: right;
   height: 105px;
   position: relative;
@@ -161,7 +155,7 @@
 /* Traditional Ribbon */
 
 .traditional:after, .traditional:before {
-  border-top: 15px solid #dc3545;
+  border-top: 15px solid #990000;
   bottom: -15px;
   content: '';
   height: 0;
@@ -180,16 +174,16 @@
 /* Cut-off Ribbon */
 
 .cut-off:after {
-  background-image: -webkit-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
-                    -webkit-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
-  background-image:    -moz-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
-                       -moz-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
-  background-image:     -ms-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
-                        -ms-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
-  background-image:      -o-linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
-                         -o-linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
-  background-image:         linear-gradient(45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545),
-                            linear-gradient(-45deg, #dc3545 25%, transparent 25%, transparent 75%, #dc3545 75%, #dc3545);
+  background-image: -webkit-linear-gradient(45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000),
+                    -webkit-linear-gradient(-45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000);
+  background-image:    -moz-linear-gradient(45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000),
+                       -moz-linear-gradient(-45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000);
+  background-image:     -ms-linear-gradient(45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000),
+                        -ms-linear-gradient(-45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000);
+  background-image:      -o-linear-gradient(45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000),
+                         -o-linear-gradient(-45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000);
+  background-image:         linear-gradient(45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000),
+                            linear-gradient(-45deg, #990000 25%, transparent 25%, transparent 75%, #990000 75%, #990000);
   background-repeat: repeat-x;
   background-position: 50% 0;
   background-size: 10px 10px;

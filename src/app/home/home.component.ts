@@ -49,7 +49,9 @@ export class HomeComponent implements OnInit {
         data: item
       });
       dialogRef.afterClosed().subscribe((data) => {
-        this.shared.angeboteupdate(data.selectedPizzas);
+        if (data) {
+          this.shared.angeboteupdate(data.selectedPizzas);
+        }
       });
     } else {
       this.shared.angeboteupdate(item);

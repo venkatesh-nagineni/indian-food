@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   disableMenu: boolean;
   disablePointer = false;
   @ViewChild('onlinebestellen') onlinebestellen: ElementRef;
+  @ViewChild('navhead') nav: ElementRef;
   homeSection = true;
   onlineSection = true;
   adminSection = false;
@@ -56,6 +57,8 @@ export class AppComponent implements OnInit {
     } else {
       this.isLoggedIn = false;
     }
+
+    // this.nav.nativeElement.style.background = 'linear-gradient(90deg, rgb(167, 155, 155) 0%, rgba(39,83,91,0.9472163865546218) 60%)';
   }
 
   logOut() {

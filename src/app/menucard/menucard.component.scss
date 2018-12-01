@@ -406,11 +406,11 @@
   /* Individual styles */
 
   .sashimi dt, .sashimi dd, .sashimi a { background: #73C8A9; }
-  .nigiri dt, .nigiri dd, .nigiri a { background: #E32551; }
+  .nigiri dt, .nigiri dd, .nigiri a { background: #990000; }
   .maki dt, .maki dd, .maki a { background: #FFC219; }
 
   .sashimi a:hover { background: #61c19e; }
-  .nigiri a:hover { background: #d31b46; }
+  .nigiri a:hover { background: #990000; }
   .maki a:hover { background: #ffbb00; }
 
   .nigiri {
@@ -435,4 +435,26 @@
     .mt-1 {
       margin-top: 30px !important;
     }
+  }
+
+  .backwood {
+    // background: #f9f5f1;
+    background-image: url("../../assets/images/wood2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+
+  .list-group-item {
+    border: none !important;
+  }
+
+  .sidemenuItem {
+    transition: transform .3s;
+  }
+
+  .sidemenuItem:hover {
+    -ms-transform: scale(1.04); /* IE 9 */
+    -webkit-transform: scale(1.04); /* Safari 3-8 */
+    transform: scale(1.04);
+    cursor: pointer;
   }

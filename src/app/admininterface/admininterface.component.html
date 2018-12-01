@@ -5,7 +5,8 @@
       <!-- Add dish and remove dish radio group to switch between two views -->
       <div class="radio-group">
         <mat-radio-group [(ngModel)]="radiogroup">
-          <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Neue Gericht
+          <mat-radio-button value="adddish" color="primary" style="font-family: 'Helvetica Neue', sans-serif;"> Neue
+            Gericht
             hinzufügen </mat-radio-button>
           <mat-radio-button (change)="radioChange()" value="removedish" color="primary" style="margin-left:50px; font-family: 'Helvetica Neue', sans-serif;">
             Gericht entfernen </mat-radio-button>
@@ -20,7 +21,8 @@
               {{category.dishType}}
             </mat-option>
           </mat-select>
-        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Neue Kategorie
+        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-family: 'Helvetica Neue', sans-serif;">Neue
+          Kategorie
           hinzufügen</label>&nbsp;&nbsp;
         <button mat-mini-fab color="primary" (click)="addNewCategory()" class="notranslate">
           <mat-icon>add</mat-icon>
@@ -49,7 +51,7 @@
           </button><br>
         </div>
 
-<!--         <div [class.addpadding]="!openformtoadd"></div>
+        <!--         <div [class.addpadding]="!openformtoadd"></div>
  -->
         <!-- enable form only after click on add dish item -->
         <div *ngIf="openformtoadd">
@@ -62,7 +64,7 @@
               </div>
               <div class="flexcol">
                 <mat-form-field>
-                  <input formControlName="itemPrice" type="text" matInput placeholder="Preis in Euro. z.B. '5.5'">
+                  <input formControlName="itemPrice" type="number" matInput placeholder="Preis in Euro. z.B. '5.5'">
                 </mat-form-field>
               </div>
             </div>
@@ -70,7 +72,7 @@
               <textarea matInput formControlName="itemShortDescription" type="text" placeholder="Beschreibung des Gerichts"></textarea>
               <mat-icon matSuffix>message</mat-icon>
             </mat-form-field><br>
-           <!--  <mat-form-field class="example-full-width" *ngIf="selectedfromlist == 'Pizza'">
+            <!--  <mat-form-field class="example-full-width" *ngIf="selectedfromlist == 'Pizza'">
               <textarea matInput formControlName="chooseExtraInfo" type="text" placeholder="provide extra description about item"></textarea>
               <mat-icon matSuffix>message</mat-icon>
             </mat-form-field><br> -->
@@ -78,88 +80,88 @@
 
           <!-- displaying user entered items as table and giving option to remove -->
           <div *ngIf="selectedfromlist == 'Pizzen'">
-          <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza sizes with amount</label><br>
-          <table *ngIf="extraSizes.length != 0">
-            <tr *ngFor="let sizes of extraSizes" style="background:lightgray;padding: 20px">
-              <td> {{sizes.name}} </td>
-              <td> {{sizes.amount}} </td>
-              <td style="margin-top:7px">
-                <mat-icon color="warn" class="icondelete" (click)="itemsizedelete(sizes)" style="margin-top:5px">cancel</mat-icon>
-              </td>
-            </tr><br>
-          </table>
+            <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza sizes with amount</label><br>
+            <table *ngIf="extraSizes.length != 0">
+              <tr *ngFor="let sizes of extraSizes" style="background:lightgray;padding: 20px">
+                <td> {{sizes.name}} </td>
+                <td> {{sizes.amount}} </td>
+                <td style="margin-top:7px">
+                  <mat-icon color="warn" class="icondelete" (click)="itemsizedelete(sizes)" style="margin-top:5px">cancel</mat-icon>
+                </td>
+              </tr><br>
+            </table>
 
-          <div class="flexrow">
-            <div class="flexcol">
-              <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].name" matInput placeholder="add size">
-              </mat-form-field>
+            <div class="flexrow">
+              <div class="flexcol">
+                <mat-form-field>
+                  <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].size" matInput placeholder="add size">
+                </mat-form-field>
+              </div>
+              <div class="flexcol">
+                <mat-form-field>
+                  <input type="number" [(ngModel)]="extraoptionsizes.sizes[0].amount" matInput placeholder="add price">
+                </mat-form-field>
+              </div>
+              <div class="flexcol" style="margin-top:10px">
+                <button mat-mini-fab color="primary" (click)="addpizzasizes()" class="notranslate">
+                  <mat-icon>add</mat-icon>
+                </button><br>
+              </div>
             </div>
-            <div class="flexcol">
-              <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionsizes.sizes[0].amount" matInput placeholder="add price">
-              </mat-form-field>
-            </div>
-            <div class="flexcol" style="margin-top:10px">
-              <button mat-mini-fab color="primary" (click)="addpizzasizes()" class="notranslate">
-                <mat-icon>add</mat-icon>
-              </button><br>
-            </div>
+
+            <!-- displaying user entered items as table and giving option to remove -->
+            <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza extra option name with price</label>
+            <table *ngIf="extraPrices.length != 0">
+              <tr *ngFor="let prices of extraPrices" style="background:lightgray;padding: 20px">
+                <td> {{prices.name}} </td>
+                <td> {{prices.amount}} </td>
+                <td style="margin-top:7px">
+                  <mat-icon color="warn" class="icondelete" (click)="itempricedelete(prices)">cancel</mat-icon>
+                </td>
+              </tr><br>
+            </table>
+            <div class="flexrow">
+              <div class="flexcol">
+                <mat-form-field>
+                  <input type="text" [(ngModel)]="extraoptionprices.prices[0].name" matInput placeholder="add extra option name">
+                </mat-form-field>
+              </div>
+              <div class="flexcol">
+                <mat-form-field>
+                  <input type="text" [(ngModel)]="extraoptionprices.prices[0].amount" matInput placeholder="add price">
+                </mat-form-field>
+              </div>
+              <div class="flexbox" style="margin-top:10px">
+                <button mat-mini-fab color="primary" (click)="addextraoptionprices()" class="notranslate">
+                  <mat-icon>add</mat-icon>
+                </button><br>
+              </div>
+            </div><br>
           </div>
-
-          <!-- displaying user entered items as table and giving option to remove -->
-          <label style="font-family: 'Helvetica Neue', sans-serif;"> Add pizza extra option name with price</label>
-          <table *ngIf="extraPrices.length != 0">
-            <tr *ngFor="let prices of extraPrices" style="background:lightgray;padding: 20px">
-              <td> {{prices.name}} </td>
-              <td> {{prices.amount}} </td>
-              <td style="margin-top:7px">
-                <mat-icon color="warn" class="icondelete" (click)="itempricedelete(prices)">cancel</mat-icon>
-              </td>
-            </tr><br>
-          </table>
-          <div class="flexrow">
-            <div class="flexcol">
-              <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionprices.prices[0].name" matInput placeholder="add extra option name">
-              </mat-form-field>
-            </div>
-            <div class="flexcol">
-              <mat-form-field>
-                <input type="text" [(ngModel)]="extraoptionprices.prices[0].amount" matInput placeholder="add price">
-              </mat-form-field>
-            </div>
-            <div class="flexbox" style="margin-top:10px">
-              <button mat-mini-fab color="primary" (click)="addextraoptionprices()" class="notranslate">
-                <mat-icon>add</mat-icon>
-              </button><br>
-            </div>
-          </div><br>
+          <button mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+            (click)="onSubmitData()"> Daten Speichern </button><br><br>
         </div>
-        <button mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-          (click)="onSubmitData()"> Daten Speichern </button><br><br>
       </div>
-    </div>
 
-    <!-- view appear only when user click on remove dish -->
-    <div *ngIf="radiogroup == 'removedish'">
-      <mat-form-field>
-        <mat-select placeholder="Kategorie auswählen" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
-          <mat-option *ngFor="let category of mainshoppinglistitems;" [value]="category.dishType">
-           {{category.dishType}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field><br>
-      <mat-form-field *ngIf="dishItemsToRemove">
-        <mat-select placeholder="Gericht auswählen" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
-          <mat-option *ngFor="let dish of dishItemsToRemove" [value]="dish.itemName">
-            {{dish.itemName}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field><br><br>
-      <button *ngIf="categorydishName" mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
-        (click)="onSubmitRemoveDish()"> Gericht entfernen </button>
-    </div>
+      <!-- view appear only when user click on remove dish -->
+      <div *ngIf="radiogroup == 'removedish'">
+        <mat-form-field>
+          <mat-select placeholder="Kategorie auswählen" [(ngModel)]="removeCategory" (selectionChange)="removecategoryChanged(removeCategory)">
+            <mat-option *ngFor="let category of mainshoppinglistitems;" [value]="category.dishType">
+              {{category.dishType}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field *ngIf="dishItemsToRemove">
+          <mat-select placeholder="Gericht auswählen" [(ngModel)]="categorydishName" (selectionChange)="removeDishchanged(categorydishName)">
+            <mat-option *ngFor="let dish of dishItemsToRemove" [value]="dish.itemName">
+              {{dish.itemName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br><br>
+        <button *ngIf="categorydishName" mat-raised-button color="primary" style="width:20%;letter-spacing: 1px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+          (click)="onSubmitRemoveDish()"> Gericht entfernen </button>
+      </div>
 
     </div>
   </mat-tab>
@@ -234,4 +236,63 @@
         AS BLOCK LIST</button>
     </form>
   </mat-tab>
+
+  <mat-tab label="Change Header Theme">
+    <!--  providing information for block list -->
+    <label style="padding-top:20px;padding-left:20px">Enter Primary and secondary color to change header background</label><br>
+    <form style="padding-left:20px;padding-bottom: 80px">
+      <mat-form-field class="example-full-width2">
+        Primary Color:<br><br> <input matInput autocomplete="off" [(colorPicker)]="color1" [style.background]="color1"
+          (cpSliderDragEnd)="primaryColorChange($event)" [cpOutputFormat]="'hex'">
+      </mat-form-field> <br>
+      <mat-form-field class="example-full-width2">
+        Secondary Color:<br><br> <input matInput autocomplete="off" [(colorPicker)]="color2" [style.background]="color2"
+          (cpSliderDragEnd)="secondaryColorChange($event)" [cpOutputFormat]="'hex'">
+      </mat-form-field><br>
+      <button mat-raised-button (click)="submitColor()" color="primary" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 20px;margin-bottom: 135px;letter-spacing: 1px">
+        Submit</button>
+    </form>
+  </mat-tab>
+
+  <mat-tab label="Blocked List">
+    <div class="tablepad" *ngIf="dataSource">
+      <mat-form-field class="example-full-width3">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fullname">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone </th>
+          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Unblock </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="unblockCustomer(element)">
+              <mat-icon style="color:#990000">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-tab>
+
 </mat-tab-group>

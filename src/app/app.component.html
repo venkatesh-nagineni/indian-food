@@ -1,5 +1,6 @@
+<div>
 <div id="headnavbar">
-  <nav class="navbar">
+  <nav class="navbar" #navhead>
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="material-icons"> menu </i>
     </span>
@@ -9,8 +10,11 @@
       </a>
     <ul class="main-nav" id="js-menu">
       <li style="margin-top:11px;margin-right: 20px" class="numberres">
-          <a href="tel:+496170961709" class="callno">Call us +496170961709 <i class="fa fa-whatsapp"></i> </a>
+          <a href="tel:+496170961709" class="callno">Call us +496170961709 </a>
       </li>
+      <li style="margin-top:11px;margin-right: 20px">
+        <a href="https://api.whatsapp.com/send?phone=+491755761387&text=Hello from Pizzaria Express Rodgau" style="color: white">Whats app <i class="fa fa-whatsapp"></i> </a>
+    </li>
       <li>
         <button mat-button style="color:white;" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
           Bestellen! </button>
@@ -27,7 +31,6 @@
     </ul>
   </nav>
 </div>
-
 <!-- <app-admininterface></app-admininterface>
  -->
 <!-- <header>
@@ -54,4 +57,5 @@
 
 <div #onlinebestellen *ngIf="onlineSection">
   <app-menucard></app-menucard>
+</div>
 </div>

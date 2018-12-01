@@ -27,6 +27,7 @@ import { PizzaAngeboteSelectionComponent } from './pizza-angebote-selection/pizz
 import { StartRatingComponent } from './start-rating/start-rating.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FooterComponent } from './footer/footer.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { FooterComponent } from './footer/footer.component';
     ModalModule.forRoot(),
     NgxMaterialTimepickerModule.forRoot(),
     LayoutModule,
+    ColorPickerModule
   ],
   entryComponents: [ContactComponent, InfoTextComponent, UserloginComponent, RegisterComponent, ForgotpwdComponent, ExtraOptionsComponent, LogoutConfirmComponent, PizzaAngeboteSelectionComponent],
   providers: [SharedService],

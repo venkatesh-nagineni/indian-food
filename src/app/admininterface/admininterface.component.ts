@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material';
 import { CartService } from '../cart.service';
 import { MatTabChangeEvent } from '@angular/material';
 import {SharedService} from '../shared.service';
+import { ColorPickerService, Cmyk } from 'ngx-color-picker';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-admininterface',
@@ -40,10 +42,20 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
   categorydishName: any;
   isContainCategoryFile: any;
   isContainOfferFile: any;
+  color1 = '#a79b9b';
+  color2 = '#27535bf1';
+
+  fullname: string;
+  email: string;
+  phone: string;
+  action: string;
+  dataSource = new MatTableDataSource();
+
+  displayedColumns: string[] = [ 'fullname', 'email', 'phone', 'action'];
 
   extraoptionsizes = {
     itemPlaceholderName: '',
-    sizes: [{ id: new Date().valueOf(), name: '', amount: '' }]
+    sizes: [{ id: new Date().valueOf(), size: '', amount: '' }]
   };
 
   extraoptionprices = {
@@ -60,8 +72,9 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
   newCategoryData = { name: '' };
 
   blockingUser = {email: '', phone: ''};
+  colors = {primaryColor: '', secondarycolor: ''};
 
-  constructor(private elementRef: ElementRef, private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService, public shared: SharedService) {
+  constructor(public colorPicker: ColorPickerService, private elementRef: ElementRef, private http: HttpClient, private formBuilder: FormBuilder, private snackBar: MatSnackBar, private cartservice: CartService, public shared: SharedService) {
     this.radiogroup = 'adddish';
   }
 
@@ -129,7 +142,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
 
       this.http.post('https://mishnmash.de/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
-          console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
+         // console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
         } else if (event.type === HttpEventType.Response) {
           this.cartservice.getShoppingListOnly().then(response => {
             this.mainshoppinglistitems = response['data'];
@@ -150,10 +163,6 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
         this.selectedfromlist = items.dishType;
       }
     });
-  }
-
-  categorychangedForRemove(id) {
-    console.log(id);
   }
 
   adddishform() {
@@ -181,7 +190,6 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
       // chooseExtraInfo: ['']
     });
     this.cartservice.getShoppingListOnly().then(response => {
-      console.log(response);
       this.mainshoppinglistitems = response['data'];
     });
       this.elementRef.nativeElement.ownerDocument.body.style.background = '#f9f5f1';
@@ -193,6 +201,19 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
         this.angeboteItems = response.data;
         this.angebote = 'Angebote 1';
         this.selectedAngebote = response.data[0]._id;
+      });
+    }
+
+    if (event.index === 3) {
+      this.colors = {primaryColor: '', secondarycolor: ''};
+    }
+
+    if (event.index === 4) {
+      this.cartservice.getBlockedList().then((data: any) => {
+        this.dataSource.data = data.data;
+        console.log(this.dataSource);
+      }, (error) => {
+        console.log(error);
       });
     }
   }
@@ -240,11 +261,12 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
   addpizzasizes() {
     const newSizes = {
       id: new Date().valueOf(),
-      name: this.extraoptionsizes.sizes[0].name,
-      amount: Number(this.extraoptionsizes.sizes[0].amount)
+      name: '(ø ' + this.extraoptionsizes.sizes[0].size + 'cm)', // (ø 34cm)
+      amount: Number(this.extraoptionsizes.sizes[0].amount) // 6.9
     };
+    console.log(newSizes);
     this.extraSizes.push(newSizes);
-    this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), name: '', amount: '' };
+    this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), size: '', amount: '' };
   }
 
   addextraoptionprices() {
@@ -292,7 +314,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
             this.openformtoadd = false; */
             this.adminForm.reset();
             this.extraSizes = [];
-            this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), name: '', amount: '' };
+            this.extraoptionsizes.sizes[0] = { id: new Date().valueOf(), size: '', amount: '' };
             this.extraoptionprices.prices[0] = { id: new Date().valueOf(), name: '', amount: '' };
             this.extraPrices = [];
           } else {
@@ -396,10 +418,45 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
     }
   }
 
+  primaryColorChange(color) {
+    this.colors.primaryColor = color.color;
+  }
+
+  secondaryColorChange(color) {
+    this.colors.secondarycolor = color.color;
+  }
+
+  submitColor() {
+    if (this.colors.primaryColor && this.colors.secondarycolor) {
+      this.openSnackBar('your colors has been changed', '');
+    } else {
+      this.openSnackBar('Please select both colors', '');
+    }
+  }
+
+  unblockCustomer(unBlock) {
+    this.cartservice.unBlockUser(unBlock._id).then((data: any) => {
+      if (data.success === true) {
+        this.dataSource.data = this.dataSource.data.filter((filterData: any) => unBlock._id !== filterData._id);
+        this.openSnackBar('User blocked successfully', '');
+      } else {
+        this.openSnackBar('user not found', '');
+      }
+    }, (error) => {
+      console.log(error);
+      this.openSnackBar('Server error!', '');
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   ngOnDestroy() {
     this.shared.angeboteitem.next({});
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundImage = 'url("../../assets/images/pizza.jpg")';
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundSize = 'contain';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundAttachment = 'fixed';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundRepeat = 'no-repeat';
 
   }
 

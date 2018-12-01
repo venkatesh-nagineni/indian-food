@@ -64,7 +64,6 @@ export class MenucardComponent implements OnInit {
     this.spinner.show();
     this.cartservice.getShoppingList().then(response => {
       this.shoppingListItems = response;
-      console.log(this.shoppingListItems);
       this.spinner.hide();
     });
 
@@ -85,7 +84,7 @@ export class MenucardComponent implements OnInit {
         if (Object.keys(data).length !== 0) {
           const angeboteData = {
             itemName: data.AngeboteName + ' ( ' + data.SelectedAngebote + ' ) ',
-            itemNo: data._id,
+            itemNo: new Date().valueOf(),
             quantity: 3,
             itemtotalamount: data.AngebotePrice,
             angeboteNo: data.AngeboteNo
@@ -99,7 +98,7 @@ export class MenucardComponent implements OnInit {
         if (Object.keys(data).length !== 0) {
           const angeboteData = {
             itemName: data.AngeboteName,
-            itemNo: data._id,
+            itemNo: new Date().valueOf(),
             quantity: 1,
             itemtotalamount: data.AngebotePrice,
           };
@@ -207,7 +206,8 @@ export class MenucardComponent implements OnInit {
   addToCart() {
     const data = {
       itemName: this.eachItem.itemName,
-      itemNo: this.eachItem.itemNo,
+      // itemNo: this.eachItem.itemNo,
+      itemNo: new Date().valueOf(),
       quantity: this.quantity,
       itemtotalamount: this.totalAmount,
       extras: this.extras,

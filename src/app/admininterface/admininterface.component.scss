@@ -20,6 +20,14 @@
       width: 400px;
     }
 
+    .example-full-width2 {
+      width: 200px;
+    }
+
+    .example-full-width3 {
+      width: 100%;
+    }
+
     .container-fluid {
       padding-left: 2% !important;
     }
@@ -70,4 +78,15 @@
 
 .addpadding {
   margin-bottom: 230px;
+}
+
+table {
+  width: 100%;
+}
+
+.tablepad {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

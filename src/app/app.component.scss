@@ -49,7 +49,7 @@
     top:0;
     width:100%;
    // background: linear-gradient(90deg, rgba(4,3,24,1) 0%, rgba(39,83,91,0.9472163865546218) 60%, rgba(4,3,24,1) 100%);
-   background: linear-gradient(90deg, rgb(167, 155, 155) 0%, rgba(39,83,91,0.9472163865546218) 60%);
+   background: linear-gradient(90deg, #a79b9b 0%, #27535bf1 60%);
   }
 
   .main-nav {
@@ -110,12 +110,6 @@
     padding-top: 5px;
     @media screen and (min-width: 728px) {
       padding-top: 0px;
-    }
-  }
-
-  @media screen and (min-width: 728px) {
-    .callno {
-      pointer-events: none;
     }
   }
 
@@ -239,6 +233,17 @@ header .overlay {
   color: white !important;
 }
 
-/* badge */
+.parallax {
+  /* The image used */
+  background-image: url("../assets/images/pizza.jpg");
 
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
