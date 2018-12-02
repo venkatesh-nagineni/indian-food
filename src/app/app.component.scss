@@ -50,7 +50,8 @@
     width:100%;
    // background: linear-gradient(90deg, rgba(4,3,24,1) 0%, rgba(39,83,91,0.9472163865546218) 60%, rgba(4,3,24,1) 100%);
    background: linear-gradient(90deg, #ffffff 0%,#005000 60%,#570000 100%);
-    //background-image: url("../assets/images/Wood.jpg")
+   // background: transparent;
+   // background-image: url("../assets/images/Wood.jpg")
   }
 
   .main-nav {
@@ -123,7 +124,8 @@
   .callno {
     color: white;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 30px;
+    text-decoration: none;
   }
 
   .deactive {

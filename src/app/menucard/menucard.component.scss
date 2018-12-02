@@ -155,6 +155,11 @@
     flex: 1 1 auto;
   }
 
+  .logoimg {
+    width: 120px !important;
+    height: 85px !important;
+  }
+
   $input-number-size: 80px;
 
   .input-number-group {
@@ -285,7 +290,7 @@
 
   .affix {
     position: sticky;
-    top: 4rem;
+    top: 5.5rem;
   }
 
   @media screen and (max-width: 600px) {

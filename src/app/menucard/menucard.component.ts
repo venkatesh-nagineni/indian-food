@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, TemplateRef, ViewEncapsulation, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, TemplateRef, ViewEncapsulation, Inject, forwardRef, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SharedService } from '../shared.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -41,7 +41,7 @@ export class MenucardComponent implements OnInit {
   disableCart = false;
   disableConfirmBestellen = false;
   progressStatus: boolean;
-
+  acriveToolBar: boolean;
   selectionConfig = {
     ignoreBackdropClick: false,
     class: 'modal-lg'
@@ -53,6 +53,19 @@ export class MenucardComponent implements OnInit {
   };
 
   @ViewChildren('linkRef') linkRefs;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const element = document.getElementById('matBar');
+    const viewportOffset = element.getBoundingClientRect();
+    const top = viewportOffset.top;
+    if (top === 0) {
+      this.acriveToolBar = true;
+      element.style.height = '90px';
+    } else {
+      this.acriveToolBar = false;
+      element.style.height = '60px';
+    }
+  }
 
   constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService,
     private dialog: MatDialog, private snackBar: MatSnackBar, public router: Router, @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent,
