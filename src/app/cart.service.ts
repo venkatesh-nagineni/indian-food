@@ -18,7 +18,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   postShoppingListdish (list, id) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/postShoppingListdish/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/postShoppingListdish/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({ data: list, id: id}), { headers: headers })
@@ -31,7 +31,7 @@ export class CartService {
   }
 
   checkTrustedUser (token) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/checkTrustedUser/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/checkTrustedUser/';
     return new Promise((resolve, reject) => {
       let httpHeaders = new HttpHeaders();
       httpHeaders = httpHeaders.append('token', token);
@@ -45,7 +45,7 @@ export class CartService {
   }
 
   postnewcategory (data) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/postnewCategoryData/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/postnewCategoryData/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
@@ -58,7 +58,7 @@ export class CartService {
   }
 
   getShoppingList () {
-    const shoppinglistposturl = 'https://mishnmash.de/api/getShoppingList/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/getShoppingList/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -71,7 +71,7 @@ export class CartService {
   }
 
   getShoppingListOnly () {
-    const shoppinglistposturl = 'https://mishnmash.de/api/getShoppingListOnly/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/getShoppingListOnly/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -84,7 +84,7 @@ export class CartService {
   }
 
   blockUser (blockData) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/blockUser/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/blockUser/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: blockData}), { headers: headers })
@@ -97,7 +97,7 @@ export class CartService {
   }
 
   getAngebote () {
-    const shoppinglistposturl = 'https://mishnmash.de/api/getAngebote/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/getAngebote/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -110,7 +110,7 @@ export class CartService {
   }
 
   getAngeboteHome () {
-    const shoppinglistposturl = 'https://mishnmash.de/api/getAngeboteHome/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/getAngeboteHome/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -123,7 +123,7 @@ export class CartService {
   }
 
   removeDishItem (data) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/removeDishItem/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/removeDishItem/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
@@ -136,7 +136,7 @@ export class CartService {
   }
 
   sendmail (cartdata, userdata) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/sendmail/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/sendmail/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({cartdata: cartdata, userdata: userdata}), { headers: headers })
@@ -149,7 +149,7 @@ export class CartService {
   }
 
   sendRegistrationData (userdata) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/registrationData/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/registrationData/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({userdata: userdata}), { headers: headers })
@@ -162,7 +162,7 @@ export class CartService {
   }
 
   loginUser (userLoginData) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/loginUser/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/loginUser/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({loginData: userLoginData}), { headers: headers })
@@ -175,7 +175,7 @@ export class CartService {
   }
 
   forgotPwd (email) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/forgotPwd/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/forgotPwd/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({email: email}), { headers: headers })
@@ -188,7 +188,7 @@ export class CartService {
   }
 
   contactMail (data) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/contactMail/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/contactMail/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({data: data}), { headers: headers })
@@ -202,7 +202,7 @@ export class CartService {
 
   // for change background color header
   changeColor (colors) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/changeColors/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/changeColors/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({colors: colors}), { headers: headers })
@@ -216,7 +216,7 @@ export class CartService {
 
   // get blocked list
   getBlockedList () {
-    const shoppinglistposturl = 'https://mishnmash.de/api/getBlockedList/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/getBlockedList/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.get(shoppinglistposturl, { headers: headers })
@@ -230,7 +230,7 @@ export class CartService {
 
   // unblock user
   unBlockUser(id) {
-    const shoppinglistposturl = 'https://mishnmash.de/api/unBlockUser/';
+    const shoppinglistposturl = 'http://82.165.112.97/api/unBlockUser/';
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
       this.http.post(shoppinglistposturl, JSON.stringify({id: id}), { headers: headers })

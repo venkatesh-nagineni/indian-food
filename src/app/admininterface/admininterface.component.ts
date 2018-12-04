@@ -140,7 +140,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
       let httpHeaders = new HttpHeaders();
       httpHeaders = httpHeaders.append('name', this.newCategoryData.name);
 
-      this.http.post('https://mishnmash.de/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
+      this.http.post('http:82.165.112.97/api/postnewCategoryData/', uploadData, { reportProgress: true, observe: 'events', headers: httpHeaders }).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
          // console.log('upload progress' + Math.round(event.loaded / event.total * 100) + '%');
         } else if (event.type === HttpEventType.Response) {
@@ -238,7 +238,7 @@ export class AdmininterfaceComponent implements OnInit, OnDestroy {
       headers = headers.append('id', this.selectedAngebote);
       headers = headers.append('name', this.previewAngebote.name);
 
-      this.http.post('https://mishnmash.de/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
+      this.http.post('http:82.165.112.97/api/postAngeboteData/', uploadData, { observe: 'events', headers: headers }).subscribe(event => {
         if (event.type === HttpEventType.Response) {
           if (event.body['success'] === true) {
             this.previewAngebote = { name: '', extraInfo: '', price: '' };
