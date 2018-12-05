@@ -1,13 +1,65 @@
 <div>
   <div id="headnavbar">
-    <nav class="navbar" #navhead>
-      <span class="navbar-toggle" id="js-navbar-toggle">
+    <nav>
+     <!--  <span class="navbar-toggle" id="js-navbar-toggle">
         <i class="material-icons"> menu </i>
-      </span>
-      <a (click)="home()" class="logo" style="font-family:Galada; color:#990000; font-size: 48px; cursor: pointer;"
+      </span> -->
+
+      <div class="row">
+        <div class="col-md-4 logo" (click)="home()" [class.disabled]="disableMenu">
+            <img src="../assets/images/logo_465x320.png" class="logoimg" />
+        </div>
+
+        <div class="col-md-6 companyName">
+           <span><a href="tel:06106 4075" style="font-family:'NexaLight' !important;color:#990000;text-decoration: none">06106 4075</a> Pizza Express Rodgau</span>
+        </div>
+
+        <div class="col-md-2">
+          <ul class="list-group">
+            <a href="https://api.whatsapp.com/send?phone=+491755761387&text=Ich möchte Pizza bestellen">
+              <i class="fa fa-whatsapp" style="color:#990000;font-size:60px"></i> </a>
+            <a style="color:#990000; font-family:Galada;font-size: 30px;padding-top: 30px;cursor: pointer" (click)="navigation('online')">
+                <i class='fa fa-shopping-bag' style='font-size:60px;color:#990000'></i>
+            </a>
+            <a  *ngIf="!isLoggedIn" style="padding-top:30px;cursor: pointer" [class.disabled]="disableMenu" (click)="openUserLogin()" class="notranslate">
+              <mat-icon style="color:#990000;font-size: 60px">account_circle</mat-icon>
+            </a>
+            <a  *ngIf="isLoggedIn" style="padding-top:30px;cursor: pointer" [class.disabled]="disableMenu" (click)="logOut()" class="notranslate">
+                <i class="fa fa-sign-out" style="color:#990000;font-size: 60px"></i>
+              </a>
+          </ul>
+        </div>
+
+       <!--  <div class="col-md-2">
+            <ul class="main-nav" id="js-menu">
+                <li style="margin-top:11px;margin-right: 60px; font-family:Galada" class="numberres">
+                  <a href="tel:06106 4075" class="callno">06106 4075</a>
+                </li>
+                <li style="margin-right: 20px;font-family:Galada;margin-top: 15px">
+                  <a href="https://api.whatsapp.com/send?phone=+491755761387&text=Ich möchte Pizza bestellen" style="color: white">
+                    <i class="fa fa-whatsapp" style="color:green;font-size:30px"></i> </a>
+                </li>
+                <li style="margin-top: 12px">
+                  <button mat-button style="color:white; font-family:Galada;font-size: 30px" (click)="navigation('online')" [disabled]="disablePointer"> Jetzt
+                    Bestellen! </button>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li *ngIf="!isLoggedIn" class="notranslate" style="margin-top:7px">
+                  <button mat-icon-button (click)="openUserLogin()" [disabled]="disablePointer">
+                    <mat-icon style="color:white;padding-left:10px;padding-right:10px;margin-bottom: 5px;font-size: 30px">account_circle</mat-icon>
+                  </button>
+                </li>
+                <li *ngIf="isLoggedIn" class="notranslate" style="margin-top:10px">
+                  <button mat-button style="color:white;font-size: 17px;font-size: 30px;font-family:Galada" (click)="logOut()"> Abmelden <i class="fa fa-sign-out"
+                      style="color:white;"></i> </button>
+                </li>
+              </ul>
+        </div> -->
+      </div>
+
+      <!-- <a (click)="home()" class="logo" style="font-family:Galada; color:#990000; font-size: 100px; cursor: pointer;"
         [class.disabled]="disableMenu">
         <img src="../assets/images/logo_465x320.png" class="logoimg" />
-        Pizza Express Rodgau
+
       </a>
       <ul class="main-nav" id="js-menu">
         <li style="margin-top:11px;margin-right: 60px; font-family:Galada" class="numberres">
@@ -30,7 +82,7 @@
           <button mat-button style="color:white;font-size: 17px;font-size: 30px;font-family:Galada" (click)="logOut()"> Abmelden <i class="fa fa-sign-out"
               style="color:white;"></i> </button>
         </li>
-      </ul>
+      </ul> -->
     </nav>
   </div>
   <!-- <app-admininterface></app-admininterface>

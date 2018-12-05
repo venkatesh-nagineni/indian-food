@@ -45,12 +45,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const mainNav = document.getElementById('js-menu');
+   /*  const mainNav = document.getElementById('js-menu');
     const navBarToggle = document.getElementById('js-navbar-toggle');
     navBarToggle.addEventListener('click', () => {
       mainNav.classList.toggle('active');
     });
-    this.innerwidth = window.innerWidth;
+    this.innerwidth = window.innerWidth; */
     this.isTokenValid = localStorage.getItem('token');
     if (this.isTokenValid) {
       this.isLoggedIn = true;

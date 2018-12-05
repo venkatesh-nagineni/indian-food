@@ -53,7 +53,7 @@ export class MenucardComponent implements OnInit {
   };
 
   @ViewChildren('linkRef') linkRefs;
-  @HostListener('window:scroll', [])
+ /*  @HostListener('window:scroll', [])
   onWindowScroll() {
     const element = document.getElementById('matBar');
     const viewportOffset = element.getBoundingClientRect();
@@ -65,7 +65,7 @@ export class MenucardComponent implements OnInit {
       this.acriveToolBar = false;
       element.style.height = '60px';
     }
-  }
+  } */
 
   constructor(private cartservice: CartService, fb: FormBuilder, private shared: SharedService, private modalService: BsModalService,
     private dialog: MatDialog, private snackBar: MatSnackBar, public router: Router, @Inject(forwardRef(() => AppComponent)) private _parent: AppComponent,

@@ -44,23 +44,28 @@
 }
 
 #headnavbar {
-  .navbar {
+  /* background-color: black;
+  opacity: 0.7; */
+  background-color: rgba(235, 224, 224, 0.8);
+  // background-color: #f9f5f1;
+  padding: 40px;
+  /* .navbar {
     position: relative;
     top:0;
     width:100%;
    // background: linear-gradient(90deg, rgba(4,3,24,1) 0%, rgba(39,83,91,0.9472163865546218) 60%, rgba(4,3,24,1) 100%);
-   background: linear-gradient(90deg, #ffffff 0%,#005000 60%,#570000 100%);
-   // background: transparent;
+   // background: linear-gradient(90deg, #ffffff 0%,#005000 60%,#570000 100%);
+   background-color: rgba(235, 224, 224, 0.350);
    // background-image: url("../assets/images/Wood.jpg")
-  }
+  } */
 
-  .main-nav {
+  /* .main-nav {
     list-style-type: none;
     display: none;
     padding-top: 10px;
-  }
+  } */
 
-  .main-nav {
+  /* .main-nav {
     button:focus {
       outline: none;
   }
@@ -75,45 +80,72 @@
     font-size: 15px;
     padding-top: 4px;
   }
-  }
+  } */
 
-  .nav-links,
+ /*  .nav-links,
   .logo {
     text-decoration: none;
     color: white;
-    /* font-size: 13px; */
-  }
+  } */
 
-  .nav-links:hover {
+/*   .nav-links:hover {
     color: rgb(158, 160, 167) !important;
-  }
+  } */
 
-  .main-nav li {
+  /* .main-nav li {
     text-align: center;
     // margin: 5px auto;
-  }
+  } */
 
-  .logo {
+ /*  .logo {
     display: inline-block;
-    /* font-size: 20px; */
-  }
+  } */
 
-  .navbar-toggle {
+  /* .navbar-toggle {
     position: absolute;
     top: 10px;
     right: 20px;
     cursor: pointer;
     color: white;
     font-size: 24px;
-  }
+  } */
 
-  .active {
+  /* .active {
     display: block;
     padding-top: 5px;
     @media screen and (min-width: 728px) {
       padding-top: 0px;
     }
+  } */
+
+  .companyName {
+    font-family:Galada;
+    color:#990000;
+    font-size: 100px;
+    line-height: 1;
   }
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .logoimg {
+    width: 420px !important;
+    height: 300px !important;
+    margin-left: 50px;
+  }
+
+  @media (max-width:1350px) and (min-width:0px) {
+    .companyName {
+      font-size: 50px;
+    }
+
+    .logoimg {
+      width: 230px !important;
+      height: 150px !important;
+      margin-left: 0px;
+    }
+}
 
   @media (max-width:859px) and (min-width:577px) {
     .numberres {
@@ -122,7 +154,7 @@
 }
 
   .callno {
-    color: white;
+    color: #990000;
     font-weight: bold;
     font-size: 30px;
     text-decoration: none;
@@ -132,17 +164,12 @@
     display: none;
   }
 
- .logoimg {
-    width: 120px !important;
-    height: 85px !important;
-  }
-
-  @media screen and (min-width: 860px) {
+  /* @media screen and (min-width: 860px) {
     .navbar {
       display: flex;
       justify-content: space-between;
       padding-bottom: 0;
-      height: 100px;
+      height: 400px;
       align-items: center;
     }
 
@@ -185,7 +212,7 @@
     .nav-links:hover {
       color: rgba(255, 255, 255, 1);
     }
-  }
+  } */
 }
 
 header {
