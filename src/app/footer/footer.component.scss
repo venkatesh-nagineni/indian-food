@@ -1,7 +1,8 @@
 .footersection {
   display: block;
   background-image: url("../../assets/images/Wood.jpg");
-	background-size: cover;
+  background-size: cover;
+  // background: #083b66;
   .customcontainer {
     padding-top: 30px;
     padding-left: 5%;
@@ -115,7 +116,7 @@
     padding: 5px 0 5px;
     // background: transparent;
 }
-.copyright-text p {
+.copyright-text h6 {
     color: #ccc;
     margin-top: 5px;
     margin-bottom: 0;

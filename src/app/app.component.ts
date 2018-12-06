@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {UserloginComponent} from './userlogin/userlogin.component';
 import {SharedService} from './shared.service';
 import {LogoutConfirmComponent} from './logout-confirm/logout-confirm.component';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
     this.innerwidth = window.innerWidth;
 }
 
-  constructor(private dialog: MatDialog, private router: Router, public sharedService: SharedService) {
+  constructor(private dialog: MatDialog, private router: Router, public sharedService: SharedService, private meta: Meta) {
     this.sharedService.isLogin.subscribe(val => {
       if (val) {
         this.isLoggedIn = true;
@@ -42,6 +43,12 @@ export class AppComponent implements OnInit {
         this.isLoggedIn = false;
       }
     });
+
+    this.meta.addTags([
+      { name: 'Pizza Express Rodgau', content: 'Pizza Express Rodgau | Pizza Lieferservice in Alter Weg 28, 63110 Rodgau online bestellen' },
+      { name: 'Pizza Express Rodgau', content: 'Pizza Express Rodgau, Lieferservice in Rodgau bietet Dir eine kulinarische Speisekarte mit 200 Gerichten mit jetzt online bestellen!' },
+      {name: '', content: 'Address Alter Weg 28, 63110 Rodgau'}
+    ]);
   }
 
   ngOnInit() {
