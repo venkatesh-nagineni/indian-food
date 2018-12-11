@@ -1,0 +1,1375 @@
+{
+    "_id" : ObjectId("5c0e9bd5186522dbcd26443d"),
+    "dishType" : "Pizzen",
+    "banner" : "image-1544461261478",
+    "dishItems" : [ 
+        {
+            "_id" : ObjectId("5c0e9d85186522dbcd26443e"),
+            "itemNo" : 1544461700588.0,
+            "itemName" : "1. Pizza Margherita",
+            "itemShortDescription" : "mit Tomatensoße und Käse",
+            "itemPrice" : 6,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "1. Pizza Margherita",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9d85186522dbcd264441"),
+                        "id" : 1544461550110.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d85186522dbcd264440"),
+                        "id" : 1544461562251.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d85186522dbcd26443f"),
+                        "id" : 1544461582972.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9d85186522dbcd264442"),
+                        "id" : 1544461694561.0,
+                        "name" : "mit Ananas",
+                        "amount" : 0.7
+                    }
+                ]
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0ea1c7186522dbcd264443"),
+            "itemNo" : 1544462791359.0,
+            "itemName" : "2. Pizza Salami",
+            "itemShortDescription" : "mit Salami",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "2. Pizza Salami",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0ea1c7186522dbcd264446"),
+                        "id" : 1544462741389.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea1c7186522dbcd264445"),
+                        "id" : 1544462750137.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea1c7186522dbcd264444"),
+                        "id" : 1544462782856.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0ea381186522dbcd264447"),
+            "itemNo" : 1544463232584.0,
+            "itemName" : "2a. Pizza Sucuk",
+            "itemShortDescription" : "mit Sucuk",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "2a. Pizza Sucuk",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0ea381186522dbcd26444a"),
+                        "id" : 1544463206333.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea381186522dbcd264449"),
+                        "id" : 1544463213289.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea381186522dbcd264448"),
+                        "id" : 1544463227670.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0ea427186522dbcd26444b"),
+            "itemNo" : 1544463398640.0,
+            "itemName" : "3. Pizza Salami Pikante",
+            "itemShortDescription" : "mit Pikante Peperoniwurst",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "3. Pizza Salami Pikante",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0ea427186522dbcd26444e"),
+                        "id" : 1544463379896.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea427186522dbcd26444d"),
+                        "id" : 1544463386086.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea427186522dbcd26444c"),
+                        "id" : 1544463396986.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0ea427186522db2326444b"),
+            "itemNo" : 1544462398640.0,
+            "itemName" : "4. Pizza Prosciutte",
+            "itemShortDescription" : "mit Schinken",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "4. Pizza Prosciutte",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0ea427186522dbcd26444e"),
+                        "id" : 1542363379896.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea427182522dbcd26444d"),
+                        "id" : 1542363386086.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea427175522dbcd26444c"),
+                        "id" : 1542363396986.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0ea427166522db2326444b"),
+            "itemNo" : 1544462378640.0,
+            "itemName" : "5. Pizza Macinato",
+            "itemShortDescription" : "mit Hackfleisch",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "5. Pizza Macinato",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0ea427186552dbcd26441e"),
+                        "id" : 1523563379896.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea4271825223bcd26441d"),
+                        "id" : 1232363386086.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0ea427175522db2d26441c"),
+                        "id" : 1522363496986.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d85186522dbcd26443e"),
+            "itemNo" : 1544461700589.0,
+            "itemName" : "6. Pizza Funghi",
+            "itemShortDescription" : "mit Champignons",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "6. Pizza Funghi",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9c85186522dbcd264441"),
+                        "id" : 1544461550112.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d85c86522dbcd264440"),
+                        "id" : 1544461562252.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d851c6522dbcd26443f"),
+                        "id" : 1544461582975.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d85186d22dbcd26443e"),
+            "itemNo" : 1544461700590.0,
+            "itemName" : "11. Pizza Tonno e Cipolle",
+            "itemShortDescription" : "mit Thunfisch und Zwiebeln",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "11. Pizza Tonno e Cipolle",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9d85186e22dbcd264441"),
+                        "id" : 1544461550116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d8518652ffbcd264440"),
+                        "id" : 1544461562521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d851860f2dbcd26443f"),
+                        "id" : 1544461582652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b186d43dbcd26443e"),
+            "itemNo" : 15444617123590.0,
+            "itemName" : "12. Pizza Sardellen",
+            "itemShortDescription" : "mit Sardellen und frischen Tomaten",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "12. Pizza Sardellen",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9d8b186e22dbcd264441"),
+                        "id" : 1544461553116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d85b8652ffbcd264440"),
+                        "id" : 1544461576521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d851b60f2dbcd26443f"),
+                        "id" : 154446956652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b186da3dbcd26443e"),
+            "itemNo" : 15444657123590.0,
+            "itemName" : "13. Pizza Salami e Funghi",
+            "itemShortDescription" : "mit Salami und Champignons",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "13. Pizza Salami e Funghi",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9d8b1a6e22dbcd264441"),
+                        "id" : 1542461553116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d85bb652ffbcd264440"),
+                        "id" : 1542461576521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c0e9d851ba0f2dbcd26443f"),
+                        "id" : 154446976652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b186da3dbca26443e"),
+            "itemNo" : 15444657123591.0,
+            "itemName" : "14. Pizza Prosciutto e Funghi",
+            "itemShortDescription" : "mit Schinken und Champignons",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "14. Pizza Prosciutto e Funghi",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8baa6e22dbcd264441"),
+                        "id" : 1542461555116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9d85ab652ffbcd264440"),
+                        "id" : 1542461577521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d851aa0f2dbcd26443f"),
+                        "id" : 154446973352.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba86da3dbca26443e"),
+            "itemNo" : 15444657122591.0,
+            "itemName" : "14a. Pizza Salami e Prosciutto",
+            "itemShortDescription" : "mit Schinken und Salami",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "14a. Pizza Salami e Prosciutto",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8b1a6e22dbcd264441"),
+                        "id" : 1542461556116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9d85bb652ffbcd264440"),
+                        "id" : 1542461573521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d851ba0f2dbcd26443f"),
+                        "id" : 154446973652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9daaa86da3dbca26443e"),
+            "itemNo" : 15444657122231.0,
+            "itemName" : "15. Pizza Vegetariana",
+            "itemShortDescription" : "mit Champignons, Zwiebeln, milden Peperoni, Paprika und Oliven",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "15. Pizza Vegetariana",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8d1a6e22dbcd264441"),
+                        "id" : 1542461156116.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9d85bb652afbcd264440"),
+                        "id" : 1542461573529.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d851ba0f2dbcd2644ff"),
+                        "id" : 154446973682.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba86da3cbca26443e"),
+            "itemNo" : 15444657222591.0,
+            "itemName" : "16. Pizza Salami Funghi e Prosciutte",
+            "itemShortDescription" : "mit Schinken, Champignons und Salami",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "16. Pizza Salami Funghi e Prosciutte",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8b5a6e22dbcd264441"),
+                        "id" : 1542461556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9dc5bb652ffbcd264440"),
+                        "id" : 1542461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba0f2dbcd26443f"),
+                        "id" : 154446979652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba86da3ccca26443e"),
+            "itemNo" : 15444657222991.0,
+            "itemName" : "17. Pizza Lavoratori",
+            "itemShortDescription" : "mit Schinken, Hackfleisch und Champignons",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "17. Pizza Lavoratori",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab5a6e22dbcd264441"),
+                        "id" : 1542461556996.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9dc5eb652ffbcd264440"),
+                        "id" : 1542461579511.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cca0f2dbcd26443f"),
+                        "id" : 154446978652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8baa6da3cbca26443e"),
+            "itemNo" : 15444657276591.0,
+            "itemName" : "19. Pizza Campo",
+            "itemShortDescription" : "mit Schinken, Salami und Hackfleisch",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "19. Pizza Campo",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0eff8b5a6e22dbcd264441"),
+                        "id" : 1542771556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5fee9dc5bb652ffbcd264440"),
+                        "id" : 1542461574321.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9ff5cba0f2dbcd26443f"),
+                        "id" : 154443479652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8baaada3cbca26443e"),
+            "itemNo" : 15444657245391.0,
+            "itemName" : "20. Pizza Hawaii",
+            "itemShortDescription" : "mit Schinken und Ananas",
+            "itemPrice" : 6.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "20. Pizza Hawaii",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0cca8b5a6e22dbcd264441"),
+                        "id" : 1542461636816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 6.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9dc5de652ffbcd264440"),
+                        "id" : 1542461565521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba0f1ebcd26443f"),
+                        "id" : 154446953652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 17.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0edd8ba86da3cbca26443e"),
+            "itemNo" : 15444657225491.0,
+            "itemName" : "21.Pizza Vallaggio",
+            "itemShortDescription" : "mit Schinken, Salami, Hackfleisch, Artischocken und Oliven",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "21. Pizza Villaggio",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9afa5a6e22dbcd264441"),
+                        "id" : 9542461556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("acce9dc5bb652ffbcd264440"),
+                        "id" : 7542461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba082dbcd26443f"),
+                        "id" : 152446973652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8baabda3cbca26443e"),
+            "itemNo" : 15444655222991.0,
+            "itemName" : "22. Pizza Bacio",
+            "itemShortDescription" : "mit Schinken, Salami, Champignons, Oliven und milden Peperoni",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "22. Pizza Bacio",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aabca6e22dbcd264441"),
+                        "id" : 1542461552816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5c2e9dc5bb652ffbcd264440"),
+                        "id" : 1542462579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85fba0f2dbcd26443f"),
+                        "id" : 154446229652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba86daecbca26443e"),
+            "itemNo" : 15444657273591.0,
+            "itemName" : "23. Pizza Nonna",
+            "itemShortDescription" : "mit Schinken, Salami, Hackfleisch, Champignons und Zwiebeln",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "23. Pizza Nonna",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0eda8b5a6e22dbcd264441"),
+                        "id" : 7542461556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9dc21b652ffbcd264440"),
+                        "id" : 1722461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d88aba0f2dbcd26443f"),
+                        "id" : 154446962652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba86ee3cbca26443e"),
+            "itemNo" : 15444612222591.0,
+            "itemName" : "24. Pizza Auberginen",
+            "itemShortDescription" : "mit Auberginen, Zwiebeln, Knoblauch und Fetakäse",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "24. Pizza Auberginen",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8cda6e22dbcd264441"),
+                        "id" : 1542469956816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cce9995bb652ffbcd264440"),
+                        "id" : 1542461119521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85ffa0f2dbcd26443f"),
+                        "id" : 154446639652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8bad6da3cbca26443e"),
+            "itemNo" : 15445769222591.0,
+            "itemName" : "26. Pizza Casanova",
+            "itemShortDescription" : "mit Schinken, Salami, Hackfleisch und Knoblauch",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "26. Pizza Casanova",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9acb5a6e22deed264441"),
+                        "id" : 1542121559816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dae9dc5bb652fcbcd264440"),
+                        "id" : 1552461279521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cda9d85cba012afcd26443f"),
+                        "id" : 156488979652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba96dc3cbca26443e"),
+            "itemNo" : 15445769122591.0,
+            "itemName" : "27. Pizza Carcion",
+            "itemShortDescription" : "mit Artischocken, Thunfisch, Champignons, Zwiebeln und Oliven",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "27. Pizza Carcion",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5cae9a8b5a6e22deed264441"),
+                        "id" : 1542178556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9ac5bb652ffbcd264440"),
+                        "id" : 1573461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9db5cba012dbcd26443f"),
+                        "id" : 156846979652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba96da3abca26443e"),
+            "itemNo" : 15445767922591.0,
+            "itemName" : "29. Pizza Capricciosa",
+            "itemShortDescription" : "mit Schinken, Salami, Champignons, Paprika, Zwiebeln und milden Peperoni",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "29. Pizza Capricciosa",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8b5d6e22deed264441"),
+                        "id" : 1592121556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9dc5ab652ffbcd264440"),
+                        "id" : 1582461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba01adbcd26443f"),
+                        "id" : 157446979652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba96da3cbca26443e"),
+            "itemNo" : 15445767222591.0,
+            "itemName" : "30. Pizza Sorriso",
+            "itemShortDescription" : "mit Peperoniwurst, Salami, milden Peperoni, Champignons, Zwiebeln und Paprika",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "30. Pizza Sorriso",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9a8b5a6e22deed264441"),
+                        "id" : 1542121556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9dc5bb652ffbcd264440"),
+                        "id" : 1552461579521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba012dbcd26443f"),
+                        "id" : 156446979652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8ba96da3cbfa26443e"),
+            "itemNo" : 15445767222091.0,
+            "itemName" : "32. Pizza Calzone",
+            "itemShortDescription" : "mit Käse, Schinken, Salami, Hackfleisch, Champignons und milden Peperoni",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "32. Pizza Calzone",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab5a6e22deed264441"),
+                        "id" : 1542171556816.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9dc5bba52ffbcd264440"),
+                        "id" : 1552461575521.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cdead85cba012dbcd26443f"),
+                        "id" : 156446999652.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b196da3cbfa26443e"),
+            "itemNo" : 15445767222001.0,
+            "itemName" : "33. Pizza Quattro Stagioni",
+            "itemShortDescription" : "geviertelt mit Schinken, Salami, Hackfleisch, Champignons, Zwiebeln und Ei",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "33. Pizza Quattro Stagioni",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab5a7e22deed264441"),
+                        "id" : 1542171556866.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9ac5bba52ffbcd264440"),
+                        "id" : 1552461575591.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cdead85cba012dbcd2644ff"),
+                        "id" : 156446999656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b196da3cbfaa6443e"),
+            "itemNo" : 15445767265001.0,
+            "itemName" : "36. Pizza Speziale",
+            "itemShortDescription" : "mit Schinken, Salami, Hackfleisch, Zwiebeln, Champignons, milden Peperoni, Mais, Paprika Peperoniwurst, Salami, milden Peperoni, Champignons, Zwiebeln und Paprika",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "36. Pizza Speziale",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab5aae22deed264441"),
+                        "id" : 1542171556880.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe9ac5aba52ffbcd264440"),
+                        "id" : 1552461575501.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("5cdefe85cba012dbcd2644ff"),
+                        "id" : 156446999666.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9dab196da3cbfa26443e"),
+            "itemNo" : 15445767272001.0,
+            "itemName" : "101. Pizza Quattro Formaggi",
+            "itemShortDescription" : "mit Gorgonzola, Feta, Edamer und Mozzarella Käse",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "101. Pizza Quattro Formaggi",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab577e22deed264441"),
+                        "id" : 1542171550866.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("5dae9ac5bba52ffbcd264440"),
+                        "id" : 1552461575891.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("5cfead85cba012dbcd2644ff"),
+                        "id" : 156446779656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d80096da3cbfa26443e"),
+            "itemNo" : 15445767222087.0,
+            "itemName" : "102. Pizza Basilico",
+            "itemShortDescription" : "mit Mozzarella, frischen Tomaten und Basilikum",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "102. Pizza Basilico",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9aab0a7e22deed264441"),
+                        "id" : 1542171586866.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfa9ac5bba52ffbcd264440"),
+                        "id" : 1572461575591.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde0d85cba012dbcd2644ff"),
+                        "id" : 156446909656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19ada3cbfa26443e"),
+            "itemNo" : 15445767202001.0,
+            "itemName" : "106. Pizza Macinato Mexico",
+            "itemShortDescription" : "Mexikanische gewürzte mit Hackfleisch, Mais, Bohnen, Zwiebeln, Knoblauch und scharfen Jalapenos",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "106. Pizza Macinato Mexico",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e0aab5a7e22deed264441"),
+                        "id" : 1542171556066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5bba52ffbcd264440"),
+                        "id" : 1552461575561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba012dbcd2644ff"),
+                        "id" : 156446969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19aaa3cbfa26443e"),
+            "itemNo" : 15445767202101.0,
+            "itemName" : "110. Pizza Piccante",
+            "itemShortDescription" : "mit Peperoniwurst, milden Peperoni, Knoblauch und scharfen Jalapenos",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "110. Pizza Piccante",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c010aab5a7e22deed264441"),
+                        "id" : 1542171556006.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0aa5bba52ffbcd264440"),
+                        "id" : 1552461570561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9da5cba012dbcd2644ff"),
+                        "id" : 156446969606.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b10afa3cbfa26443e"),
+            "itemNo" : 15445767202981.0,
+            "itemName" : "114. Pizza Frutti di Mare",
+            "itemShortDescription" : "mit Meeresfrüchten",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "114. Pizza Frutti di Mare",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e0a8b5a7e22deed264441"),
+                        "id" : 1542171559066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5baa52ffbcd264440"),
+                        "id" : 1582461575561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba0129bcd2644ff"),
+                        "id" : 158446969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19ada3cb9a26443e"),
+            "itemNo" : 15445767202011.0,
+            "itemName" : "115. Pizza Primavera",
+            "itemShortDescription" : "mit Paprika, frischen Tomaten, Mozzarella und Fetakäse",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "115. Pizza Primavera",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e9bab5a7e22deed264441"),
+                        "id" : 1542171556166.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5bfa52ffbcd264440"),
+                        "id" : 1552461875561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cbc012dbcd2644ff"),
+                        "id" : 156446969056.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19ada33bfa26443e"),
+            "itemNo" : 15545767202101.0,
+            "itemName" : "118. Pizza Vegetariana Piccante",
+            "itemShortDescription" : "mit Peperoni, Paprika, Zwiebeln und Oliven",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "118. Pizza Vegetariana Piccante",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e1aab5a7e22deed264441"),
+                        "id" : 1542171856066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5bba52ff0cd264440"),
+                        "id" : 1552461575569.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba012dbcd0644ff"),
+                        "id" : 157446969606.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9f8b19ada3cbfa26443e"),
+            "itemNo" : 15545767202001.0,
+            "itemName" : "121. Pizza Uomini",
+            "itemShortDescription" : "mit Hackfleisch, Peperoniwurst und Zwiebeln",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "121. Pizza Uomini",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e0a0b5a7e22deed264441"),
+                        "id" : 1542101556066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5bba50ffbcd264440"),
+                        "id" : 1572461575561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cd09d85cba012dbcd2644ff"),
+                        "id" : 156440969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19ada3cb0a26443e"),
+            "itemNo" : 15445067202001.0,
+            "itemName" : "122. Pizza Piacere",
+            "itemShortDescription" : "mit Peperoniwurst, Knoblauch und frischen Tomaten",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "122. Pizza Piacere",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("550e0a0b5a7e22deed264441"),
+                        "id" : 1542171550066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe0ac5b0a52ff0cd264440"),
+                        "id" : 1552461575061.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cfa012dbcd2644ff"),
+                        "id" : 156446069606.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19adf3cbfa26443e"),
+            "itemNo" : 15445567202101.0,
+            "itemName" : "123. Pizza Razzo",
+            "itemShortDescription" : "mit sehr scharfe, hausgemachte Soße, Salami, Hackfleisch, Zwiebeln und frischen Tomaten",
+            "itemPrice" : 7.5,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "123. Pizza Razzo",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e7a8b5a7e22deed264441"),
+                        "id" : 1549171556066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 7.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5ffe0ac5bba52ffbcd264440"),
+                        "id" : 1587461575561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 8.5
+                    }, 
+                    {
+                        "_id" : ObjectId("5eee9d85cba012dbcd2644ff"),
+                        "id" : 187446969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 18.5
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5cce9d8b19ada3cbfa26443e"),
+            "itemNo" : 15745767202001.0,
+            "itemName" : "124. Pizza Vegas",
+            "itemShortDescription" : "mit Edamar Käse, Hollandaise, Hähnchenbrustfilet und Broccoli",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "124. Pizza Vegas",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("5c0e0aab0a7e22deed264441"),
+                        "id" : 1542171557066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("5dfe00c5bba52ffbcd264440"),
+                        "id" : 1552461075561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("5cde9d85cba012d0cd2644ff"),
+                        "id" : 150446969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }, 
+        {
+            "_id" : ObjectId("5c0e9d8b19ada0cbfa26443e"),
+            "itemNo" : 15495767202001.0,
+            "itemName" : "125. Pizza Lachs",
+            "itemShortDescription" : "Hollandaise Soße, Lachs und Spinat",
+            "itemPrice" : 8,
+            "itemExtraOptionsizes" : {
+                "itemPlaceholderName" : "125. Pizza Lachs",
+                "sizes" : [ 
+                    {
+                        "_id" : ObjectId("599e0aab5a7e22deed264441"),
+                        "id" : 1592171556066.0,
+                        "name" : "(ø 28cm)",
+                        "amount" : 8
+                    }, 
+                    {
+                        "_id" : ObjectId("59fe0ac5bba52ffbcd264440"),
+                        "id" : 1592461575561.0,
+                        "name" : "(ø 32cm)",
+                        "amount" : 9
+                    }, 
+                    {
+                        "_id" : ObjectId("58de9d85cba012dbcd2644ff"),
+                        "id" : 180446969656.0,
+                        "name" : "(ø 45 x 32cm)",
+                        "amount" : 19
+                    }
+                ]
+            },
+            "itemExtraOptionPrice" : {
+                "itemPlaceholderName" : "Ihre Extras",
+                "prices" : []
+            }
+        }
+    ],
+    "__v" : 0
+}

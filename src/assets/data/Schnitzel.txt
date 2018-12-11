@@ -1,0 +1,99 @@
+{
+    "_id" : ObjectId("5c1020890d597300b55d4067"),
+    "dishType" : "Schnitzel",
+    "banner" : "image-1544560776530",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020aa0d597300b55d4068"),
+            "itemNo" : 1544560809621.0,
+            "itemName" : "80. Schnitzel Wiener Art",
+            "itemShortDescription" : "",
+            "itemPrice" : 8
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020b70d597300b55d4069"),
+            "itemNo" : 1544560821446.0,
+            "itemName" : "81. Jägerschnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020c40d597300b55d406a"),
+            "itemNo" : 1544560835862.0,
+            "itemName" : "82. Zigeunerschnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020d80d597300b55d406b"),
+            "itemNo" : 1544560852601.0,
+            "itemName" : "83. Bologneseschnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020eb0d597300b55d406c"),
+            "itemNo" : 1544560873583.0,
+            "itemName" : "84. Rahmschnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1020fb0d597300b55d406d"),
+            "itemNo" : 1544560889284.0,
+            "itemName" : "86. Zwiebel Pilz Schnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c10210c0d597300b55d406e"),
+            "itemNo" : 1544560907174.0,
+            "itemName" : "89. Hawaiischnitzel",
+            "itemShortDescription" : null,
+            "itemPrice" : 8.5
+        }
+    ],
+    "__v" : 0
+}

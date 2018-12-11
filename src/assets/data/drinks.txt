@@ -1,0 +1,60 @@
+{
+    "_id" : ObjectId("5c1026090d597300b55d407b"),
+    "dishType" : "Getränke",
+    "banner" : "image-1544562184551",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c10262e0d597300b55d407c"),
+            "itemNo" : 1544562221790.0,
+            "itemName" : "Cola, Cola Light, Cola Zero",
+            "itemShortDescription" : "1 Litre",
+            "itemPrice" : 2.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1026450d597300b55d407d"),
+            "itemNo" : 1544562244655.0,
+            "itemName" : "Fanta, Sprite, Mezzo Mix",
+            "itemShortDescription" : "1 Litre",
+            "itemPrice" : 2.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1026570d597300b55d407e"),
+            "itemNo" : 1544562262276.0,
+            "itemName" : "Cola, Fanta, Sprite",
+            "itemShortDescription" : "330 ml",
+            "itemPrice" : 1.3
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1026650d597300b55d407f"),
+            "itemNo" : 1544562275467.0,
+            "itemName" : "Wasser",
+            "itemShortDescription" : "1 Litre",
+            "itemPrice" : 2
+        }
+    ],
+    "__v" : 0
+}

@@ -1,0 +1,34 @@
+{
+    "_id" : ObjectId("5c1029240d597300b55d4080"),
+    "dishType" : "Dessert",
+    "banner" : "image-1544562979877",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1029650d597300b55d4081"),
+            "itemNo" : 1544563043983.0,
+            "itemName" : "Häagen-Dazs Vanilla-Caramel-Brownie",
+            "itemShortDescription" : null,
+            "itemPrice" : 6.9
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1029740d597300b55d4082"),
+            "itemNo" : 1544563059066.0,
+            "itemName" : "Häagen-Dazs Cookies & Cream",
+            "itemShortDescription" : null,
+            "itemPrice" : 6.9
+        }
+    ],
+    "__v" : 0
+}

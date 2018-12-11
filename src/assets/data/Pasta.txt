@@ -1,0 +1,86 @@
+{
+    "_id" : ObjectId("5c101cfc0d597300b55d4060"),
+    "dishType" : "Pasta",
+    "banner" : "image-1544559868469",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101d4c0d597300b55d4061"),
+            "itemNo" : 1544559946665.0,
+            "itemName" : "60. Lasagne",
+            "itemShortDescription" : "Hausgemachte Lasagne",
+            "itemPrice" : 7.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101db90d597300b55d4062"),
+            "itemNo" : 1544560056324.0,
+            "itemName" : "61. Tortellini",
+            "itemShortDescription" : "Hausgemachte Tortellini",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101dc90d597300b55d4063"),
+            "itemNo" : 1544560071987.0,
+            "itemName" : "63. Spaghetti",
+            "itemShortDescription" : "Hausgemachte Spaghetti",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101ddd0d597300b55d4064"),
+            "itemNo" : 1544560091957.0,
+            "itemName" : "64. Rigatoni",
+            "itemShortDescription" : "Hausgemachte Rigatoni",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101dee0d597300b55d4065"),
+            "itemNo" : 1544560108920.0,
+            "itemName" : "65. Nudelkombination",
+            "itemShortDescription" : "Hausgemachte Multi-Nudeln Pasta",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c101df50d597300b55d4066"),
+            "itemNo" : 1544560116641.0,
+            "itemName" : "66. Gnocchi",
+            "itemShortDescription" : "Hausgemachte Gnocchi",
+            "itemPrice" : 6.5
+        }
+    ],
+    "__v" : 0
+}

@@ -1,0 +1,112 @@
+{
+    "_id" : ObjectId("5c1021af0d597300b55d406f"),
+    "dishType" : "Salate",
+    "banner" : "image-1544561070728",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1021f50d597300b55d4070"),
+            "itemNo" : 1544561140656.0,
+            "itemName" : "40. Italienischer Salat",
+            "itemShortDescription" : "Grüner Salat, Gurken, Thunfisch, Schinken, Tomaten, Käse, Ei, Oliven und Peperoni",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1022210d597300b55d4071"),
+            "itemNo" : 1544561182727.0,
+            "itemName" : "42. Gemischter Salat",
+            "itemShortDescription" : "Grüner Salat, Gurken, Paprika, Oliven, Peperoni und Tomaten",
+            "itemPrice" : 5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1022420d597300b55d4072"),
+            "itemNo" : 1544561217808.0,
+            "itemName" : "43. Tomatensalat",
+            "itemShortDescription" : "Tomaten und Zwiebeln",
+            "itemPrice" : 4
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c10225b0d597300b55d4073"),
+            "itemNo" : 1544561241271.0,
+            "itemName" : "43a. Tomatensalat",
+            "itemShortDescription" : "Tomaten, Fetakäse",
+            "itemPrice" : 4.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c10228b0d597300b55d4074"),
+            "itemNo" : 1544561290026.0,
+            "itemName" : "44. Mexikanischer Salat",
+            "itemShortDescription" : "Grüner Salat, Gurken, Champignons, Mais, Bohnen, Zwiebeln, Peperoni und Oliven",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1022be0d597300b55d4075"),
+            "itemNo" : 1544561341524.0,
+            "itemName" : "45. Griechischer Salat",
+            "itemShortDescription" : "Grüner Salat, Gurken, Zwiebeln, Paprika, Oliven, Peperoni, Tomaten und Fetakäse",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1022e80d597300b55d4076"),
+            "itemNo" : 1544561383535.0,
+            "itemName" : "402. Geflügelsalat",
+            "itemShortDescription" : "Grüner Salat, Hähnchenbrustfilet, Edamer Käse und Croutons",
+            "itemPrice" : 6.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1023150d597300b55d4077"),
+            "itemNo" : 1544561428553.0,
+            "itemName" : "405. Caprese Salat",
+            "itemShortDescription" : "Frische Tomaten, Mozzarella, Oliven Öl und Basilikum",
+            "itemPrice" : 6
+        }
+    ],
+    "__v" : 0
+}

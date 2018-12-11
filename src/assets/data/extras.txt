@@ -1,0 +1,138 @@
+{
+    "_id" : ObjectId("5c102a720d597300b55d4083"),
+    "dishType" : "Extras",
+    "banner" : "image-1544563313617",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102ac10d597300b55d4084"),
+            "itemNo" : 1544563391688.0,
+            "itemName" : "Pommes",
+            "itemShortDescription" : "mit Ketchup",
+            "itemPrice" : 3.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102acf0d597300b55d4085"),
+            "itemNo" : 1544563405636.0,
+            "itemName" : "Pommes",
+            "itemShortDescription" : "mit Mayonnaise",
+            "itemPrice" : 3.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102af90d597300b55d4086"),
+            "itemNo" : 1544563447642.0,
+            "itemName" : "Kroketten",
+            "itemShortDescription" : "mit Ketchup",
+            "itemPrice" : 3.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b030d597300b55d4087"),
+            "itemNo" : 1544563458633.0,
+            "itemName" : "Kroketten",
+            "itemShortDescription" : "mit Mayonnaise",
+            "itemPrice" : 3.5
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b1e0d597300b55d4088"),
+            "itemNo" : 1544563485166.0,
+            "itemName" : "Salsa Dip",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b260d597300b55d4089"),
+            "itemNo" : 1544563493137.0,
+            "itemName" : "BBQ Dip",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b4d0d597300b55d408c"),
+            "itemNo" : 1544563531231.0,
+            "itemName" : "Süß Sauer Dip",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b2f0d597300b55d408a"),
+            "itemNo" : 1544563502532.0,
+            "itemName" : "Ketchup",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b3c0d597300b55d408b"),
+            "itemNo" : 1544563515133.0,
+            "itemName" : "Aioli",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c102b530d597300b55d408d"),
+            "itemNo" : 1544563538089.0,
+            "itemName" : "Mayonnaise",
+            "itemShortDescription" : null,
+            "itemPrice" : 1
+        }
+    ],
+    "__v" : 0
+}

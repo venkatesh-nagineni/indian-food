@@ -1,0 +1,34 @@
+{
+    "_id" : ObjectId("5c10248b0d597300b55d4078"),
+    "dishType" : "Geflügel",
+    "banner" : "image-1544561802517",
+    "dishItems" : [ 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1024ad0d597300b55d4079"),
+            "itemNo" : 1544561836249.0,
+            "itemName" : "87. Chicken Wings",
+            "itemShortDescription" : "9 Stücke",
+            "itemPrice" : 8
+        }, 
+        {
+            "itemExtraOptionsizes" : {
+                "sizes" : []
+            },
+            "itemExtraOptionPrice" : {
+                "prices" : []
+            },
+            "_id" : ObjectId("5c1024d20d597300b55d407a"),
+            "itemNo" : 1544561873198.0,
+            "itemName" : "90. Hähnchennuggets",
+            "itemShortDescription" : "12 Stück mit Dip",
+            "itemPrice" : 8.5
+        }
+    ],
+    "__v" : 0
+}
